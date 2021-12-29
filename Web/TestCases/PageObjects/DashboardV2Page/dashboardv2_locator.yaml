@@ -1,0 +1,20 @@
+field_email_login : id=email
+field_password_login : id=password
+button_login : xpath=//*[@id="app"]//button[@type='submit']
+label_success_login : xpath=//*[@id="app"]//div[@class='panel-heading']
+menu_header_bisnis_dv2 : xpath=//*[@id="menu"]//li/a[contains (text(),'Bisnis')]/parent::li/parent::ul
+submenu_voucher : xpath=//*[@id="menu"]/ul[1]/li/ul/li[11]/a
+page_name_submenu_voucher : xpath=//*[@id="page-inner"]//div/h2[@class='page-header']
+column_header_voucher : xpath=//*[@id="data_tables"]//tr[@role='row']/th[@tabindex='0']
+row_count : xpath=//*[@id="data_tables"]/tbody/tr
+list_row: xpath=//*[@id="data_tables_length"]/label/select
+list_25: xpath=//*[@id="data_tables_length"]//option[@value=25]
+next_button: xpath=//*[@id="data_tables_next"]
+first_row_validate: xpath=//*[@id="data_tables"]/tbody/tr[1]
+row_by_name: xpath=//*[@id="data_tables"]/tbody/tr[1]/td[@class='sorting_1']
+field_search: xpath=//*[@id="data_tables_filter"]//input[@type='search']
+row_by_channel: xpath=//*[@id="data_tables"]/tbody/tr[1]/td[3]
+allert_data_empty: xpath=//*[@id="data_tables"]//td[@class='dataTables_empty']
+button_action_viewdetail: xpath=//*[@id="data_tables"]/tbody/tr/td[8]/a[@class='btn btn-primary']
+button_action_edit: xpath=//*[@id="data_tables"]/tbody/tr/td[8]/button
+button_generate_voucher: xpath=//*[@id="page-inner"]/div[3]/div/div/div[1]/a/button

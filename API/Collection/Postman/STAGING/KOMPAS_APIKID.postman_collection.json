@@ -1,0 +1,910 @@
+{
+	"info": {
+		"_postman_id": "ca25b3c4-31bb-4710-8f55-c85d51cffdf6",
+		"name": "KOMPAS_APIKID Copy 2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "DataFactory",
+			"item": [
+				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"pm.environment.set(\"tokenLogin\", jsonData[\"result\"][\"access_token\"]);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"//pm.globals.set(\"GLOBAL_BASEURL\", \"https://apigen.kompas.cloud\");\r",
+									"//pm.globals.set(\"GLOBAL_CDS_BASEURL\", \"https://cds.kompas.cloud\");\r",
+									"//pm.globals.set(\"GLOBAL_APIKID\", \"apikid.kompas.cloud\");\r",
+									"pm.globals.set(\"GLOBAL_EMAIL\", \"yuni.putri@kompas.com\");\r",
+									"pm.globals.set(\"GLOBAL_PASSWORD\", \"Kompas.id1993\");\r",
+									"pm.environment.set(\"tokenExpired\", \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9hcGlnZW4ua29tcGFzLmlkIiwiaWF0IjoxNjIzMjM5OTM2LCJleHAiOjE2MjMyNDA4MzYsImRhdGEiOnsiaWQiOiJkNjcyN2M2Mi1iNmU5LTQ4ZGEtOGEwNS1lZmNlMDEyN2FjMWUiLCJlbWFpbCI6Inl1bmkucHV0cmlAa29tcGFzLmNvbSIsInNjb3BlIjpbInJlYWQtYXJ0aWNsZSIsInJlYWQtcHJvZmlsZSJdfX0.Sj5QYRXlLAPVFR9rM0CidYO1hK_xJKBCyblYkag49gnkU1swooxOSs_7k18V4K5LpgJh9UDQorz3dMZP7zaZVAOuFfeHkQF4KRyDMiE3t292sO0AwC50u9y86S0hoVkIm1Fd85Hw-Lf2PCS8k6gWEGeOd5bIpGevyHUVXoKaIQcnprM\");\r",
+									"pm.environment.set(\"tokenWrong\", \"xx\");\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "{{GLOBAL_EMAIL}}",
+									"description": "email dari  user check di wp_k3d_users",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{GLOBAL_PASSWORD}}",
+									"description": "password dari user  check di wp_k3d_users",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{GLOBAL_BASEURL}}/v1/user/login",
+							"host": [
+								"{{GLOBAL_BASEURL}}"
+							],
+							"path": [
+								"v1",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "dennis@kompas.com",
+											"description": "email dari  user check di wp_k3d_users",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "test",
+											"description": "password dari user  check di wp_k3d_users",
+											"type": "text"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{login_url}}/v1/user/login",
+									"host": [
+										"{{login_url}}"
+									],
+									"path": [
+										"v1",
+										"user",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"status\": \"ok\",\n    \"code\": 200,\n    \"message\": {\n        \"success\": \"Login Berhasil\"\n    },\n    \"result\": {\n        \"access_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9hcGlnZW4ua29tcGFzLmlkIiwiaWF0IjoxNTg5ODk3MjAyLCJleHAiOjE1ODk4OTgxMDIsImRhdGEiOnsiaWQiOiI4ZWE2M2YxMy01MDhkLTQ4ZDQtOTk5Yi1lNTkyZDcxMjhhZjMiLCJlbWFpbCI6ImRlbm5pc0Brb21wYXMuY29tIn19.UT2j4KHZ0a3E0jDoOgGGzhvmX4R3rpMhHra1uXUXvPXeDb35Xesfn1vUFNUuMfRP2WKMXEGBgQo8sRslFuSjtbxOTlxSYgLkE83epH_JWj1jbpT97oztK2SdAApSHDW7ISEB3_Qt6hP9ihcndTd1AvXW8s5Y1P5bKyfB_mSXA2RJnd4\",\n        \"expired_at\": 1589898102,\n        \"type\": \"bearer\",\n        \"refresh_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9hcGlnZW4ua29tcGFzLmlkIiwiaWF0IjoxNTg5ODk3MjAyLCJleHAiOjE1ODk5NDcyMDIsImRhdGEiOnsiaWQiOiI4ZWE2M2YxMy01MDhkLTQ4ZDQtOTk5Yi1lNTkyZDcxMjhhZjMiLCJlbWFpbCI6ImRlbm5pc0Brb21wYXMuY29tIn19.BjQd_2CUqksmz_TxNeHoxyqMGe3q6JtxKWEy163CrT8YF0Q1mDa7mSwfMmiXxLDkFuylrgVwLInwiPGMvAPGDK1rwM98pZS8SVzStaUR3OVdSyHGehXVICxlynDc_SkXM53Yl0MgE-1EknnJN5WBEHXxOPf3a72LGimIJ2yOeQyWHYE\"\n    },\n    \"version\": \"V1\"\n}"
+						},
+						{
+							"name": "failed",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "dennis@kompas.com",
+											"description": "email dari  user check di wp_k3d_users",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "test1",
+											"description": "password dari user  check di wp_k3d_users",
+											"type": "text"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{login_url}}/v1/user/login",
+									"host": [
+										"{{login_url}}"
+									],
+									"path": [
+										"v1",
+										"user",
+										"login"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.12.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.2.31"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 May 2020 14:07:16 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"code\": 401,\n    \"message\": {\n        \"error\": \"Maaf, email atau kata sandi Anda salah.\"\n    },\n    \"result\": [],\n    \"version\": \"V1\"\n}"
+						},
+						{
+							"name": "missing parameter",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "dennis@kompas.com",
+											"description": "email dari  user check di wp_k3d_users",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "test",
+											"description": "password dari user  check di wp_k3d_users",
+											"type": "text",
+											"disabled": true
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{login_url}}/v1/user/login",
+									"host": [
+										"{{login_url}}"
+									],
+									"path": [
+										"v1",
+										"user",
+										"login"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.12.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.2.31"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 May 2020 14:07:41 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"code\": 401,\n    \"message\": {\n        \"password\": [\n            \"password harus diisi.\"\n        ]\n    },\n    \"result\": [],\n    \"version\": \"V1\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Testcases",
+			"item": [
+				{
+					"name": "Default_and_Promo",
+					"item": [
+						{
+							"name": "Get Default and Promo with valid auth",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"\r",
+											"pm.test(\"User successfully get default and promo by name with valid auth\", function () {\r",
+											"    var jsonData = pm.response.json(); \r",
+											"    pm.expect(jsonData.message.message).is.to.equal(\"Successfully retrieve banner default and promo!\"); \r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenLogin}}",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{GLOBAL_APIKID}}/v2/banner/default-and-promo",
+									"host": [
+										"{{GLOBAL_APIKID}}"
+									],
+									"path": [
+										"v2",
+										"banner",
+										"default-and-promo"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Default and Promo with expired auth",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"\r",
+											"pm.test(\"User failed get default and promo by name with expired auth\", function () {\r",
+											"    var jsonData = pm.response.json(); \r",
+											"    pm.expect(jsonData.message.message).is.to.equal(\"username or password not match\"); \r",
+											"    pm.response.to.have.status(401);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenExpired}}",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{GLOBAL_APIKID}}/v2/banner/default-and-promo",
+									"host": [
+										"{{GLOBAL_APIKID}}"
+									],
+									"path": [
+										"v2",
+										"banner",
+										"default-and-promo"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Default and Promo with wrong token",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"\r",
+											"pm.test(\"User failed get default and promo by name with wrong auth\", function () {\r",
+											"    var jsonData = pm.response.json(); \r",
+											"    pm.expect(jsonData.message.message).is.to.equal(\"username or password not match\"); \r",
+											"    pm.response.to.have.status(401);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenWrong}}",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{GLOBAL_APIKID}}/v2/banner/default-and-promo",
+									"host": [
+										"{{GLOBAL_APIKID}}"
+									],
+									"path": [
+										"v2",
+										"banner",
+										"default-and-promo"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Gerai_Beranda",
+					"item": [
+						{
+							"name": "Get Gerai Beranda with valid auth",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"\r",
+											"pm.test(\"User successfully Get Gerai Beranda with valid auth\", function () {\r",
+											"    var jsonData = pm.response.json(); \r",
+											"    pm.expect(jsonData.message.success).is.to.equal(\"Success getting data\"); \r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenLogin}}",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{GLOBAL_APIKID}}/v2/gerai/beranda",
+									"host": [
+										"{{GLOBAL_APIKID}}"
+									],
+									"path": [
+										"v2",
+										"gerai",
+										"beranda"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Gerai Beranda with expired auth",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"\r",
+											"pm.test(\"User failed Get Gerai Beranda with expired auth\", function () {\r",
+											"    var jsonData = pm.response.json(); \r",
+											"    pm.expect(jsonData.message.message).is.to.equal(\"username or password not match\"); \r",
+											"    pm.response.to.have.status(401);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenExpired}}",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{GLOBAL_APIKID}}/v2/gerai/beranda",
+									"host": [
+										"{{GLOBAL_APIKID}}"
+									],
+									"path": [
+										"v2",
+										"gerai",
+										"beranda"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Gerai Beranda with wrong token",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"\r",
+											"pm.test(\"User failed Get Gerai Beranda with wrong auth\", function () {\r",
+											"    var jsonData = pm.response.json(); \r",
+											"    pm.expect(jsonData.message.message).is.to.equal(\"username or password not match\"); \r",
+											"    pm.response.to.have.status(401);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenWrong}}",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{GLOBAL_APIKID}}/v2/gerai/beranda",
+									"host": [
+										"{{GLOBAL_APIKID}}"
+									],
+									"path": [
+										"v2",
+										"gerai",
+										"beranda"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Banner_endBoddy",
+					"item": [
+						{
+							"name": "Get Banner end Body with valid auth",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"\r",
+											"pm.test(\"User successfully Get Banner end Body with valid auth\", function () {\r",
+											"    var jsonData = pm.response.json(); \r",
+											"    pm.expect(jsonData.message.message).is.to.equal(\"banner active found\"); \r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenLogin}}",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{GLOBAL_APIKID}}/v2/banner/banner_endbody",
+									"host": [
+										"{{GLOBAL_APIKID}}"
+									],
+									"path": [
+										"v2",
+										"banner",
+										"banner_endbody"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Banner end Body with expired auth",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"\r",
+											"pm.test(\"User failed Get Banner end Body with expired auth\", function () {\r",
+											"    var jsonData = pm.response.json(); \r",
+											"    pm.expect(jsonData.message.message).is.to.equal(\"username or password not match\"); \r",
+											"    pm.response.to.have.status(401);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenExpired}}",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{GLOBAL_APIKID}}/v2/banner/banner_endbody",
+									"host": [
+										"{{GLOBAL_APIKID}}"
+									],
+									"path": [
+										"v2",
+										"banner",
+										"banner_endbody"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Banner end Body with wrong token",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"\r",
+											"pm.test(\"User failed Get Banner end Body with wrong auth\", function () {\r",
+											"    var jsonData = pm.response.json(); \r",
+											"    pm.expect(jsonData.message.message).is.to.equal(\"username or password not match\"); \r",
+											"    pm.response.to.have.status(401);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenWrong}}",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{GLOBAL_APIKID}}/v2/banner/banner_endbody",
+									"host": [
+										"{{GLOBAL_APIKID}}"
+									],
+									"path": [
+										"v2",
+										"banner",
+										"banner_endbody"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Paywall",
+					"item": [
+						{
+							"name": "Get Membership Paywall with valid auth",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"\r",
+											"pm.test(\"User successfully Get Membership Paywall with valid auth\", function () {\r",
+											"    var jsonData = pm.response.json(); \r",
+											"    pm.expect(jsonData.message.message).is.to.equal(\"membership paywall berhasil diambil\"); \r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenLogin}}",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{GLOBAL_APIKID}}/v2/gerai/paywall/membership",
+									"host": [
+										"{{GLOBAL_APIKID}}"
+									],
+									"path": [
+										"v2",
+										"gerai",
+										"paywall",
+										"membership"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Membership Paywall with expired auth",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"\r",
+											"pm.test(\"User successfully Get Membership Paywall with expired auth\", function () {\r",
+											"    var jsonData = pm.response.json(); \r",
+											"    pm.expect(jsonData.message.message).is.to.equal(\"username or password not match\"); \r",
+											"    pm.response.to.have.status(401);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenExpired}}",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{GLOBAL_APIKID}}/v2/gerai/paywall/membership",
+									"host": [
+										"{{GLOBAL_APIKID}}"
+									],
+									"path": [
+										"v2",
+										"gerai",
+										"paywall",
+										"membership"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Membership Paywall with wrong token",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"\r",
+											"pm.test(\"User successfully Get Membership Paywall with wrong auth\", function () {\r",
+											"    var jsonData = pm.response.json(); \r",
+											"    pm.expect(jsonData.message.message).is.to.equal(\"username or password not match\"); \r",
+											"    pm.response.to.have.status(401);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenWrong}}",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{GLOBAL_APIKID}}/v2/gerai/paywall/membership",
+									"host": [
+										"{{GLOBAL_APIKID}}"
+									],
+									"path": [
+										"v2",
+										"gerai",
+										"paywall",
+										"membership"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}

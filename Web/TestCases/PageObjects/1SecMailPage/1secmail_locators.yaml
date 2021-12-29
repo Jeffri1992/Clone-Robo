@@ -1,0 +1,11 @@
+fieldEmail_sec1MailPage: id=login
+tableMailBox_sec1MailPage: xpath=//div[@class='mailbox']
+linkInEmail_sec1MailPage: xpath=//a[contains(text(),'Atur Ulang Kata Sandi Akun Kompas.id')]
+buttonCheck_sec1MailPage: xpath=//button[contains(text(),'Check')]
+buttonAturUlang_sec1MailPage: xpath=//tbody/tr[1]/td[1]/div[1]/div[2]/a[1]
+frameBodyEmail_sec1MailPage: xpath=//iframe[@id='messageiframe']
+footerEmail_sec1MailPage: xpath=//*[@id="templateBody"]/div/table[3]/tbody/tr/td/div/div
+linkVerifikasi_sec1MailPage: xpath=//a[contains(text(),'Verifikasi Akun Kompas.id')]
+linkAturUlang_sec1MailPage: xpath=//a[contains(text(),'ubah kata sandi')]
+linkCancelRegis_sec1mailPage: xpath=//*[@id="templateBody"]/div/table[1]/tbody/tr/td/div/a[1]
+textMessageDetails_sec1mailPage: xpath=//div[contains(text(),'Message details')]

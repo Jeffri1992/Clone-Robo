@@ -1,0 +1,18 @@
+fieldFirstName_registerPage: id=firstName
+fieldLastName_registerPage: id=lastName
+fieldEmail_registerPage: id=email
+fieldPassword_registerPage: id=password
+selectFrame_registerPage: tag=iframe
+checkboxRecaptcha_registerPage: xpath=//*[@id="recaptcha-anchor"]/div[1]
+btnDaftar_registerPage: xpath=//*[@id="daftar"]
+imgKompas_registerPage: xpath=//*[@id="__layout"]/div/div[2]/div/div[1]/div/div[2]/a/img
+imgProfile_registerPage: xpath=//*[@id="__layout"]/div/div[1]/header/div/div[3]/div/div/button/span
+alert_registerPage: xpath=//span[@class='leading-none ml-2 text-xs']
+textDaftarAkun_registerPage: xpath=//*[@id="__layout"]/div/div/div/p[1]
+buttonLoginWithGoogle_registerPage: xpath=//*[@id="__layout"]/div/div/div/div/form/div[1]/div[1]/div/a
+buttonLoginWithFacebook_registerPage: xpath=//*[@id="__layout"]/div/div/div/div/form/div[1]/div[2]/a
+buttonLoginWithApple_registerPage: xpath=//*[@id="__layout"]/div/div/div/div/form/div[1]/div[3]/div/a
+buttonHidePassword_registerPage: xpath=//*[@id="__layout"]/div/div/div/div/form/div[3]/div[1]/button
+hyperLinkSilakanSyaratKetentuan_registerPage: xpath=//*[@id="__layout"]/div/div/div/div/form/div[3]/div[3]/a
+hyperLinkSilakanMasuk_registerPage: xpath=//a[contains(@href,'login')]
+accountBar_registerPage: css=.flex.h-full.items-center.justify-end

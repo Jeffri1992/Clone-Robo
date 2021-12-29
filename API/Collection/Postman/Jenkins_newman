@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+    stages {
+         stage('Run Newman'){
+            steps{
+                checkout scm
+                script{
+                    def folder = params.FOLDER
+                    def file_name = params.FILE_NAME
+                    def global_vars = params.GLOBAL_VARS
+                    def email_owner = params.EMAIL_OWNER
+                    email_owner_replace = email_owner.replaceAll('\n', ',')
+                    global_vars_replace = global_vars.replaceAll('\n', ' --global-var ')
+                    all_global_vars = "--global-var " + global_vars_replace
+                    file_loc = "API/Collection/Postman/" + folder + "/" + file_name
+                    sh "newman run ${all_global_vars} ${file_loc}"
+                    }
+                }
+        }
+}
+    post {
+        success {
+            emailext body: "Hi,\n Please Check Newman Automation API as listed below :\n- Build: $BUILD_NUMBER\n- Filename: ${params.FILE_NAME}\n- Build URL: $BUILD_URL\n\n Thank you..",
+            to: email_owner_replace,
+            subject: "Newman Automation API Build $BUILD_NUMBER Success"
+        }
+        failure {
+            emailext body: "Hi,\n Please Check Newman Automation API as listed below :\n- Build: $BUILD_NUMBER\n- Filename: ${params.FILE_NAME}\n- Build URL: $BUILD_URL\n\n Thank you..",
+            to: email_owner_replace,
+            subject: "Newman Automation API Build $BUILD_NUMBER Failure"
+        }
+    }
+}

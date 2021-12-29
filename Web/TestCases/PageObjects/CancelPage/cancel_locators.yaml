@@ -1,0 +1,2 @@
+btnCancelRegis_cancelPage: xpath =//*[@id="__layout"]/div/div/div/div/button
+alertBerhasilDibatalkan_cancelPage: xpath=//*[@id="__layout"]/div/div[1]/div/div/div[2]/p

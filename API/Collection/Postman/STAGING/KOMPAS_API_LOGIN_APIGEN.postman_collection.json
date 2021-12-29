@@ -1,0 +1,1896 @@
+{
+	"info": {
+		"_postman_id": "4db218a7-92d7-4642-ba3f-4ddc612eca2f",
+		"name": "KOMPAS_API_LOGIN_APIGEN",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "DataFactory",
+			"item": [
+				{
+					"name": "New Request",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.globals.set(\"GLOBAL_EMAIL\", \"annisa.alifah@kompas.com\");\r",
+									"pm.globals.set(\"GLOBAL_PASSWORD\", \"Kompas@2019#\");\r",
+									"pm.globals.set(\"GLOBAL_BASEURL\", \"https://apigen.kompas.cloud\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{GLOBAL_BASEURL}}",
+							"host": [
+								"{{GLOBAL_BASEURL}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Testcases",
+			"item": [
+				{
+					"name": "Login(OLD)",
+					"item": [
+						{
+							"name": "Login with valid params",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"\r",
+											"pm.test(\"User successfully login with valid params\", function () { \r",
+											"    var jsonData = pm.response.json(); \r",
+											"    pm.response.to.have.status(200);\r",
+											"    pm.expect(jsonData.message.success).is.to.equal('Login Berhasil'); \r",
+											"    pm.environment.set(\"access_token\", jsonData[\"result\"][\"access_token\"]);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "{{GLOBAL_EMAIL}}",
+											"description": "email dari  user check di wp_k3d_users",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "{{GLOBAL_PASSWORD}}",
+											"description": "password dari user  check di wp_k3d_users",
+											"type": "text"
+										},
+										{
+											"key": "",
+											"value": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{GLOBAL_BASEURL}}/v1/user/login",
+									"host": [
+										"{{GLOBAL_BASEURL}}"
+									],
+									"path": [
+										"v1",
+										"user",
+										"login"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "success example",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "email",
+													"value": "dennis@kompas.com",
+													"description": "email dari  user check di wp_k3d_users",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "test",
+													"description": "password dari user  check di wp_k3d_users",
+													"type": "text"
+												}
+											],
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{login_url}}/v1/user/login",
+											"host": [
+												"{{login_url}}"
+											],
+											"path": [
+												"v1",
+												"user",
+												"login"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"status\": \"ok\",\n    \"code\": 200,\n    \"message\": {\n        \"success\": \"Login Berhasil\"\n    },\n    \"result\": {\n        \"access_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9hcGlnZW4ua29tcGFzLmlkIiwiaWF0IjoxNTg5ODk3MjAyLCJleHAiOjE1ODk4OTgxMDIsImRhdGEiOnsiaWQiOiI4ZWE2M2YxMy01MDhkLTQ4ZDQtOTk5Yi1lNTkyZDcxMjhhZjMiLCJlbWFpbCI6ImRlbm5pc0Brb21wYXMuY29tIn19.UT2j4KHZ0a3E0jDoOgGGzhvmX4R3rpMhHra1uXUXvPXeDb35Xesfn1vUFNUuMfRP2WKMXEGBgQo8sRslFuSjtbxOTlxSYgLkE83epH_JWj1jbpT97oztK2SdAApSHDW7ISEB3_Qt6hP9ihcndTd1AvXW8s5Y1P5bKyfB_mSXA2RJnd4\",\n        \"expired_at\": 1589898102,\n        \"type\": \"bearer\",\n        \"refresh_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9hcGlnZW4ua29tcGFzLmlkIiwiaWF0IjoxNTg5ODk3MjAyLCJleHAiOjE1ODk5NDcyMDIsImRhdGEiOnsiaWQiOiI4ZWE2M2YxMy01MDhkLTQ4ZDQtOTk5Yi1lNTkyZDcxMjhhZjMiLCJlbWFpbCI6ImRlbm5pc0Brb21wYXMuY29tIn19.BjQd_2CUqksmz_TxNeHoxyqMGe3q6JtxKWEy163CrT8YF0Q1mDa7mSwfMmiXxLDkFuylrgVwLInwiPGMvAPGDK1rwM98pZS8SVzStaUR3OVdSyHGehXVICxlynDc_SkXM53Yl0MgE-1EknnJN5WBEHXxOPf3a72LGimIJ2yOeQyWHYE\"\n    },\n    \"version\": \"V1\"\n}"
+								},
+								{
+									"name": "failed",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "email",
+													"value": "dennis@kompas.com",
+													"description": "email dari  user check di wp_k3d_users",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "test1",
+													"description": "password dari user  check di wp_k3d_users",
+													"type": "text"
+												}
+											],
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{login_url}}/v1/user/login",
+											"host": [
+												"{{login_url}}"
+											],
+											"path": [
+												"v1",
+												"user",
+												"login"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "nginx/1.12.2"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/7.2.31"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 19 May 2020 14:07:16 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"error\",\n    \"code\": 401,\n    \"message\": {\n        \"error\": \"Maaf, email atau kata sandi Anda salah.\"\n    },\n    \"result\": [],\n    \"version\": \"V1\"\n}"
+								},
+								{
+									"name": "missing parameter password",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "email",
+													"value": "dennis@kompas.com",
+													"description": "email dari  user check di wp_k3d_users",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "test",
+													"description": "password dari user  check di wp_k3d_users",
+													"type": "text",
+													"disabled": true
+												}
+											],
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{login_url}}/v1/user/login",
+											"host": [
+												"{{login_url}}"
+											],
+											"path": [
+												"v1",
+												"user",
+												"login"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "nginx/1.12.2"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/7.2.31"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 19 May 2020 14:07:41 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"error\",\n    \"code\": 401,\n    \"message\": {\n        \"password\": [\n            \"password harus diisi.\"\n        ]\n    },\n    \"result\": [],\n    \"version\": \"V1\"\n}"
+								},
+								{
+									"name": "missing parameter email",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "email",
+													"value": "annisa.alifah@kompas.com",
+													"description": "email dari  user check di wp_k3d_users",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "Kompas@2019#",
+													"description": "password dari user  check di wp_k3d_users",
+													"type": "text"
+												},
+												{
+													"key": "",
+													"value": "",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{domainLogin}}/v1/user/login",
+											"host": [
+												"{{domainLogin}}"
+											],
+											"path": [
+												"v1",
+												"user",
+												"login"
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"status\": \"error\",\n    \"code\": 401,\n    \"message\": {\n        \"email\": [\n            \"email harus diisi.\"\n        ]\n    },\n    \"result\": [],\n    \"version\": \"V1\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Login with wrong password",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"\r",
+											"pm.test(\"User get error login with wrong password\", function () { \r",
+											"    var jsonData = pm.response.json(); \r",
+											"    pm.response.to.have.status(401);\r",
+											"    pm.expect(jsonData.message.error).is.to.equal('Maaf, email atau kata sandi Anda salah.'); \r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "{{GLOBAL_EMAIL}}",
+											"description": "email dari  user check di wp_k3d_users",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Kompas@2019#a",
+											"description": "password dari user  check di wp_k3d_users",
+											"type": "text"
+										},
+										{
+											"key": "",
+											"value": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{GLOBAL_BASEURL}}/v1/user/login",
+									"host": [
+										"{{GLOBAL_BASEURL}}"
+									],
+									"path": [
+										"v1",
+										"user",
+										"login"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "success example",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "email",
+													"value": "dennis@kompas.com",
+													"description": "email dari  user check di wp_k3d_users",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "test",
+													"description": "password dari user  check di wp_k3d_users",
+													"type": "text"
+												}
+											],
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{login_url}}/v1/user/login",
+											"host": [
+												"{{login_url}}"
+											],
+											"path": [
+												"v1",
+												"user",
+												"login"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"status\": \"ok\",\n    \"code\": 200,\n    \"message\": {\n        \"success\": \"Login Berhasil\"\n    },\n    \"result\": {\n        \"access_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9hcGlnZW4ua29tcGFzLmlkIiwiaWF0IjoxNTg5ODk3MjAyLCJleHAiOjE1ODk4OTgxMDIsImRhdGEiOnsiaWQiOiI4ZWE2M2YxMy01MDhkLTQ4ZDQtOTk5Yi1lNTkyZDcxMjhhZjMiLCJlbWFpbCI6ImRlbm5pc0Brb21wYXMuY29tIn19.UT2j4KHZ0a3E0jDoOgGGzhvmX4R3rpMhHra1uXUXvPXeDb35Xesfn1vUFNUuMfRP2WKMXEGBgQo8sRslFuSjtbxOTlxSYgLkE83epH_JWj1jbpT97oztK2SdAApSHDW7ISEB3_Qt6hP9ihcndTd1AvXW8s5Y1P5bKyfB_mSXA2RJnd4\",\n        \"expired_at\": 1589898102,\n        \"type\": \"bearer\",\n        \"refresh_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9hcGlnZW4ua29tcGFzLmlkIiwiaWF0IjoxNTg5ODk3MjAyLCJleHAiOjE1ODk5NDcyMDIsImRhdGEiOnsiaWQiOiI4ZWE2M2YxMy01MDhkLTQ4ZDQtOTk5Yi1lNTkyZDcxMjhhZjMiLCJlbWFpbCI6ImRlbm5pc0Brb21wYXMuY29tIn19.BjQd_2CUqksmz_TxNeHoxyqMGe3q6JtxKWEy163CrT8YF0Q1mDa7mSwfMmiXxLDkFuylrgVwLInwiPGMvAPGDK1rwM98pZS8SVzStaUR3OVdSyHGehXVICxlynDc_SkXM53Yl0MgE-1EknnJN5WBEHXxOPf3a72LGimIJ2yOeQyWHYE\"\n    },\n    \"version\": \"V1\"\n}"
+								},
+								{
+									"name": "failed",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "email",
+													"value": "dennis@kompas.com",
+													"description": "email dari  user check di wp_k3d_users",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "test1",
+													"description": "password dari user  check di wp_k3d_users",
+													"type": "text"
+												}
+											],
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{login_url}}/v1/user/login",
+											"host": [
+												"{{login_url}}"
+											],
+											"path": [
+												"v1",
+												"user",
+												"login"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "nginx/1.12.2"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/7.2.31"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 19 May 2020 14:07:16 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"error\",\n    \"code\": 401,\n    \"message\": {\n        \"error\": \"Maaf, email atau kata sandi Anda salah.\"\n    },\n    \"result\": [],\n    \"version\": \"V1\"\n}"
+								},
+								{
+									"name": "missing parameter password",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "email",
+													"value": "dennis@kompas.com",
+													"description": "email dari  user check di wp_k3d_users",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "test",
+													"description": "password dari user  check di wp_k3d_users",
+													"type": "text",
+													"disabled": true
+												}
+											],
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{login_url}}/v1/user/login",
+											"host": [
+												"{{login_url}}"
+											],
+											"path": [
+												"v1",
+												"user",
+												"login"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "nginx/1.12.2"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/7.2.31"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 19 May 2020 14:07:41 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"error\",\n    \"code\": 401,\n    \"message\": {\n        \"password\": [\n            \"password harus diisi.\"\n        ]\n    },\n    \"result\": [],\n    \"version\": \"V1\"\n}"
+								},
+								{
+									"name": "missing parameter email",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "email",
+													"value": "annisa.alifah@kompas.com",
+													"description": "email dari  user check di wp_k3d_users",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "Kompas@2019#",
+													"description": "password dari user  check di wp_k3d_users",
+													"type": "text"
+												},
+												{
+													"key": "",
+													"value": "",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{domainLogin}}/v1/user/login",
+											"host": [
+												"{{domainLogin}}"
+											],
+											"path": [
+												"v1",
+												"user",
+												"login"
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"status\": \"error\",\n    \"code\": 401,\n    \"message\": {\n        \"email\": [\n            \"email harus diisi.\"\n        ]\n    },\n    \"result\": [],\n    \"version\": \"V1\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Login with wrong email and password(bug)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"\r",
+											"pm.test(\"User get error login with wrong email and password\", function () { \r",
+											"    var jsonData = pm.response.json(); \r",
+											"    pm.response.to.have.status(401);\r",
+											"    pm.expect(jsonData.message.error).is.to.equal('Maaf, email atau kata sandi Anda salah.'); \r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "annisa.alifah@kompas.comm",
+											"description": "email dari  user check di wp_k3d_users",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Kompas@2019#a",
+											"description": "password dari user  check di wp_k3d_users",
+											"type": "text"
+										},
+										{
+											"key": "",
+											"value": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{GLOBAL_BASEURL}}/v1/user/login",
+									"host": [
+										"{{GLOBAL_BASEURL}}"
+									],
+									"path": [
+										"v1",
+										"user",
+										"login"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "success example",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "email",
+													"value": "dennis@kompas.com",
+													"description": "email dari  user check di wp_k3d_users",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "test",
+													"description": "password dari user  check di wp_k3d_users",
+													"type": "text"
+												}
+											],
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{login_url}}/v1/user/login",
+											"host": [
+												"{{login_url}}"
+											],
+											"path": [
+												"v1",
+												"user",
+												"login"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"status\": \"ok\",\n    \"code\": 200,\n    \"message\": {\n        \"success\": \"Login Berhasil\"\n    },\n    \"result\": {\n        \"access_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9hcGlnZW4ua29tcGFzLmlkIiwiaWF0IjoxNTg5ODk3MjAyLCJleHAiOjE1ODk4OTgxMDIsImRhdGEiOnsiaWQiOiI4ZWE2M2YxMy01MDhkLTQ4ZDQtOTk5Yi1lNTkyZDcxMjhhZjMiLCJlbWFpbCI6ImRlbm5pc0Brb21wYXMuY29tIn19.UT2j4KHZ0a3E0jDoOgGGzhvmX4R3rpMhHra1uXUXvPXeDb35Xesfn1vUFNUuMfRP2WKMXEGBgQo8sRslFuSjtbxOTlxSYgLkE83epH_JWj1jbpT97oztK2SdAApSHDW7ISEB3_Qt6hP9ihcndTd1AvXW8s5Y1P5bKyfB_mSXA2RJnd4\",\n        \"expired_at\": 1589898102,\n        \"type\": \"bearer\",\n        \"refresh_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9hcGlnZW4ua29tcGFzLmlkIiwiaWF0IjoxNTg5ODk3MjAyLCJleHAiOjE1ODk5NDcyMDIsImRhdGEiOnsiaWQiOiI4ZWE2M2YxMy01MDhkLTQ4ZDQtOTk5Yi1lNTkyZDcxMjhhZjMiLCJlbWFpbCI6ImRlbm5pc0Brb21wYXMuY29tIn19.BjQd_2CUqksmz_TxNeHoxyqMGe3q6JtxKWEy163CrT8YF0Q1mDa7mSwfMmiXxLDkFuylrgVwLInwiPGMvAPGDK1rwM98pZS8SVzStaUR3OVdSyHGehXVICxlynDc_SkXM53Yl0MgE-1EknnJN5WBEHXxOPf3a72LGimIJ2yOeQyWHYE\"\n    },\n    \"version\": \"V1\"\n}"
+								},
+								{
+									"name": "failed",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "email",
+													"value": "dennis@kompas.com",
+													"description": "email dari  user check di wp_k3d_users",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "test1",
+													"description": "password dari user  check di wp_k3d_users",
+													"type": "text"
+												}
+											],
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{login_url}}/v1/user/login",
+											"host": [
+												"{{login_url}}"
+											],
+											"path": [
+												"v1",
+												"user",
+												"login"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "nginx/1.12.2"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/7.2.31"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 19 May 2020 14:07:16 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"error\",\n    \"code\": 401,\n    \"message\": {\n        \"error\": \"Maaf, email atau kata sandi Anda salah.\"\n    },\n    \"result\": [],\n    \"version\": \"V1\"\n}"
+								},
+								{
+									"name": "missing parameter password",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "email",
+													"value": "dennis@kompas.com",
+													"description": "email dari  user check di wp_k3d_users",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "test",
+													"description": "password dari user  check di wp_k3d_users",
+													"type": "text",
+													"disabled": true
+												}
+											],
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{login_url}}/v1/user/login",
+											"host": [
+												"{{login_url}}"
+											],
+											"path": [
+												"v1",
+												"user",
+												"login"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "nginx/1.12.2"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/7.2.31"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 19 May 2020 14:07:41 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"error\",\n    \"code\": 401,\n    \"message\": {\n        \"password\": [\n            \"password harus diisi.\"\n        ]\n    },\n    \"result\": [],\n    \"version\": \"V1\"\n}"
+								},
+								{
+									"name": "missing parameter email",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "email",
+													"value": "annisa.alifah@kompas.com",
+													"description": "email dari  user check di wp_k3d_users",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "Kompas@2019#",
+													"description": "password dari user  check di wp_k3d_users",
+													"type": "text"
+												},
+												{
+													"key": "",
+													"value": "",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{domainLogin}}/v1/user/login",
+											"host": [
+												"{{domainLogin}}"
+											],
+											"path": [
+												"v1",
+												"user",
+												"login"
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"status\": \"error\",\n    \"code\": 401,\n    \"message\": {\n        \"email\": [\n            \"email harus diisi.\"\n        ]\n    },\n    \"result\": [],\n    \"version\": \"V1\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Login with invalid params",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"\r",
+											"pm.test(\"User get error login with invalid params\", function () { \r",
+											"    var jsonData = pm.response.json(); \r",
+											"    pm.response.to.have.status(401);\r",
+											"    pm.expect(jsonData.message.email[0]).is.to.equal('email harus diisi.'); \r",
+											"    pm.expect(jsonData.message.password[0]).is.to.equal('password harus diisi.'); \r",
+											"});\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "",
+											"description": "email dari  user check di wp_k3d_users",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "",
+											"description": "password dari user  check di wp_k3d_users",
+											"type": "text"
+										},
+										{
+											"key": "",
+											"value": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{GLOBAL_BASEURL}}/v1/user/login",
+									"host": [
+										"{{GLOBAL_BASEURL}}"
+									],
+									"path": [
+										"v1",
+										"user",
+										"login"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "success example",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "email",
+													"value": "dennis@kompas.com",
+													"description": "email dari  user check di wp_k3d_users",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "test",
+													"description": "password dari user  check di wp_k3d_users",
+													"type": "text"
+												}
+											],
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{login_url}}/v1/user/login",
+											"host": [
+												"{{login_url}}"
+											],
+											"path": [
+												"v1",
+												"user",
+												"login"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"status\": \"ok\",\n    \"code\": 200,\n    \"message\": {\n        \"success\": \"Login Berhasil\"\n    },\n    \"result\": {\n        \"access_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9hcGlnZW4ua29tcGFzLmlkIiwiaWF0IjoxNTg5ODk3MjAyLCJleHAiOjE1ODk4OTgxMDIsImRhdGEiOnsiaWQiOiI4ZWE2M2YxMy01MDhkLTQ4ZDQtOTk5Yi1lNTkyZDcxMjhhZjMiLCJlbWFpbCI6ImRlbm5pc0Brb21wYXMuY29tIn19.UT2j4KHZ0a3E0jDoOgGGzhvmX4R3rpMhHra1uXUXvPXeDb35Xesfn1vUFNUuMfRP2WKMXEGBgQo8sRslFuSjtbxOTlxSYgLkE83epH_JWj1jbpT97oztK2SdAApSHDW7ISEB3_Qt6hP9ihcndTd1AvXW8s5Y1P5bKyfB_mSXA2RJnd4\",\n        \"expired_at\": 1589898102,\n        \"type\": \"bearer\",\n        \"refresh_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9hcGlnZW4ua29tcGFzLmlkIiwiaWF0IjoxNTg5ODk3MjAyLCJleHAiOjE1ODk5NDcyMDIsImRhdGEiOnsiaWQiOiI4ZWE2M2YxMy01MDhkLTQ4ZDQtOTk5Yi1lNTkyZDcxMjhhZjMiLCJlbWFpbCI6ImRlbm5pc0Brb21wYXMuY29tIn19.BjQd_2CUqksmz_TxNeHoxyqMGe3q6JtxKWEy163CrT8YF0Q1mDa7mSwfMmiXxLDkFuylrgVwLInwiPGMvAPGDK1rwM98pZS8SVzStaUR3OVdSyHGehXVICxlynDc_SkXM53Yl0MgE-1EknnJN5WBEHXxOPf3a72LGimIJ2yOeQyWHYE\"\n    },\n    \"version\": \"V1\"\n}"
+								},
+								{
+									"name": "failed",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "email",
+													"value": "dennis@kompas.com",
+													"description": "email dari  user check di wp_k3d_users",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "test1",
+													"description": "password dari user  check di wp_k3d_users",
+													"type": "text"
+												}
+											],
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{login_url}}/v1/user/login",
+											"host": [
+												"{{login_url}}"
+											],
+											"path": [
+												"v1",
+												"user",
+												"login"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "nginx/1.12.2"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/7.2.31"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 19 May 2020 14:07:16 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"error\",\n    \"code\": 401,\n    \"message\": {\n        \"error\": \"Maaf, email atau kata sandi Anda salah.\"\n    },\n    \"result\": [],\n    \"version\": \"V1\"\n}"
+								},
+								{
+									"name": "missing parameter password",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "email",
+													"value": "dennis@kompas.com",
+													"description": "email dari  user check di wp_k3d_users",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "test",
+													"description": "password dari user  check di wp_k3d_users",
+													"type": "text",
+													"disabled": true
+												}
+											],
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{login_url}}/v1/user/login",
+											"host": [
+												"{{login_url}}"
+											],
+											"path": [
+												"v1",
+												"user",
+												"login"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "nginx/1.12.2"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/7.2.31"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 19 May 2020 14:07:41 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"error\",\n    \"code\": 401,\n    \"message\": {\n        \"password\": [\n            \"password harus diisi.\"\n        ]\n    },\n    \"result\": [],\n    \"version\": \"V1\"\n}"
+								},
+								{
+									"name": "missing parameter email",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "email",
+													"value": "annisa.alifah@kompas.com",
+													"description": "email dari  user check di wp_k3d_users",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "Kompas@2019#",
+													"description": "password dari user  check di wp_k3d_users",
+													"type": "text"
+												},
+												{
+													"key": "",
+													"value": "",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{domainLogin}}/v1/user/login",
+											"host": [
+												"{{domainLogin}}"
+											],
+											"path": [
+												"v1",
+												"user",
+												"login"
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"status\": \"error\",\n    \"code\": 401,\n    \"message\": {\n        \"email\": [\n            \"email harus diisi.\"\n        ]\n    },\n    \"result\": [],\n    \"version\": \"V1\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Login with empty email",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"\r",
+											"pm.test(\"User get error login with empty email\", function () { \r",
+											"    var jsonData = pm.response.json(); \r",
+											"    pm.response.to.have.status(401);\r",
+											"    pm.expect(jsonData.message.email[0]).is.to.equal('email harus diisi.'); \r",
+											"});\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "",
+											"description": "email dari  user check di wp_k3d_users",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Kompas@2019#",
+											"description": "password dari user  check di wp_k3d_users",
+											"type": "text"
+										},
+										{
+											"key": "",
+											"value": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{GLOBAL_BASEURL}}/v1/user/login",
+									"host": [
+										"{{GLOBAL_BASEURL}}"
+									],
+									"path": [
+										"v1",
+										"user",
+										"login"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "success example",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "email",
+													"value": "dennis@kompas.com",
+													"description": "email dari  user check di wp_k3d_users",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "test",
+													"description": "password dari user  check di wp_k3d_users",
+													"type": "text"
+												}
+											],
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{login_url}}/v1/user/login",
+											"host": [
+												"{{login_url}}"
+											],
+											"path": [
+												"v1",
+												"user",
+												"login"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"status\": \"ok\",\n    \"code\": 200,\n    \"message\": {\n        \"success\": \"Login Berhasil\"\n    },\n    \"result\": {\n        \"access_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9hcGlnZW4ua29tcGFzLmlkIiwiaWF0IjoxNTg5ODk3MjAyLCJleHAiOjE1ODk4OTgxMDIsImRhdGEiOnsiaWQiOiI4ZWE2M2YxMy01MDhkLTQ4ZDQtOTk5Yi1lNTkyZDcxMjhhZjMiLCJlbWFpbCI6ImRlbm5pc0Brb21wYXMuY29tIn19.UT2j4KHZ0a3E0jDoOgGGzhvmX4R3rpMhHra1uXUXvPXeDb35Xesfn1vUFNUuMfRP2WKMXEGBgQo8sRslFuSjtbxOTlxSYgLkE83epH_JWj1jbpT97oztK2SdAApSHDW7ISEB3_Qt6hP9ihcndTd1AvXW8s5Y1P5bKyfB_mSXA2RJnd4\",\n        \"expired_at\": 1589898102,\n        \"type\": \"bearer\",\n        \"refresh_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9hcGlnZW4ua29tcGFzLmlkIiwiaWF0IjoxNTg5ODk3MjAyLCJleHAiOjE1ODk5NDcyMDIsImRhdGEiOnsiaWQiOiI4ZWE2M2YxMy01MDhkLTQ4ZDQtOTk5Yi1lNTkyZDcxMjhhZjMiLCJlbWFpbCI6ImRlbm5pc0Brb21wYXMuY29tIn19.BjQd_2CUqksmz_TxNeHoxyqMGe3q6JtxKWEy163CrT8YF0Q1mDa7mSwfMmiXxLDkFuylrgVwLInwiPGMvAPGDK1rwM98pZS8SVzStaUR3OVdSyHGehXVICxlynDc_SkXM53Yl0MgE-1EknnJN5WBEHXxOPf3a72LGimIJ2yOeQyWHYE\"\n    },\n    \"version\": \"V1\"\n}"
+								},
+								{
+									"name": "failed",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "email",
+													"value": "dennis@kompas.com",
+													"description": "email dari  user check di wp_k3d_users",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "test1",
+													"description": "password dari user  check di wp_k3d_users",
+													"type": "text"
+												}
+											],
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{login_url}}/v1/user/login",
+											"host": [
+												"{{login_url}}"
+											],
+											"path": [
+												"v1",
+												"user",
+												"login"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "nginx/1.12.2"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/7.2.31"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 19 May 2020 14:07:16 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"error\",\n    \"code\": 401,\n    \"message\": {\n        \"error\": \"Maaf, email atau kata sandi Anda salah.\"\n    },\n    \"result\": [],\n    \"version\": \"V1\"\n}"
+								},
+								{
+									"name": "missing parameter password",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "email",
+													"value": "dennis@kompas.com",
+													"description": "email dari  user check di wp_k3d_users",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "test",
+													"description": "password dari user  check di wp_k3d_users",
+													"type": "text",
+													"disabled": true
+												}
+											],
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{login_url}}/v1/user/login",
+											"host": [
+												"{{login_url}}"
+											],
+											"path": [
+												"v1",
+												"user",
+												"login"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "nginx/1.12.2"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/7.2.31"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 19 May 2020 14:07:41 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"error\",\n    \"code\": 401,\n    \"message\": {\n        \"password\": [\n            \"password harus diisi.\"\n        ]\n    },\n    \"result\": [],\n    \"version\": \"V1\"\n}"
+								},
+								{
+									"name": "missing parameter email",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "email",
+													"value": "annisa.alifah@kompas.com",
+													"description": "email dari  user check di wp_k3d_users",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "Kompas@2019#",
+													"description": "password dari user  check di wp_k3d_users",
+													"type": "text"
+												},
+												{
+													"key": "",
+													"value": "",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{domainLogin}}/v1/user/login",
+											"host": [
+												"{{domainLogin}}"
+											],
+											"path": [
+												"v1",
+												"user",
+												"login"
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"status\": \"error\",\n    \"code\": 401,\n    \"message\": {\n        \"email\": [\n            \"email harus diisi.\"\n        ]\n    },\n    \"result\": [],\n    \"version\": \"V1\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Login with empty password",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											" \r",
+											"pm.test(\"User get error login with empty password\", function () { \r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.response.to.have.status(401);\r",
+											"    pm.expect(jsonData.message.password[0]).is.to.equal('password harus diisi.'); \r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "annisa.alifah@kompas.com",
+											"description": "email dari  user check di wp_k3d_users",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "",
+											"description": "password dari user  check di wp_k3d_users",
+											"type": "text"
+										},
+										{
+											"key": "",
+											"value": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{GLOBAL_BASEURL}}/v1/user/login",
+									"host": [
+										"{{GLOBAL_BASEURL}}"
+									],
+									"path": [
+										"v1",
+										"user",
+										"login"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "success example",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "email",
+													"value": "dennis@kompas.com",
+													"description": "email dari  user check di wp_k3d_users",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "test",
+													"description": "password dari user  check di wp_k3d_users",
+													"type": "text"
+												}
+											],
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{login_url}}/v1/user/login",
+											"host": [
+												"{{login_url}}"
+											],
+											"path": [
+												"v1",
+												"user",
+												"login"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"status\": \"ok\",\n    \"code\": 200,\n    \"message\": {\n        \"success\": \"Login Berhasil\"\n    },\n    \"result\": {\n        \"access_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9hcGlnZW4ua29tcGFzLmlkIiwiaWF0IjoxNTg5ODk3MjAyLCJleHAiOjE1ODk4OTgxMDIsImRhdGEiOnsiaWQiOiI4ZWE2M2YxMy01MDhkLTQ4ZDQtOTk5Yi1lNTkyZDcxMjhhZjMiLCJlbWFpbCI6ImRlbm5pc0Brb21wYXMuY29tIn19.UT2j4KHZ0a3E0jDoOgGGzhvmX4R3rpMhHra1uXUXvPXeDb35Xesfn1vUFNUuMfRP2WKMXEGBgQo8sRslFuSjtbxOTlxSYgLkE83epH_JWj1jbpT97oztK2SdAApSHDW7ISEB3_Qt6hP9ihcndTd1AvXW8s5Y1P5bKyfB_mSXA2RJnd4\",\n        \"expired_at\": 1589898102,\n        \"type\": \"bearer\",\n        \"refresh_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9hcGlnZW4ua29tcGFzLmlkIiwiaWF0IjoxNTg5ODk3MjAyLCJleHAiOjE1ODk5NDcyMDIsImRhdGEiOnsiaWQiOiI4ZWE2M2YxMy01MDhkLTQ4ZDQtOTk5Yi1lNTkyZDcxMjhhZjMiLCJlbWFpbCI6ImRlbm5pc0Brb21wYXMuY29tIn19.BjQd_2CUqksmz_TxNeHoxyqMGe3q6JtxKWEy163CrT8YF0Q1mDa7mSwfMmiXxLDkFuylrgVwLInwiPGMvAPGDK1rwM98pZS8SVzStaUR3OVdSyHGehXVICxlynDc_SkXM53Yl0MgE-1EknnJN5WBEHXxOPf3a72LGimIJ2yOeQyWHYE\"\n    },\n    \"version\": \"V1\"\n}"
+								},
+								{
+									"name": "failed",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "email",
+													"value": "dennis@kompas.com",
+													"description": "email dari  user check di wp_k3d_users",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "test1",
+													"description": "password dari user  check di wp_k3d_users",
+													"type": "text"
+												}
+											],
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{login_url}}/v1/user/login",
+											"host": [
+												"{{login_url}}"
+											],
+											"path": [
+												"v1",
+												"user",
+												"login"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "nginx/1.12.2"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/7.2.31"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 19 May 2020 14:07:16 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"error\",\n    \"code\": 401,\n    \"message\": {\n        \"error\": \"Maaf, email atau kata sandi Anda salah.\"\n    },\n    \"result\": [],\n    \"version\": \"V1\"\n}"
+								},
+								{
+									"name": "missing parameter password",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "email",
+													"value": "dennis@kompas.com",
+													"description": "email dari  user check di wp_k3d_users",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "test",
+													"description": "password dari user  check di wp_k3d_users",
+													"type": "text",
+													"disabled": true
+												}
+											],
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{login_url}}/v1/user/login",
+											"host": [
+												"{{login_url}}"
+											],
+											"path": [
+												"v1",
+												"user",
+												"login"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "nginx/1.12.2"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/7.2.31"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 19 May 2020 14:07:41 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"error\",\n    \"code\": 401,\n    \"message\": {\n        \"password\": [\n            \"password harus diisi.\"\n        ]\n    },\n    \"result\": [],\n    \"version\": \"V1\"\n}"
+								},
+								{
+									"name": "missing parameter email",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "email",
+													"value": "annisa.alifah@kompas.com",
+													"description": "email dari  user check di wp_k3d_users",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "Kompas@2019#",
+													"description": "password dari user  check di wp_k3d_users",
+													"type": "text"
+												},
+												{
+													"key": "",
+													"value": "",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{domainLogin}}/v1/user/login",
+											"host": [
+												"{{domainLogin}}"
+											],
+											"path": [
+												"v1",
+												"user",
+												"login"
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"status\": \"error\",\n    \"code\": 401,\n    \"message\": {\n        \"email\": [\n            \"email harus diisi.\"\n        ]\n    },\n    \"result\": [],\n    \"version\": \"V1\"\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,16 @@
+membership:
+  sebulan:
+    email: akunkompasid12@gmail.com
+    password: Coba1234!
+  seminggu:
+    email: akunkompasid13@gmail.com
+    password: Coba1234!
+  expired:
+    email: akunkompasid15@gmail.com
+    password: Coba1234!
+  atlit:
+    email: akunkompasid16@gmail.com
+    password: Coba1234!
+  karyawan:
+    email: akunkompasid17@gmail.com
+    password: Coba1234!

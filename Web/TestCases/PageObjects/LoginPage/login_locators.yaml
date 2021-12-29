@@ -1,0 +1,12 @@
+fieldEmail_loginPage: id=email
+fieldPassword_loginPage: id=password
+buttonLogin_loginPage: id=masuk
+buttonLoginWithGoogle_loginPage: id=btn_google
+buttonLoginWithFacebook_loginPage: id=btn_facebook
+buttonLoginWithApple_loginPage: id=btn_apple
+buttonHidePassword_loginPage: id=btn_hidden_password
+alertEmailPassword_loginPage: xpath=//span[@class='leading-none ml-2 text-xs']
+alertFailedTemp_loginPage: xpath=//span[@class='mx-2 font-sans text-xs']
+checkBoxRememberMe_loginPage: id=rememberMe
+hyperLinkForgetPassword_loginPage: id=url_lupa_sandi
+hyperLinkRegister_loginPage: id=url_daftar_sekarang

@@ -1,0 +1,803 @@
+{
+	"info": {
+		"_postman_id": "be96cd34-ecda-4d32-a581-32af85f32303",
+		"name": "PREVIEW Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "DataFactory",
+			"item": [
+				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"pm.environment.set(\"tokenLogin\", jsonData[\"result\"][\"access_token\"]);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.globals.set(\"GLOBAL_BASEURL\", \"https://apigen.kompas.cloud\");\r",
+									"pm.globals.set(\"GLOBAL_CDS_BASEURL\", \"https://cds.kompas.cloud\");\r",
+									"pm.globals.set(\"GLOBAL_EMAIL\", \"yuni.putri@kompas.com\");\r",
+									"pm.globals.set(\"GLOBAL_PASSWORD\", \"Kompas.id1993\");\r",
+									"pm.globals.set(\"GLOBAL_PREVIEW\", \"https://apipreview.kompas.cloud\");\r",
+									"pm.environment.set(\"tokenExpired\", \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9hcGlnZW4ua29tcGFzLmlkIiwiaWF0IjoxNjIzMjM5OTM2LCJleHAiOjE2MjMyNDA4MzYsImRhdGEiOnsiaWQiOiJkNjcyN2M2Mi1iNmU5LTQ4ZGEtOGEwNS1lZmNlMDEyN2FjMWUiLCJlbWFpbCI6Inl1bmkucHV0cmlAa29tcGFzLmNvbSIsInNjb3BlIjpbInJlYWQtYXJ0aWNsZSIsInJlYWQtcHJvZmlsZSJdfX0.Sj5QYRXlLAPVFR9rM0CidYO1hK_xJKBCyblYkag49gnkU1swooxOSs_7k18V4K5LpgJh9UDQorz3dMZP7zaZVAOuFfeHkQF4KRyDMiE3t292sO0AwC50u9y86S0hoVkIm1Fd85Hw-Lf2PCS8k6gWEGeOd5bIpGevyHUVXoKaIQcnprM\");\r",
+									"pm.environment.set(\"tokenWrong\", \"xx\");\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "{{GLOBAL_EMAIL}}",
+									"description": "email dari  user check di wp_k3d_users",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{GLOBAL_PASSWORD}}",
+									"description": "password dari user  check di wp_k3d_users",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{GLOBAL_BASEURL}}/v1/user/login",
+							"host": [
+								"{{GLOBAL_BASEURL}}"
+							],
+							"path": [
+								"v1",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "dennis@kompas.com",
+											"description": "email dari  user check di wp_k3d_users",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "test",
+											"description": "password dari user  check di wp_k3d_users",
+											"type": "text"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{login_url}}/v1/user/login",
+									"host": [
+										"{{login_url}}"
+									],
+									"path": [
+										"v1",
+										"user",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"status\": \"ok\",\n    \"code\": 200,\n    \"message\": {\n        \"success\": \"Login Berhasil\"\n    },\n    \"result\": {\n        \"access_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9hcGlnZW4ua29tcGFzLmlkIiwiaWF0IjoxNTg5ODk3MjAyLCJleHAiOjE1ODk4OTgxMDIsImRhdGEiOnsiaWQiOiI4ZWE2M2YxMy01MDhkLTQ4ZDQtOTk5Yi1lNTkyZDcxMjhhZjMiLCJlbWFpbCI6ImRlbm5pc0Brb21wYXMuY29tIn19.UT2j4KHZ0a3E0jDoOgGGzhvmX4R3rpMhHra1uXUXvPXeDb35Xesfn1vUFNUuMfRP2WKMXEGBgQo8sRslFuSjtbxOTlxSYgLkE83epH_JWj1jbpT97oztK2SdAApSHDW7ISEB3_Qt6hP9ihcndTd1AvXW8s5Y1P5bKyfB_mSXA2RJnd4\",\n        \"expired_at\": 1589898102,\n        \"type\": \"bearer\",\n        \"refresh_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9hcGlnZW4ua29tcGFzLmlkIiwiaWF0IjoxNTg5ODk3MjAyLCJleHAiOjE1ODk5NDcyMDIsImRhdGEiOnsiaWQiOiI4ZWE2M2YxMy01MDhkLTQ4ZDQtOTk5Yi1lNTkyZDcxMjhhZjMiLCJlbWFpbCI6ImRlbm5pc0Brb21wYXMuY29tIn19.BjQd_2CUqksmz_TxNeHoxyqMGe3q6JtxKWEy163CrT8YF0Q1mDa7mSwfMmiXxLDkFuylrgVwLInwiPGMvAPGDK1rwM98pZS8SVzStaUR3OVdSyHGehXVICxlynDc_SkXM53Yl0MgE-1EknnJN5WBEHXxOPf3a72LGimIJ2yOeQyWHYE\"\n    },\n    \"version\": \"V1\"\n}"
+						},
+						{
+							"name": "failed",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "dennis@kompas.com",
+											"description": "email dari  user check di wp_k3d_users",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "test1",
+											"description": "password dari user  check di wp_k3d_users",
+											"type": "text"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{login_url}}/v1/user/login",
+									"host": [
+										"{{login_url}}"
+									],
+									"path": [
+										"v1",
+										"user",
+										"login"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.12.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.2.31"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 May 2020 14:07:16 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"code\": 401,\n    \"message\": {\n        \"error\": \"Maaf, email atau kata sandi Anda salah.\"\n    },\n    \"result\": [],\n    \"version\": \"V1\"\n}"
+						},
+						{
+							"name": "missing parameter",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "dennis@kompas.com",
+											"description": "email dari  user check di wp_k3d_users",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "test",
+											"description": "password dari user  check di wp_k3d_users",
+											"type": "text",
+											"disabled": true
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{login_url}}/v1/user/login",
+									"host": [
+										"{{login_url}}"
+									],
+									"path": [
+										"v1",
+										"user",
+										"login"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.12.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.2.31"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 May 2020 14:07:41 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"code\": 401,\n    \"message\": {\n        \"password\": [\n            \"password harus diisi.\"\n        ]\n    },\n    \"result\": [],\n    \"version\": \"V1\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Testcases",
+			"item": [
+				{
+					"name": "POST PREVIEW",
+					"item": [
+						{
+							"name": "POST Preview with valid auth",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"\r",
+											"pm.test(\"User successfully post preview article\", function () {\r",
+											"    var jsonData = pm.response.json(); \r",
+											"    pm.expect(jsonData.preview).is.to.equal(\"https://preview.kompas.cloud/baca/preview/2021/01/28/1-coba-image\"); \r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenLogin}}",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"id\":25745,\"title\":\"1 coba image\",\"modified\":\"2021-06-24T10:19:30.443\",\"modifiedbyname\":\"Dwi Prasetyo\",\"created\":\"2021-06-23T10:05:41.797\",\"createdbyname\":\"Yuni Putri\",\"publishername\":\"KOMPAS\",\"keywords\":\"\",\"slug\":\"1-coba-image\",\"headline\":\"1 coba image\",\"body\":\"<p>cek body ini masuk ga?</p> <img id-inr=\\\"\\\" copyright-inr=\\\"\\\" byline-inr=\\\"\\\" captionwriter-inr=\\\"\\\" alt=\\\"oh ternyata ganti\\\" src=\\\"https://inr-production-content-bucket.s3.ap-southeast-1.amazonaws.com/INR_STAGING/photo/tum/2021/06/23/d24d3810-ad61-4380-8d72-323a0a683b19_png.jpg\\\"> <span type=\\\"caption\\\" storagefilename=\\\"undefined\\\">oh ternyata ganti <span type=\\\"credit\\\" storagefilename=\\\"undefined\\\">/ <span type=\\\"byline\\\" storagefilename=\\\"undefined\\\"> <p>test masuk ga</p> <img id-inr=\\\"25618\\\" copyright-inr=\\\"\\\" byline-inr=\\\"Yuni Putri\\\" captionwriter-inr=\\\"\\\" alt=\\\"dasdddad sdasdddasd\\\" src=\\\"https://inr-production-content-bucket.s3.ap-southeast-1.amazonaws.com/INR_STAGING/photo/pre/2021/06/11/977c2220-0e2e-481b-a653-4ba9aa8b0f8c_jpg.jpg?id=25618\\\"> <span type=\\\"caption\\\" id-inr=\\\"25618\\\">dasdddad sdasdddasd <span type=\\\"credit\\\" id-inr=\\\"25618\\\">/ <span type=\\\"byline\\\" id-inr=\\\"25618\\\">Yuni Putri <p>akhirrrrnya</p> </span></span></span></span></span></span>\",\"byline\":\"Yuni Putri\",\"excerpt\":\"\",\"titleprint\":\"\",\"titlekeyword\":\"\",\"printdate\":null,\"printpagenumber\":0,\"printposition\":0,\"format\":\"Standard\",\"featuredimage\":{\"url\":\"https://inr-production-content-bucket.s3.ap-southeast-1.amazonaws.com/INR_STAGING/photo/tum/2021/06/23/c9e13c70-b702-44c2-9012-b0368626c029_png.jpg\",\"photographername\":\"undefined\"},\"authors\":[],\"editors\":[],\"tags\":[{\"id\":9,\"name\":\"aktual\",\"slug\":\"aktual\"},{\"id\":62,\"name\":\"ficer\",\"slug\":\"ficer\"}],\"categories\":[{\"id\":194,\"name\":\"Tokoh\",\"slug\":\"tokoh\"},{\"id\":195,\"name\":\"Figur\",\"slug\":\"figur\"}]}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{GLOBAL_PREVIEW}}/v1/kompasid/preview",
+									"host": [
+										"{{GLOBAL_PREVIEW}}"
+									],
+									"path": [
+										"v1",
+										"kompasid",
+										"preview"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "result",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\"id\":25745,\"title\":\"1 coba image\",\"modified\":\"2021-06-24T10:19:30.443\",\"modifiedbyname\":\"Dwi Prasetyo\",\"created\":\"2021-06-23T10:05:41.797\",\"createdbyname\":\"Yuni Putri\",\"publishername\":\"KOMPAS\",\"keywords\":\"\",\"slug\":\"1-coba-image\",\"headline\":\"1 coba image\",\"body\":\"<p>cek body ini masuk ga?</p> <img id-inr=\\\"\\\" copyright-inr=\\\"\\\" byline-inr=\\\"\\\" captionwriter-inr=\\\"\\\" alt=\\\"oh ternyata ganti\\\" src=\\\"https://inr-production-content-bucket.s3.ap-southeast-1.amazonaws.com/INR_STAGING/photo/tum/2021/06/23/d24d3810-ad61-4380-8d72-323a0a683b19_png.jpg\\\"> <span type=\\\"caption\\\" storagefilename=\\\"undefined\\\">oh ternyata ganti <span type=\\\"credit\\\" storagefilename=\\\"undefined\\\">/ <span type=\\\"byline\\\" storagefilename=\\\"undefined\\\"> <p>test masuk ga</p> <img id-inr=\\\"25618\\\" copyright-inr=\\\"\\\" byline-inr=\\\"Yuni Putri\\\" captionwriter-inr=\\\"\\\" alt=\\\"dasdddad sdasdddasd\\\" src=\\\"https://inr-production-content-bucket.s3.ap-southeast-1.amazonaws.com/INR_STAGING/photo/pre/2021/06/11/977c2220-0e2e-481b-a653-4ba9aa8b0f8c_jpg.jpg?id=25618\\\"> <span type=\\\"caption\\\" id-inr=\\\"25618\\\">dasdddad sdasdddasd <span type=\\\"credit\\\" id-inr=\\\"25618\\\">/ <span type=\\\"byline\\\" id-inr=\\\"25618\\\">Yuni Putri <p>akhirrrrnya</p> </span></span></span></span></span></span>\",\"byline\":\"Yuni Putri\",\"excerpt\":\"\",\"titleprint\":\"\",\"titlekeyword\":\"\",\"printdate\":null,\"printpagenumber\":0,\"printposition\":0,\"format\":\"Standard\",\"featuredimage\":{\"url\":\"https://inr-production-content-bucket.s3.ap-southeast-1.amazonaws.com/INR_STAGING/photo/tum/2021/06/23/c9e13c70-b702-44c2-9012-b0368626c029_png.jpg\",\"photographername\":\"undefined\"},\"authors\":[],\"editors\":[],\"tags\":[{\"id\":9,\"name\":\"aktual\",\"slug\":\"aktual\"},{\"id\":62,\"name\":\"ficer\",\"slug\":\"ficer\"}],\"categories\":[{\"id\":194,\"name\":\"Tokoh\",\"slug\":\"tokoh\"},{\"id\":195,\"name\":\"Figur\",\"slug\":\"figur\"}]}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{GLOBAL_PREVIEW}}/v1/kompasid/preview",
+											"host": [
+												"{{GLOBAL_PREVIEW}}"
+											],
+											"path": [
+												"v1",
+												"kompasid",
+												"preview"
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"preview\": \"https://preview.kompas.cloud/baca/preview/2021/01/28/1-coba-image\",\n    \"expired\": 1624946892\n}"
+								}
+							]
+						},
+						{
+							"name": "POST  Preview with expired auth",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"\r",
+											"pm.test(\"User failed post preview article with expired auth\", function () {\r",
+											"    var jsonData = pm.response.json(); \r",
+											"    pm.expect(jsonData.message.message).is.to.equal(\"username or password not match\"); \r",
+											"    pm.response.to.have.status(401);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenExpired}}",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"id\":25745,\"title\":\"1 coba image\",\"modified\":\"2021-06-24T10:19:30.443\",\"modifiedbyname\":\"Dwi Prasetyo\",\"created\":\"2021-06-23T10:05:41.797\",\"createdbyname\":\"Yuni Putri\",\"publishername\":\"KOMPAS\",\"keywords\":\"\",\"slug\":\"1-coba-image\",\"headline\":\"1 coba image\",\"body\":\"<p>cek body ini masuk ga?</p> <img id-inr=\\\"\\\" copyright-inr=\\\"\\\" byline-inr=\\\"\\\" captionwriter-inr=\\\"\\\" alt=\\\"oh ternyata ganti\\\" src=\\\"https://inr-production-content-bucket.s3.ap-southeast-1.amazonaws.com/INR_STAGING/photo/tum/2021/06/23/d24d3810-ad61-4380-8d72-323a0a683b19_png.jpg\\\"> <span type=\\\"caption\\\" storagefilename=\\\"undefined\\\">oh ternyata ganti <span type=\\\"credit\\\" storagefilename=\\\"undefined\\\">/ <span type=\\\"byline\\\" storagefilename=\\\"undefined\\\"> <p>test masuk ga</p> <img id-inr=\\\"25618\\\" copyright-inr=\\\"\\\" byline-inr=\\\"Yuni Putri\\\" captionwriter-inr=\\\"\\\" alt=\\\"dasdddad sdasdddasd\\\" src=\\\"https://inr-production-content-bucket.s3.ap-southeast-1.amazonaws.com/INR_STAGING/photo/pre/2021/06/11/977c2220-0e2e-481b-a653-4ba9aa8b0f8c_jpg.jpg?id=25618\\\"> <span type=\\\"caption\\\" id-inr=\\\"25618\\\">dasdddad sdasdddasd <span type=\\\"credit\\\" id-inr=\\\"25618\\\">/ <span type=\\\"byline\\\" id-inr=\\\"25618\\\">Yuni Putri <p>akhirrrrnya</p> </span></span></span></span></span></span>\",\"byline\":\"Yuni Putri\",\"excerpt\":\"\",\"titleprint\":\"\",\"titlekeyword\":\"\",\"printdate\":null,\"printpagenumber\":0,\"printposition\":0,\"format\":\"Standard\",\"featuredimage\":{\"url\":\"https://inr-production-content-bucket.s3.ap-southeast-1.amazonaws.com/INR_STAGING/photo/tum/2021/06/23/c9e13c70-b702-44c2-9012-b0368626c029_png.jpg\",\"photographername\":\"undefined\"},\"authors\":[],\"editors\":[],\"tags\":[{\"id\":9,\"name\":\"aktual\",\"slug\":\"aktual\"},{\"id\":62,\"name\":\"ficer\",\"slug\":\"ficer\"}],\"categories\":[{\"id\":194,\"name\":\"Tokoh\",\"slug\":\"tokoh\"},{\"id\":195,\"name\":\"Figur\",\"slug\":\"figur\"}]}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{GLOBAL_PREVIEW}}/v1/kompasid/preview",
+									"host": [
+										"{{GLOBAL_PREVIEW}}"
+									],
+									"path": [
+										"v1",
+										"kompasid",
+										"preview"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "expired",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\"id\":25745,\"title\":\"1 coba image\",\"modified\":\"2021-06-24T10:19:30.443\",\"modifiedbyname\":\"Dwi Prasetyo\",\"created\":\"2021-06-23T10:05:41.797\",\"createdbyname\":\"Yuni Putri\",\"publishername\":\"KOMPAS\",\"keywords\":\"\",\"slug\":\"1-coba-image\",\"headline\":\"1 coba image\",\"body\":\"<p>cek body ini masuk ga?</p> <img id-inr=\\\"\\\" copyright-inr=\\\"\\\" byline-inr=\\\"\\\" captionwriter-inr=\\\"\\\" alt=\\\"oh ternyata ganti\\\" src=\\\"https://inr-production-content-bucket.s3.ap-southeast-1.amazonaws.com/INR_STAGING/photo/tum/2021/06/23/d24d3810-ad61-4380-8d72-323a0a683b19_png.jpg\\\"> <span type=\\\"caption\\\" storagefilename=\\\"undefined\\\">oh ternyata ganti <span type=\\\"credit\\\" storagefilename=\\\"undefined\\\">/ <span type=\\\"byline\\\" storagefilename=\\\"undefined\\\"> <p>test masuk ga</p> <img id-inr=\\\"25618\\\" copyright-inr=\\\"\\\" byline-inr=\\\"Yuni Putri\\\" captionwriter-inr=\\\"\\\" alt=\\\"dasdddad sdasdddasd\\\" src=\\\"https://inr-production-content-bucket.s3.ap-southeast-1.amazonaws.com/INR_STAGING/photo/pre/2021/06/11/977c2220-0e2e-481b-a653-4ba9aa8b0f8c_jpg.jpg?id=25618\\\"> <span type=\\\"caption\\\" id-inr=\\\"25618\\\">dasdddad sdasdddasd <span type=\\\"credit\\\" id-inr=\\\"25618\\\">/ <span type=\\\"byline\\\" id-inr=\\\"25618\\\">Yuni Putri <p>akhirrrrnya</p> </span></span></span></span></span></span>\",\"byline\":\"Yuni Putri\",\"excerpt\":\"\",\"titleprint\":\"\",\"titlekeyword\":\"\",\"printdate\":null,\"printpagenumber\":0,\"printposition\":0,\"format\":\"Standard\",\"featuredimage\":{\"url\":\"https://inr-production-content-bucket.s3.ap-southeast-1.amazonaws.com/INR_STAGING/photo/tum/2021/06/23/c9e13c70-b702-44c2-9012-b0368626c029_png.jpg\",\"photographername\":\"undefined\"},\"authors\":[],\"editors\":[],\"tags\":[{\"id\":9,\"name\":\"aktual\",\"slug\":\"aktual\"},{\"id\":62,\"name\":\"ficer\",\"slug\":\"ficer\"}],\"categories\":[{\"id\":194,\"name\":\"Tokoh\",\"slug\":\"tokoh\"},{\"id\":195,\"name\":\"Figur\",\"slug\":\"figur\"}]}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{GLOBAL_PREVIEW}}/v1/kompasid/preview",
+											"host": [
+												"{{GLOBAL_PREVIEW}}"
+											],
+											"path": [
+												"v1",
+												"kompasid",
+												"preview"
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"status\": \"Authentication Failed\",\n    \"code\": 401,\n    \"message\": {\n        \"message\": \"username or password not match\"\n    },\n    \"result\": []\n}"
+								}
+							]
+						},
+						{
+							"name": "POST Preview with wrong token",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"\r",
+											"pm.test(\"User failed post preview article with wrong auth\", function () {\r",
+											"    var jsonData = pm.response.json(); \r",
+											"    pm.expect(jsonData.message.message).is.to.equal(\"username or password not match\"); \r",
+											"    pm.response.to.have.status(401);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenWrong}}",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"id\":25745,\"title\":\"1 coba image\",\"modified\":\"2021-06-24T10:19:30.443\",\"modifiedbyname\":\"Dwi Prasetyo\",\"created\":\"2021-06-23T10:05:41.797\",\"createdbyname\":\"Yuni Putri\",\"publishername\":\"KOMPAS\",\"keywords\":\"\",\"slug\":\"1-coba-image\",\"headline\":\"1 coba image\",\"body\":\"<p>cek body ini masuk ga?</p> <img id-inr=\\\"\\\" copyright-inr=\\\"\\\" byline-inr=\\\"\\\" captionwriter-inr=\\\"\\\" alt=\\\"oh ternyata ganti\\\" src=\\\"https://inr-production-content-bucket.s3.ap-southeast-1.amazonaws.com/INR_STAGING/photo/tum/2021/06/23/d24d3810-ad61-4380-8d72-323a0a683b19_png.jpg\\\"> <span type=\\\"caption\\\" storagefilename=\\\"undefined\\\">oh ternyata ganti <span type=\\\"credit\\\" storagefilename=\\\"undefined\\\">/ <span type=\\\"byline\\\" storagefilename=\\\"undefined\\\"> <p>test masuk ga</p> <img id-inr=\\\"25618\\\" copyright-inr=\\\"\\\" byline-inr=\\\"Yuni Putri\\\" captionwriter-inr=\\\"\\\" alt=\\\"dasdddad sdasdddasd\\\" src=\\\"https://inr-production-content-bucket.s3.ap-southeast-1.amazonaws.com/INR_STAGING/photo/pre/2021/06/11/977c2220-0e2e-481b-a653-4ba9aa8b0f8c_jpg.jpg?id=25618\\\"> <span type=\\\"caption\\\" id-inr=\\\"25618\\\">dasdddad sdasdddasd <span type=\\\"credit\\\" id-inr=\\\"25618\\\">/ <span type=\\\"byline\\\" id-inr=\\\"25618\\\">Yuni Putri <p>akhirrrrnya</p> </span></span></span></span></span></span>\",\"byline\":\"Yuni Putri\",\"excerpt\":\"\",\"titleprint\":\"\",\"titlekeyword\":\"\",\"printdate\":null,\"printpagenumber\":0,\"printposition\":0,\"format\":\"Standard\",\"featuredimage\":{\"url\":\"https://inr-production-content-bucket.s3.ap-southeast-1.amazonaws.com/INR_STAGING/photo/tum/2021/06/23/c9e13c70-b702-44c2-9012-b0368626c029_png.jpg\",\"photographername\":\"undefined\"},\"authors\":[],\"editors\":[],\"tags\":[{\"id\":9,\"name\":\"aktual\",\"slug\":\"aktual\"},{\"id\":62,\"name\":\"ficer\",\"slug\":\"ficer\"}],\"categories\":[{\"id\":194,\"name\":\"Tokoh\",\"slug\":\"tokoh\"},{\"id\":195,\"name\":\"Figur\",\"slug\":\"figur\"}]}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{GLOBAL_PREVIEW}}/v1/kompasid/preview",
+									"host": [
+										"{{GLOBAL_PREVIEW}}"
+									],
+									"path": [
+										"v1",
+										"kompasid",
+										"preview"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "wrong",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\"id\":25745,\"title\":\"1 coba image\",\"modified\":\"2021-06-24T10:19:30.443\",\"modifiedbyname\":\"Dwi Prasetyo\",\"created\":\"2021-06-23T10:05:41.797\",\"createdbyname\":\"Yuni Putri\",\"publishername\":\"KOMPAS\",\"keywords\":\"\",\"slug\":\"1-coba-image\",\"headline\":\"1 coba image\",\"body\":\"<p>cek body ini masuk ga?</p> <img id-inr=\\\"\\\" copyright-inr=\\\"\\\" byline-inr=\\\"\\\" captionwriter-inr=\\\"\\\" alt=\\\"oh ternyata ganti\\\" src=\\\"https://inr-production-content-bucket.s3.ap-southeast-1.amazonaws.com/INR_STAGING/photo/tum/2021/06/23/d24d3810-ad61-4380-8d72-323a0a683b19_png.jpg\\\"> <span type=\\\"caption\\\" storagefilename=\\\"undefined\\\">oh ternyata ganti <span type=\\\"credit\\\" storagefilename=\\\"undefined\\\">/ <span type=\\\"byline\\\" storagefilename=\\\"undefined\\\"> <p>test masuk ga</p> <img id-inr=\\\"25618\\\" copyright-inr=\\\"\\\" byline-inr=\\\"Yuni Putri\\\" captionwriter-inr=\\\"\\\" alt=\\\"dasdddad sdasdddasd\\\" src=\\\"https://inr-production-content-bucket.s3.ap-southeast-1.amazonaws.com/INR_STAGING/photo/pre/2021/06/11/977c2220-0e2e-481b-a653-4ba9aa8b0f8c_jpg.jpg?id=25618\\\"> <span type=\\\"caption\\\" id-inr=\\\"25618\\\">dasdddad sdasdddasd <span type=\\\"credit\\\" id-inr=\\\"25618\\\">/ <span type=\\\"byline\\\" id-inr=\\\"25618\\\">Yuni Putri <p>akhirrrrnya</p> </span></span></span></span></span></span>\",\"byline\":\"Yuni Putri\",\"excerpt\":\"\",\"titleprint\":\"\",\"titlekeyword\":\"\",\"printdate\":null,\"printpagenumber\":0,\"printposition\":0,\"format\":\"Standard\",\"featuredimage\":{\"url\":\"https://inr-production-content-bucket.s3.ap-southeast-1.amazonaws.com/INR_STAGING/photo/tum/2021/06/23/c9e13c70-b702-44c2-9012-b0368626c029_png.jpg\",\"photographername\":\"undefined\"},\"authors\":[],\"editors\":[],\"tags\":[{\"id\":9,\"name\":\"aktual\",\"slug\":\"aktual\"},{\"id\":62,\"name\":\"ficer\",\"slug\":\"ficer\"}],\"categories\":[{\"id\":194,\"name\":\"Tokoh\",\"slug\":\"tokoh\"},{\"id\":195,\"name\":\"Figur\",\"slug\":\"figur\"}]}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{GLOBAL_PREVIEW}}/v1/kompasid/preview",
+											"host": [
+												"{{GLOBAL_PREVIEW}}"
+											],
+											"path": [
+												"v1",
+												"kompasid",
+												"preview"
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"status\": \"Authentication Failed\",\n    \"code\": 401,\n    \"message\": {\n        \"message\": \"username or password not match\"\n    },\n    \"result\": []\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Get Preview",
+					"item": [
+						{
+							"name": "GET Preview with valid auth",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"\r",
+											"pm.test(\"User successfully GET Preview with valid auth\", function () {\r",
+											"    var jsonData = pm.response.json(); \r",
+											"    pm.expect(jsonData.message.login).is.to.equal(true); \r",
+											"    pm.response.to.have.status(200);\r",
+											"    pm.expect(jsonData.message.validate).is.to.equal(true); \r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenLogin}}",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{GLOBAL_PREVIEW}}/v1/kompasid/preview/1-coba-image",
+									"host": [
+										"{{GLOBAL_PREVIEW}}"
+									],
+									"path": [
+										"v1",
+										"kompasid",
+										"preview",
+										"1-coba-image"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "result",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{GLOBAL_PREVIEW}}/v1/kompasid/preview/1-coba-image",
+											"host": [
+												"{{GLOBAL_PREVIEW}}"
+											],
+											"path": [
+												"v1",
+												"kompasid",
+												"preview",
+												"1-coba-image"
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"code\": 200,\n    \"message\": {\n        \"login\": true,\n        \"validate\": true\n    },\n    \"result\": {\n        \"article\": {\n            \"content\": [\n                {\n                    \"body\": \"cek body ini\\r\\nmasuk ga?\",\n                    \"metaBody\": {\n                        \"length\": 22,\n                        \"type\": \"text\",\n                        \"align\": \"alignnone\"\n                    }\n                },\n                {\n                    \"body\": \"<img alt=\\\"oh ternyata ganti\\\" byline-inr=\\\"\\\" captionwriter-inr=\\\"\\\" copyright-inr=\\\"\\\" id-inr=\\\"\\\" src=\\\"https://inr-production-content-bucket.s3.ap-southeast-1.amazonaws.com/INR_STAGING/photo/tum/2021/06/23/d24d3810-ad61-4380-8d72-323a0a683b19_png.jpg\\\"/>\",\n                    \"metaBody\": {\n                        \"length\": 17,\n                        \"type\": \"image\",\n                        \"align\": \"alignnone\",\n                        \"shortcode\": {\n                            \"sizes\": {\n                                \"original\": {\n                                    \"mimeType\": \"image/jpeg\",\n                                    \"permalink\": \"https://inr-production-content-bucket.s3.ap-southeast-1.amazonaws.com/INR_STAGING/photo/tum/2021/06/23/d24d3810-ad61-4380-8d72-323a0a683b19_png.jpg\"\n                                },\n                                \"mediumLarge\": {\n                                    \"mimeType\": \"image/jpeg\",\n                                    \"permalink\": \" https://assets.kompas.cloud/PW1qu-khCEPRF1_fg8NiCiygblg=/432x243/https://inr-production-content-bucket.s3.ap-southeast-1.amazonaws.com/INR_STAGING/photo/tum/2021/06/23/d24d3810-ad61-4380-8d72-323a0a683b19_png.jpg\",\n                                    \"width\": 432,\n                                    \"height\": 243\n                                },\n                                \"postThumbnail\": {\n                                    \"mimeType\": \"image/jpeg\",\n                                    \"permalink\": \" https://assets.kompas.cloud/rNvcFexN5gG-hOeq2uCi9dR2i6k=/676x510/https://inr-production-content-bucket.s3.ap-southeast-1.amazonaws.com/INR_STAGING/photo/tum/2021/06/23/d24d3810-ad61-4380-8d72-323a0a683b19_png.jpg\",\n                                    \"width\": 676,\n                                    \"height\": 510\n                                },\n                                \"thumbnail\": {\n                                    \"mimeType\": \"image/jpeg\",\n                                    \"permalink\": \" https://assets.kompas.cloud/RFLt04l7t-XOEWF_pz3uXrvpxt8=/150x150/https://inr-production-content-bucket.s3.ap-southeast-1.amazonaws.com/INR_STAGING/photo/tum/2021/06/23/d24d3810-ad61-4380-8d72-323a0a683b19_png.jpg\",\n                                    \"width\": 150,\n                                    \"height\": 150\n                                },\n                                \"thumbnailMedium\": {\n                                    \"mimeType\": \"image/jpeg\",\n                                    \"permalink\": \" https://assets.kompas.cloud/tGA90_BOWc86oxP-lOiaqc8KUKM=/300x200/https://inr-production-content-bucket.s3.ap-southeast-1.amazonaws.com/INR_STAGING/photo/tum/2021/06/23/d24d3810-ad61-4380-8d72-323a0a683b19_png.jpg\",\n                                    \"width\": 300,\n                                    \"height\": 200\n                                }\n                            },\n                            \"meta\": {\n                                \"class\": \"\",\n                                \"height\": 1200,\n                                \"width\": 767,\n                                \"alt\": \"oh ternyata ganti\",\n                                \"src\": \"https://inr-production-content-bucket.s3.ap-southeast-1.amazonaws.com/INR_STAGING/photo/tum/2021/06/23/d24d3810-ad61-4380-8d72-323a0a683b19_png.jpg\",\n                                \"caption\": \"\",\n                                \"photographerName\": \"\"\n                            }\n                        }\n                    }\n                },\n                {\n                    \"body\": \"<img alt=\\\"dasdddad sdasdddasd\\\" byline-inr=\\\"Yuni Putri\\\" captionwriter-inr=\\\"\\\" copyright-inr=\\\"\\\" id-inr=\\\"25618\\\" src=\\\"https://inr-production-content-bucket.s3.ap-southeast-1.amazonaws.com/INR_STAGING/photo/pre/2021/06/11/977c2220-0e2e-481b-a653-4ba9aa8b0f8c_jpg.jpg?id=25618\\\"/>\",\n                    \"metaBody\": {\n                        \"length\": 19,\n                        \"type\": \"image\",\n                        \"align\": \"alignnone\",\n                        \"shortcode\": {\n                            \"sizes\": {\n                                \"original\": {\n                                    \"mimeType\": \"image/jpeg\",\n                                    \"permalink\": \"https://inr-production-content-bucket.s3.ap-southeast-1.amazonaws.com/INR_STAGING/photo/pre/2021/06/11/977c2220-0e2e-481b-a653-4ba9aa8b0f8c_jpg.jpg?id=25618\"\n                                },\n                                \"mediumLarge\": {\n                                    \"mimeType\": \"image/jpeg\",\n                                    \"permalink\": \" https://assets.kompas.cloud/Z4ozwsS1Gl66hox540V70tZX7rw=/432x243/https://inr-production-content-bucket.s3.ap-southeast-1.amazonaws.com/INR_STAGING/photo/pre/2021/06/11/977c2220-0e2e-481b-a653-4ba9aa8b0f8c_jpg.jpg?id=25618\",\n                                    \"width\": 432,\n                                    \"height\": 243\n                                },\n                                \"postThumbnail\": {\n                                    \"mimeType\": \"image/jpeg\",\n                                    \"permalink\": \" https://assets.kompas.cloud/RNouhr9tDY1bZQDhkrW1XfMUmPc=/676x510/https://inr-production-content-bucket.s3.ap-southeast-1.amazonaws.com/INR_STAGING/photo/pre/2021/06/11/977c2220-0e2e-481b-a653-4ba9aa8b0f8c_jpg.jpg?id=25618\",\n                                    \"width\": 676,\n                                    \"height\": 510\n                                },\n                                \"thumbnail\": {\n                                    \"mimeType\": \"image/jpeg\",\n                                    \"permalink\": \" https://assets.kompas.cloud/83FqSbLcjPzaXh-8ttZb8a98pT4=/150x150/https://inr-production-content-bucket.s3.ap-southeast-1.amazonaws.com/INR_STAGING/photo/pre/2021/06/11/977c2220-0e2e-481b-a653-4ba9aa8b0f8c_jpg.jpg?id=25618\",\n                                    \"width\": 150,\n                                    \"height\": 150\n                                },\n                                \"thumbnailMedium\": {\n                                    \"mimeType\": \"image/jpeg\",\n                                    \"permalink\": \" https://assets.kompas.cloud/bTHHjDwspDtuK56FzcJTuIhXZfc=/300x200/https://inr-production-content-bucket.s3.ap-southeast-1.amazonaws.com/INR_STAGING/photo/pre/2021/06/11/977c2220-0e2e-481b-a653-4ba9aa8b0f8c_jpg.jpg?id=25618\",\n                                    \"width\": 300,\n                                    \"height\": 200\n                                }\n                            },\n                            \"meta\": {\n                                \"class\": \"\",\n                                \"height\": 1200,\n                                \"width\": 767,\n                                \"alt\": \"dasdddad sdasdddasd\",\n                                \"src\": \"https://inr-production-content-bucket.s3.ap-southeast-1.amazonaws.com/INR_STAGING/photo/pre/2021/06/11/977c2220-0e2e-481b-a653-4ba9aa8b0f8c_jpg.jpg?id=25618\",\n                                \"caption\": \"\",\n                                \"photographerName\": \"\"\n                            }\n                        }\n                    }\n                }\n            ],\n            \"detail\": {\n                \"title\": \"1 coba image\",\n                \"name\": \"1-coba-image\",\n                \"permalink\": \"\",\n                \"thumbnails\": {\n                    \"sizes\": {\n                        \"original\": {\n                            \"mimeType\": \"image/jpeg\",\n                            \"permalink\": \"https://inr-production-content-bucket.s3.ap-southeast-1.amazonaws.com/INR_STAGING/photo/tum/2021/06/23/c9e13c70-b702-44c2-9012-b0368626c029_png.jpg\"\n                        },\n                        \"mediumLarge\": {\n                            \"mimeType\": \"image/jpeg\",\n                            \"permalink\": \" https://assets.kompas.cloud/Q1Rz6v83hiQucKpl3t78hHAMTCI=/432x243/https://inr-production-content-bucket.s3.ap-southeast-1.amazonaws.com/INR_STAGING/photo/tum/2021/06/23/c9e13c70-b702-44c2-9012-b0368626c029_png.jpg\",\n                            \"width\": 432,\n                            \"height\": 243\n                        },\n                        \"postThumbnail\": {\n                            \"mimeType\": \"image/jpeg\",\n                            \"permalink\": \" https://assets.kompas.cloud/Kli-iYrhP0JERGBZjYRHMGKL_C4=/676x510/https://inr-production-content-bucket.s3.ap-southeast-1.amazonaws.com/INR_STAGING/photo/tum/2021/06/23/c9e13c70-b702-44c2-9012-b0368626c029_png.jpg\",\n                            \"width\": 676,\n                            \"height\": 510\n                        },\n                        \"thumbnail\": {\n                            \"mimeType\": \"image/jpeg\",\n                            \"permalink\": \" https://assets.kompas.cloud/xJe87Y3H5OhjDRXsarrKB43pNAs=/150x150/https://inr-production-content-bucket.s3.ap-southeast-1.amazonaws.com/INR_STAGING/photo/tum/2021/06/23/c9e13c70-b702-44c2-9012-b0368626c029_png.jpg\",\n                            \"width\": 150,\n                            \"height\": 150\n                        },\n                        \"thumbnailMedium\": {\n                            \"mimeType\": \"image/jpeg\",\n                            \"permalink\": \" https://assets.kompas.cloud/UIOEkFtnnNO4zHXecNGK2M_crhw=/300x200/https://inr-production-content-bucket.s3.ap-southeast-1.amazonaws.com/INR_STAGING/photo/tum/2021/06/23/c9e13c70-b702-44c2-9012-b0368626c029_png.jpg\",\n                            \"width\": 300,\n                            \"height\": 200\n                        }\n                    },\n                    \"meta\": {\n                        \"photographerName\": \"undefined\"\n                    }\n                },\n                \"excerpt\": \"\",\n                \"publishedDate\": \"2021-06-23T03:05:41Z\",\n                \"isFreemium\": false,\n                \"articleByLine\": \"Yuni Putri\",\n                \"category\": [\n                    {\n                        \"name\": \"Tokoh\",\n                        \"slug\": \"tokoh\"\n                    },\n                    {\n                        \"name\": \"Figur\",\n                        \"slug\": \"figur\"\n                    }\n                ],\n                \"postTag\": [\n                    {\n                        \"name\": \"aktual\",\n                        \"slug\": \"aktual\"\n                    },\n                    {\n                        \"name\": \"ficer\",\n                        \"slug\": \"ficer\"\n                    }\n                ],\n                \"keyword\": \"\",\n                \"publishedDateGmt\": \"2021-06-23T03:05:41Z\",\n                \"imageCounter\": 2,\n                \"editors\": [],\n                \"status\": \"publish\",\n                \"meta\": {\n                    \"cache\": true,\n                    \"pin\": false,\n                    \"print\": {\n                        \"page\": \"0\",\n                        \"edition\": \"20210623\",\n                        \"headline\": \"1 coba image\"\n                    },\n                    \"type\": \"post-article\",\n                    \"id\": 25745\n                }\n            },\n            \"createdDate\": \"2021-06-28T22:08:12Z\",\n            \"modifiedDate\": \"2021-06-28T22:08:12Z\",\n            \"source\": \"INR\"\n        }\n    },\n    \"status\": \"ok\"\n}"
+								}
+							]
+						},
+						{
+							"name": "GET Preview with expired auth",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"User failed get preview article with expired auth\", function () {\r",
+											"    var jsonData = pm.response.json(); \r",
+											"    pm.expect(jsonData.message.message).is.to.equal(\"username or password not match\"); \r",
+											"    pm.response.to.have.status(401);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenExpired}}",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{GLOBAL_PREVIEW}}/v1/kompasid/preview/1-coba-image",
+									"host": [
+										"{{GLOBAL_PREVIEW}}"
+									],
+									"path": [
+										"v1",
+										"kompasid",
+										"preview",
+										"1-coba-image"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "expired",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{GLOBAL_PREVIEW}}/v1/kompasid/preview/1-coba-image",
+											"host": [
+												"{{GLOBAL_PREVIEW}}"
+											],
+											"path": [
+												"v1",
+												"kompasid",
+												"preview",
+												"1-coba-image"
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"status\": \"Authentication Failed\",\n    \"code\": 401,\n    \"message\": {\n        \"message\": \"username or password not match\"\n    },\n    \"result\": []\n}"
+								}
+							]
+						},
+						{
+							"name": "GET Preview with wrong auth",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"User failed get preview article with wrong auth\", function () {\r",
+											"    var jsonData = pm.response.json(); \r",
+											"    pm.expect(jsonData.message.message).is.to.equal(\"username or password not match\"); \r",
+											"    pm.response.to.have.status(401);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenWrong}}",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{GLOBAL_PREVIEW}}/v1/kompasid/preview/1-coba-image",
+									"host": [
+										"{{GLOBAL_PREVIEW}}"
+									],
+									"path": [
+										"v1",
+										"kompasid",
+										"preview",
+										"1-coba-image"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "wrong",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{GLOBAL_PREVIEW}}/v1/kompasid/preview/1-coba-image",
+											"host": [
+												"{{GLOBAL_PREVIEW}}"
+											],
+											"path": [
+												"v1",
+												"kompasid",
+												"preview",
+												"1-coba-image"
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"status\": \"Authentication Failed\",\n    \"code\": 401,\n    \"message\": {\n        \"message\": \"username or password not match\"\n    },\n    \"result\": []\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

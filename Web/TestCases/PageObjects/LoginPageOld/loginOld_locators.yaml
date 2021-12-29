@@ -1,0 +1,3 @@
+fieldEmail_loginPage: id=email
+fieldPassword_loginPage: id=password
+buttonLogin_loginPage: xpath=//*[@id="app"]//button[@type="submit"]

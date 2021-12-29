@@ -1,0 +1,31 @@
+TextdisplayName_checkoutPage: xpath=//*[@id="gtm-email"]
+popupSubscribe_checkoutPage: xpath=//*[@id="desktopBannerWrapped"]/div/div[3]/div[1]/button[1]
+getTextBasicPrice_checkoutPage : xpath=//div[@class='d-flex align-items-baseline mt-3']/span/b
+fielddeliveryDate_checkoutPage : name=tanggal_pertama_kirim
+deliveryNote_checkoutPage : name=catatan_kirim
+manualPayment_checkoutPage : id=radioManual
+automaticPayment_checkoutPage : id=radioOtomatis
+addressButton_checkoutPage : id=addressModalTrigger
+noFaktur_checkoutPage : id=inlineRadio2
+yesFaktur_checkoutPage : id=inlineRadio1
+getTextPrice_checkoutPage : xpath=//div/div[@class='mt-4']/div[@class='row']//span[@class='col d-flex justify-content-end']/b
+getTextDeliveryPrice_checkoutPage : xpath=//div/div[@class='mt-3']/div[@class='row']//span[@class='col d-flex justify-content-end']/b
+getTotalPrice_checkoutPage : xpath=//div[@class='row']//div/span[@class='h4 text-warning']
+submitButton_checkoutPage : id=submitButton
+fieldfirstName_checkoutPageAddress : name=firstName
+fieldlastName_checkoutPageAddress : name=lastName
+collapseProvince_checkoutPageAddress : id=province
+collapseCity_checkoutPageAddress : id=city
+collapsedistrict_checkoutPageAddress : id=district
+collapsevillage_checkoutPageAddress : id=village
+fieldAddress_checkoutPageAddress : name=address
+fieldPostalCode_checkoutPageAddress : name=postalCode
+fieldPhonenumber_checkoutPageAddress : name=phoneNumber
+fieldEmail_checkoutPageAddress : name=email
+button_submit: xpath=//*[@id="addressForm"]/div[6]/input
+button_cancel: class=btn.border.border-success
+button_subscribetion: xpath=//*[@id="__layout"]/div/div[1]/header/div/div[3]/div/div/button
+chooseProvinceJ_checkoutPageAddress : xpath=//*[@id="province"]/option[contains(text(),'Jakarta')]
+chooseCityJ_checkoutPageAddress : xpath=//*[@id="city"]/option[contains(text(),'Selatan')]
+chooseDistrictJ_checkoutPageAddress : xpath=//*[@id="district"]/option[contains(text(),'Tebet')]
+chooseVillageJ_checkoutPageAddress : xpath://*[@id="village"]/option[contains(text(),'Tebet Timur')]

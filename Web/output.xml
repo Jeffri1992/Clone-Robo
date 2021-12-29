@@ -1,0 +1,3876 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.1 (Python 3.9.5 on win32)" generated="20211021 22:33:26.742" rpa="false" schemaversion="2">
+<suite id="s1" name="DeviceSettings" source="C:\Users\jeffri.ferandy\Desktop\Git Robo\kompas-automation\web\TestCases\DeviceSettings.robot">
+<test id="s1-t1" name="User Succesfully Re-Direct To Device Settings Page">
+<kw name="Start Browser" library="CommonFunction" type="SETUP">
+<arg>https://account.kompas.cloud/login</arg>
+<doc>open browser by url</doc>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20211021 22:33:27.088" level="INFO">Opening browser 'chrome' to base url 'https://account.kompas.cloud/login'.</msg>
+<status status="PASS" starttime="20211021 22:33:27.087" endtime="20211021 22:33:29.357"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20211021 22:33:29.357" endtime="20211021 22:33:29.484"/>
+</kw>
+<status status="PASS" starttime="20211021 22:33:27.087" endtime="20211021 22:33:29.484"/>
+</kw>
+<kw name="Register New User">
+<doc>Register New User</doc>
+<kw name="Generate Random Data For Register" library="Register">
+<var>${random_firstname}</var>
+<var>${random_lastname}</var>
+<var>${random_email}</var>
+<var>${random_pass}</var>
+<doc>Generate Data For Register</doc>
+<if>
+<branch type="IF" condition="${valid_char}==${True}">
+<kw name="First Name" library="FakerLibrary">
+<var>${random_firstname}</var>
+<msg timestamp="20211021 22:33:29.487" level="INFO">${random_firstname} = Jay</msg>
+<status status="PASS" starttime="20211021 22:33:29.487" endtime="20211021 22:33:29.487"/>
+</kw>
+<kw name="Last Name" library="FakerLibrary">
+<var>${random_lastname}</var>
+<msg timestamp="20211021 22:33:29.488" level="INFO">${random_lastname} = Bullock</msg>
+<status status="PASS" starttime="20211021 22:33:29.487" endtime="20211021 22:33:29.488"/>
+</kw>
+<status status="PASS" starttime="20211021 22:33:29.487" endtime="20211021 22:33:29.488"/>
+</branch>
+<branch type="ELSE">
+<kw name="Generate Random String" library="String">
+<var>${random_firstname}</var>
+<arg>12</arg>
+<arg>chars=@#$^&amp;*[NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="NOT RUN" starttime="20211021 22:33:29.488" endtime="20211021 22:33:29.488"/>
+</kw>
+<kw name="Generate Random String" library="String">
+<var>${random_lastname}</var>
+<arg>12</arg>
+<arg>chars=@#$^&amp;*[NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="NOT RUN" starttime="20211021 22:33:29.488" endtime="20211021 22:33:29.488"/>
+</kw>
+<status status="NOT RUN" starttime="20211021 22:33:29.488" endtime="20211021 22:33:29.488"/>
+</branch>
+<status status="PASS" starttime="20211021 22:33:29.487" endtime="20211021 22:33:29.488"/>
+</if>
+<kw name="Email" library="FakerLibrary">
+<var>${email}</var>
+<arg>domain=1secmail.com</arg>
+<msg timestamp="20211021 22:33:29.489" level="INFO">${email} = timothy86@1secmail.com</msg>
+<status status="PASS" starttime="20211021 22:33:29.488" endtime="20211021 22:33:29.489"/>
+</kw>
+<kw name="Generate Random String" library="String">
+<var>${string}</var>
+<arg>2</arg>
+<arg>chars=[LETTERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<msg timestamp="20211021 22:33:29.489" level="INFO">${string} = vA</msg>
+<status status="PASS" starttime="20211021 22:33:29.489" endtime="20211021 22:33:29.489"/>
+</kw>
+<kw name="Generate Random String" library="String">
+<var>${random_digit}</var>
+<arg>1</arg>
+<arg>123</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<msg timestamp="20211021 22:33:29.489" level="INFO">${random_digit} = 2</msg>
+<status status="PASS" starttime="20211021 22:33:29.489" endtime="20211021 22:33:29.489"/>
+</kw>
+<kw name="Generate Random String" library="String">
+<var>${numbers}</var>
+<arg>${random_digit}</arg>
+<arg>[NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<msg timestamp="20211021 22:33:29.490" level="INFO">${numbers} = 76</msg>
+<status status="PASS" starttime="20211021 22:33:29.490" endtime="20211021 22:33:29.490"/>
+</kw>
+<kw name="Convert To Lower Case" library="String">
+<var>${string_lower}</var>
+<arg>${string}</arg>
+<doc>Converts string to lower case.</doc>
+<msg timestamp="20211021 22:33:29.490" level="INFO">${string_lower} = va</msg>
+<status status="PASS" starttime="20211021 22:33:29.490" endtime="20211021 22:33:29.490"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${random_email}</var>
+<arg>${HOST_NAME}${numbers}.${string_lower}${email}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20211021 22:33:29.491" level="INFO">${random_email} = testsdet76.vatimothy86@1secmail.com</msg>
+<status status="PASS" starttime="20211021 22:33:29.490" endtime="20211021 22:33:29.491"/>
+</kw>
+<kw name="Password" library="FakerLibrary">
+<var>${random_pass}</var>
+<arg>length=${pass_length}</arg>
+<arg>upper_case=${true}</arg>
+<arg>lower_case=${true}</arg>
+<arg>special_chars=${pass_spc_chars}</arg>
+<doc>Generate a random password of the specified ``length``.</doc>
+<msg timestamp="20211021 22:33:29.491" level="INFO">${random_pass} = 46PiLU9m</msg>
+<status status="PASS" starttime="20211021 22:33:29.491" endtime="20211021 22:33:29.491"/>
+</kw>
+<msg timestamp="20211021 22:33:29.491" level="INFO">${random_firstname} = Jay</msg>
+<msg timestamp="20211021 22:33:29.491" level="INFO">${random_lastname} = Bullock</msg>
+<msg timestamp="20211021 22:33:29.491" level="INFO">${random_email} = testsdet76.vatimothy86@1secmail.com</msg>
+<msg timestamp="20211021 22:33:29.491" level="INFO">${random_pass} = 46PiLU9m</msg>
+<status status="PASS" starttime="20211021 22:33:29.486" endtime="20211021 22:33:29.491"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${URL_REGISTER}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211021 22:33:29.492" level="INFO">Opening url 'https://account.kompas.cloud/register'</msg>
+<status status="PASS" starttime="20211021 22:33:29.492" endtime="20211021 22:33:30.259"/>
+</kw>
+<kw name="Input Register Form">
+<arg>${random_firstname}</arg>
+<arg>${random_lastname}</arg>
+<arg>${random_email}</arg>
+<arg>${random_pass}</arg>
+<doc>Input register form</doc>
+<kw name="Input First Name" library="RegisterPage">
+<arg>${random_firstname}</arg>
+<doc>Input First Name</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${fieldFirstName_registerPage}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:33:30.261" endtime="20211021 22:33:30.277"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${fieldFirstName_registerPage}</arg>
+<arg>${first_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211021 22:33:30.278" level="INFO">Typing text 'Jay' into text field 'id=firstName'.</msg>
+<status status="PASS" starttime="20211021 22:33:30.277" endtime="20211021 22:33:30.334"/>
+</kw>
+<status status="PASS" starttime="20211021 22:33:30.260" endtime="20211021 22:33:30.334"/>
+</kw>
+<kw name="Input Last Name" library="RegisterPage">
+<arg>${random_lastname}</arg>
+<doc>Input Last Name</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${fieldLastName_registerPage}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:33:30.335" endtime="20211021 22:33:30.352"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${fieldLastName_registerPage}</arg>
+<arg>${last_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211021 22:33:30.352" level="INFO">Typing text 'Bullock' into text field 'id=lastName'.</msg>
+<status status="PASS" starttime="20211021 22:33:30.352" endtime="20211021 22:33:30.410"/>
+</kw>
+<status status="PASS" starttime="20211021 22:33:30.334" endtime="20211021 22:33:30.410"/>
+</kw>
+<kw name="Input Email" library="RegisterPage">
+<arg>${random_email}</arg>
+<doc>Input Email</doc>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${fieldEmail_registerPage}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211021 22:33:30.411" level="INFO">Typing text 'testsdet76.vatimothy86@1secmail.com' into text field 'id=email'.</msg>
+<status status="PASS" starttime="20211021 22:33:30.411" endtime="20211021 22:33:30.481"/>
+</kw>
+<status status="PASS" starttime="20211021 22:33:30.410" endtime="20211021 22:33:30.481"/>
+</kw>
+<kw name="Input Password" library="RegisterPage">
+<arg>${random_pass}</arg>
+<doc>Input Password</doc>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${fieldPassword_registerPage}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211021 22:33:30.483" level="INFO">Typing text '46PiLU9m' into text field 'id=password'.</msg>
+<status status="PASS" starttime="20211021 22:33:30.482" endtime="20211021 22:33:30.545"/>
+</kw>
+<status status="PASS" starttime="20211021 22:33:30.482" endtime="20211021 22:33:30.545"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${FIRST_NAME}</arg>
+<arg>${random_firstname}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20211021 22:33:30.546" level="INFO">${FIRST_NAME} = Jay</msg>
+<status status="PASS" starttime="20211021 22:33:30.545" endtime="20211021 22:33:30.546"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${REGISTERED_EMAIL}</arg>
+<arg>${random_email}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20211021 22:33:30.547" level="INFO">${REGISTERED_EMAIL} = testsdet76.vatimothy86@1secmail.com</msg>
+<status status="PASS" starttime="20211021 22:33:30.546" endtime="20211021 22:33:30.547"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${LAST_NAME}</arg>
+<arg>${random_lastname}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20211021 22:33:30.548" level="INFO">${LAST_NAME} = Bullock</msg>
+<status status="PASS" starttime="20211021 22:33:30.547" endtime="20211021 22:33:30.548"/>
+</kw>
+<status status="PASS" starttime="20211021 22:33:30.259" endtime="20211021 22:33:30.548"/>
+</kw>
+<kw name="Checklist Recaptcha In Register" library="RegisterPage">
+<doc>Checklist Recaptcha</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${selectFrame_registerPage}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:33:30.548" endtime="20211021 22:33:30.564"/>
+</kw>
+<kw name="Select Frame" library="SeleniumLibrary">
+<arg>${selectFrame_registerPage}</arg>
+<doc>Sets frame identified by ``locator`` as the current frame.</doc>
+<msg timestamp="20211021 22:33:30.564" level="INFO">Selecting frame 'tag=iframe'.</msg>
+<status status="PASS" starttime="20211021 22:33:30.564" endtime="20211021 22:33:30.590"/>
+</kw>
+<kw name="Wait And Click Element" library="CommonFunction">
+<arg>${checkboxRecaptcha_registerPage}</arg>
+<doc>Wait element and click</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${element}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:33:30.590" endtime="20211021 22:33:30.609"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${element}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211021 22:33:30.610" level="INFO">Clicking element 'xpath=//*[@id="recaptcha-anchor"]/div[1]'.</msg>
+<status status="PASS" starttime="20211021 22:33:30.609" endtime="20211021 22:33:30.696"/>
+</kw>
+<status status="PASS" starttime="20211021 22:33:30.590" endtime="20211021 22:33:30.697"/>
+</kw>
+<kw name="Unselect Frame" library="SeleniumLibrary">
+<doc>Sets the main frame as the current frame.</doc>
+<status status="PASS" starttime="20211021 22:33:30.697" endtime="20211021 22:33:30.702"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20211021 22:33:33.712" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20211021 22:33:30.702" endtime="20211021 22:33:33.712"/>
+</kw>
+<status status="PASS" starttime="20211021 22:33:30.548" endtime="20211021 22:33:33.712"/>
+</kw>
+<kw name="Click Button Daftar" library="RegisterPage">
+<doc>Click Button Daftar</doc>
+<kw name="Wait And Click Element" library="CommonFunction">
+<arg>${btnDaftar_registerPage}</arg>
+<doc>Wait element and click</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${element}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:33:33.714" endtime="20211021 22:33:33.744"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${element}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211021 22:33:33.744" level="INFO">Clicking element 'xpath=//*[@id="daftar"]'.</msg>
+<status status="PASS" starttime="20211021 22:33:33.744" endtime="20211021 22:33:34.011"/>
+</kw>
+<status status="PASS" starttime="20211021 22:33:33.713" endtime="20211021 22:33:34.011"/>
+</kw>
+<status status="PASS" starttime="20211021 22:33:33.713" endtime="20211021 22:33:34.011"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${accountBar_registerPage}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:33:34.011" endtime="20211021 22:33:43.485"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${URL_DEVICE_SETTINGS}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211021 22:33:43.485" level="INFO">Opening url 'https://account.kompas.cloud/manage-account/activity/device'</msg>
+<status status="PASS" starttime="20211021 22:33:43.485" endtime="20211021 22:33:43.934"/>
+</kw>
+<status status="PASS" starttime="20211021 22:33:29.485" endtime="20211021 22:33:43.935"/>
+</kw>
+<kw name="Verify User Succesfully Re-Direct Device Settings">
+<doc>Verify User Succesfully Re-Direct</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${headerAktivitas_deviceSettingsPage}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:33:43.935" endtime="20211021 22:33:43.957"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${headerAktivitas_deviceSettingsPage}</arg>
+<arg>Aktivitas</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20211021 22:33:43.957" endtime="20211021 22:33:43.973"/>
+</kw>
+<kw name="Location Should Contain" library="SeleniumLibrary">
+<arg>${URL_DEVICE_SETTINGS}</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<msg timestamp="20211021 22:33:43.979" level="INFO">Current location contains 'https://account.kompas.cloud/manage-account/activity/device'.</msg>
+<status status="PASS" starttime="20211021 22:33:43.973" endtime="20211021 22:33:43.979"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${linkAturPerangkat_deviceSettingsPage}</arg>
+<arg>Atur Perangkat</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20211021 22:33:43.979" endtime="20211021 22:33:43.996"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${linkAksesAkun_deviceSettingsPage}</arg>
+<arg>Akses Akun</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20211021 22:33:43.996" endtime="20211021 22:33:44.014"/>
+</kw>
+<status status="PASS" starttime="20211021 22:33:43.935" endtime="20211021 22:33:44.014"/>
+</kw>
+<kw name="Stop Browser" library="CommonFunction" type="TEARDOWN">
+<doc>close browser by url</doc>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20211021 22:33:44.015" endtime="20211021 22:33:46.209"/>
+</kw>
+<status status="PASS" starttime="20211021 22:33:44.015" endtime="20211021 22:33:46.209"/>
+</kw>
+<doc>User Succesfully Re-Direct To Device Settings Page</doc>
+<tag>Squad-E</tag>
+<status status="PASS" starttime="20211021 22:33:27.086" endtime="20211021 22:33:46.209"/>
+</test>
+<test id="s1-t2" name="User Succesfully View Device Information After Login">
+<kw name="Start Browser" library="CommonFunction" type="SETUP">
+<arg>https://account.kompas.cloud/login</arg>
+<doc>open browser by url</doc>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20211021 22:33:46.214" level="INFO">Opening browser 'chrome' to base url 'https://account.kompas.cloud/login'.</msg>
+<status status="PASS" starttime="20211021 22:33:46.214" endtime="20211021 22:33:48.412"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20211021 22:33:48.412" endtime="20211021 22:33:48.537"/>
+</kw>
+<status status="PASS" starttime="20211021 22:33:46.213" endtime="20211021 22:33:48.537"/>
+</kw>
+<kw name="Register New User">
+<doc>Register New User</doc>
+<kw name="Generate Random Data For Register" library="Register">
+<var>${random_firstname}</var>
+<var>${random_lastname}</var>
+<var>${random_email}</var>
+<var>${random_pass}</var>
+<doc>Generate Data For Register</doc>
+<if>
+<branch type="IF" condition="${valid_char}==${True}">
+<kw name="First Name" library="FakerLibrary">
+<var>${random_firstname}</var>
+<msg timestamp="20211021 22:33:48.540" level="INFO">${random_firstname} = Janet</msg>
+<status status="PASS" starttime="20211021 22:33:48.539" endtime="20211021 22:33:48.540"/>
+</kw>
+<kw name="Last Name" library="FakerLibrary">
+<var>${random_lastname}</var>
+<msg timestamp="20211021 22:33:48.540" level="INFO">${random_lastname} = Weaver</msg>
+<status status="PASS" starttime="20211021 22:33:48.540" endtime="20211021 22:33:48.540"/>
+</kw>
+<status status="PASS" starttime="20211021 22:33:48.539" endtime="20211021 22:33:48.540"/>
+</branch>
+<branch type="ELSE">
+<kw name="Generate Random String" library="String">
+<var>${random_firstname}</var>
+<arg>12</arg>
+<arg>chars=@#$^&amp;*[NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="NOT RUN" starttime="20211021 22:33:48.540" endtime="20211021 22:33:48.540"/>
+</kw>
+<kw name="Generate Random String" library="String">
+<var>${random_lastname}</var>
+<arg>12</arg>
+<arg>chars=@#$^&amp;*[NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="NOT RUN" starttime="20211021 22:33:48.541" endtime="20211021 22:33:48.541"/>
+</kw>
+<status status="NOT RUN" starttime="20211021 22:33:48.540" endtime="20211021 22:33:48.541"/>
+</branch>
+<status status="PASS" starttime="20211021 22:33:48.539" endtime="20211021 22:33:48.541"/>
+</if>
+<kw name="Email" library="FakerLibrary">
+<var>${email}</var>
+<arg>domain=1secmail.com</arg>
+<msg timestamp="20211021 22:33:48.541" level="INFO">${email} = robert92@1secmail.com</msg>
+<status status="PASS" starttime="20211021 22:33:48.541" endtime="20211021 22:33:48.541"/>
+</kw>
+<kw name="Generate Random String" library="String">
+<var>${string}</var>
+<arg>2</arg>
+<arg>chars=[LETTERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<msg timestamp="20211021 22:33:48.542" level="INFO">${string} = gR</msg>
+<status status="PASS" starttime="20211021 22:33:48.541" endtime="20211021 22:33:48.542"/>
+</kw>
+<kw name="Generate Random String" library="String">
+<var>${random_digit}</var>
+<arg>1</arg>
+<arg>123</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<msg timestamp="20211021 22:33:48.542" level="INFO">${random_digit} = 1</msg>
+<status status="PASS" starttime="20211021 22:33:48.542" endtime="20211021 22:33:48.542"/>
+</kw>
+<kw name="Generate Random String" library="String">
+<var>${numbers}</var>
+<arg>${random_digit}</arg>
+<arg>[NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<msg timestamp="20211021 22:33:48.542" level="INFO">${numbers} = 6</msg>
+<status status="PASS" starttime="20211021 22:33:48.542" endtime="20211021 22:33:48.542"/>
+</kw>
+<kw name="Convert To Lower Case" library="String">
+<var>${string_lower}</var>
+<arg>${string}</arg>
+<doc>Converts string to lower case.</doc>
+<msg timestamp="20211021 22:33:48.542" level="INFO">${string_lower} = gr</msg>
+<status status="PASS" starttime="20211021 22:33:48.542" endtime="20211021 22:33:48.542"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${random_email}</var>
+<arg>${HOST_NAME}${numbers}.${string_lower}${email}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20211021 22:33:48.543" level="INFO">${random_email} = testsdet6.grrobert92@1secmail.com</msg>
+<status status="PASS" starttime="20211021 22:33:48.542" endtime="20211021 22:33:48.543"/>
+</kw>
+<kw name="Password" library="FakerLibrary">
+<var>${random_pass}</var>
+<arg>length=${pass_length}</arg>
+<arg>upper_case=${true}</arg>
+<arg>lower_case=${true}</arg>
+<arg>special_chars=${pass_spc_chars}</arg>
+<doc>Generate a random password of the specified ``length``.</doc>
+<msg timestamp="20211021 22:33:48.544" level="INFO">${random_pass} = 00BmW4wY</msg>
+<status status="PASS" starttime="20211021 22:33:48.543" endtime="20211021 22:33:48.544"/>
+</kw>
+<msg timestamp="20211021 22:33:48.544" level="INFO">${random_firstname} = Janet</msg>
+<msg timestamp="20211021 22:33:48.544" level="INFO">${random_lastname} = Weaver</msg>
+<msg timestamp="20211021 22:33:48.544" level="INFO">${random_email} = testsdet6.grrobert92@1secmail.com</msg>
+<msg timestamp="20211021 22:33:48.544" level="INFO">${random_pass} = 00BmW4wY</msg>
+<status status="PASS" starttime="20211021 22:33:48.538" endtime="20211021 22:33:48.544"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${URL_REGISTER}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211021 22:33:48.544" level="INFO">Opening url 'https://account.kompas.cloud/register'</msg>
+<status status="PASS" starttime="20211021 22:33:48.544" endtime="20211021 22:33:49.266"/>
+</kw>
+<kw name="Input Register Form">
+<arg>${random_firstname}</arg>
+<arg>${random_lastname}</arg>
+<arg>${random_email}</arg>
+<arg>${random_pass}</arg>
+<doc>Input register form</doc>
+<kw name="Input First Name" library="RegisterPage">
+<arg>${random_firstname}</arg>
+<doc>Input First Name</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${fieldFirstName_registerPage}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:33:49.266" endtime="20211021 22:33:49.285"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${fieldFirstName_registerPage}</arg>
+<arg>${first_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211021 22:33:49.285" level="INFO">Typing text 'Janet' into text field 'id=firstName'.</msg>
+<status status="PASS" starttime="20211021 22:33:49.285" endtime="20211021 22:33:49.337"/>
+</kw>
+<status status="PASS" starttime="20211021 22:33:49.266" endtime="20211021 22:33:49.337"/>
+</kw>
+<kw name="Input Last Name" library="RegisterPage">
+<arg>${random_lastname}</arg>
+<doc>Input Last Name</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${fieldLastName_registerPage}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:33:49.338" endtime="20211021 22:33:49.355"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${fieldLastName_registerPage}</arg>
+<arg>${last_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211021 22:33:49.356" level="INFO">Typing text 'Weaver' into text field 'id=lastName'.</msg>
+<status status="PASS" starttime="20211021 22:33:49.355" endtime="20211021 22:33:49.406"/>
+</kw>
+<status status="PASS" starttime="20211021 22:33:49.337" endtime="20211021 22:33:49.406"/>
+</kw>
+<kw name="Input Email" library="RegisterPage">
+<arg>${random_email}</arg>
+<doc>Input Email</doc>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${fieldEmail_registerPage}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211021 22:33:49.408" level="INFO">Typing text 'testsdet6.grrobert92@1secmail.com' into text field 'id=email'.</msg>
+<status status="PASS" starttime="20211021 22:33:49.407" endtime="20211021 22:33:49.474"/>
+</kw>
+<status status="PASS" starttime="20211021 22:33:49.407" endtime="20211021 22:33:49.474"/>
+</kw>
+<kw name="Input Password" library="RegisterPage">
+<arg>${random_pass}</arg>
+<doc>Input Password</doc>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${fieldPassword_registerPage}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211021 22:33:49.476" level="INFO">Typing text '00BmW4wY' into text field 'id=password'.</msg>
+<status status="PASS" starttime="20211021 22:33:49.475" endtime="20211021 22:33:49.533"/>
+</kw>
+<status status="PASS" starttime="20211021 22:33:49.474" endtime="20211021 22:33:49.533"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${FIRST_NAME}</arg>
+<arg>${random_firstname}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20211021 22:33:49.535" level="INFO">${FIRST_NAME} = Janet</msg>
+<status status="PASS" starttime="20211021 22:33:49.533" endtime="20211021 22:33:49.535"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${REGISTERED_EMAIL}</arg>
+<arg>${random_email}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20211021 22:33:49.535" level="INFO">${REGISTERED_EMAIL} = testsdet6.grrobert92@1secmail.com</msg>
+<status status="PASS" starttime="20211021 22:33:49.535" endtime="20211021 22:33:49.535"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${LAST_NAME}</arg>
+<arg>${random_lastname}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20211021 22:33:49.535" level="INFO">${LAST_NAME} = Weaver</msg>
+<status status="PASS" starttime="20211021 22:33:49.535" endtime="20211021 22:33:49.535"/>
+</kw>
+<status status="PASS" starttime="20211021 22:33:49.266" endtime="20211021 22:33:49.535"/>
+</kw>
+<kw name="Checklist Recaptcha In Register" library="RegisterPage">
+<doc>Checklist Recaptcha</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${selectFrame_registerPage}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:33:49.535" endtime="20211021 22:33:49.551"/>
+</kw>
+<kw name="Select Frame" library="SeleniumLibrary">
+<arg>${selectFrame_registerPage}</arg>
+<doc>Sets frame identified by ``locator`` as the current frame.</doc>
+<msg timestamp="20211021 22:33:49.552" level="INFO">Selecting frame 'tag=iframe'.</msg>
+<status status="PASS" starttime="20211021 22:33:49.552" endtime="20211021 22:33:49.578"/>
+</kw>
+<kw name="Wait And Click Element" library="CommonFunction">
+<arg>${checkboxRecaptcha_registerPage}</arg>
+<doc>Wait element and click</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${element}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:33:49.578" endtime="20211021 22:33:49.595"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${element}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211021 22:33:49.596" level="INFO">Clicking element 'xpath=//*[@id="recaptcha-anchor"]/div[1]'.</msg>
+<status status="PASS" starttime="20211021 22:33:49.595" endtime="20211021 22:33:49.683"/>
+</kw>
+<status status="PASS" starttime="20211021 22:33:49.578" endtime="20211021 22:33:49.683"/>
+</kw>
+<kw name="Unselect Frame" library="SeleniumLibrary">
+<doc>Sets the main frame as the current frame.</doc>
+<status status="PASS" starttime="20211021 22:33:49.683" endtime="20211021 22:33:49.687"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20211021 22:33:52.702" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20211021 22:33:49.687" endtime="20211021 22:33:52.702"/>
+</kw>
+<status status="PASS" starttime="20211021 22:33:49.535" endtime="20211021 22:33:52.702"/>
+</kw>
+<kw name="Click Button Daftar" library="RegisterPage">
+<doc>Click Button Daftar</doc>
+<kw name="Wait And Click Element" library="CommonFunction">
+<arg>${btnDaftar_registerPage}</arg>
+<doc>Wait element and click</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${element}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:33:52.704" endtime="20211021 22:33:52.728"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${element}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211021 22:33:52.729" level="INFO">Clicking element 'xpath=//*[@id="daftar"]'.</msg>
+<status status="PASS" starttime="20211021 22:33:52.728" endtime="20211021 22:33:52.983"/>
+</kw>
+<status status="PASS" starttime="20211021 22:33:52.703" endtime="20211021 22:33:52.983"/>
+</kw>
+<status status="PASS" starttime="20211021 22:33:52.703" endtime="20211021 22:33:52.983"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${accountBar_registerPage}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:33:52.984" endtime="20211021 22:34:01.062"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${URL_DEVICE_SETTINGS}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211021 22:34:01.063" level="INFO">Opening url 'https://account.kompas.cloud/manage-account/activity/device'</msg>
+<status status="PASS" starttime="20211021 22:34:01.063" endtime="20211021 22:34:01.609"/>
+</kw>
+<status status="PASS" starttime="20211021 22:33:48.538" endtime="20211021 22:34:01.610"/>
+</kw>
+<kw name="Verify User Device Information After Login">
+<doc>Verify User Device Information After Login</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${listPerangkat_deviceSettingsPage}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20211021 22:34:06.987" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-37.png"&gt;&lt;img src="selenium-screenshot-37.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20211021 22:34:06.828" endtime="20211021 22:34:06.987"/>
+</kw>
+<msg timestamp="20211021 22:34:06.988" level="FAIL">Element 'xpath=//div[contains(@class,'flex-row p-4')]' not visible after 5 seconds.</msg>
+<status status="FAIL" starttime="20211021 22:34:01.610" endtime="20211021 22:34:06.988"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${listPerangkat_deviceSettingsPage}</arg>
+<arg>Perangkat ini</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="NOT RUN" starttime="20211021 22:34:06.989" endtime="20211021 22:34:06.989"/>
+</kw>
+<status status="FAIL" starttime="20211021 22:34:01.610" endtime="20211021 22:34:06.989"/>
+</kw>
+<kw name="Stop Browser" library="CommonFunction" type="TEARDOWN">
+<doc>close browser by url</doc>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20211021 22:34:06.990" endtime="20211021 22:34:09.193"/>
+</kw>
+<status status="PASS" starttime="20211021 22:34:06.990" endtime="20211021 22:34:09.193"/>
+</kw>
+<doc>User Succesfully View Device Information After Login</doc>
+<tag>Squad-E</tag>
+<status status="FAIL" starttime="20211021 22:33:46.212" endtime="20211021 22:34:09.194">Element 'xpath=//div[contains(@class,'flex-row p-4')]' not visible after 5 seconds.</status>
+</test>
+<test id="s1-t3" name="User Succesfully View Device Information With Multiple Login">
+<kw name="Start Browser" library="CommonFunction" type="SETUP">
+<arg>https://account.kompas.cloud/login</arg>
+<doc>open browser by url</doc>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20211021 22:34:09.201" level="INFO">Opening browser 'chrome' to base url 'https://account.kompas.cloud/login'.</msg>
+<status status="PASS" starttime="20211021 22:34:09.200" endtime="20211021 22:34:11.407"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20211021 22:34:11.407" endtime="20211021 22:34:11.534"/>
+</kw>
+<status status="PASS" starttime="20211021 22:34:09.199" endtime="20211021 22:34:11.534"/>
+</kw>
+<kw name="Register New User">
+<var>${registered_email}</var>
+<var>${registered_password}</var>
+<doc>Register New User</doc>
+<kw name="Generate Random Data For Register" library="Register">
+<var>${random_firstname}</var>
+<var>${random_lastname}</var>
+<var>${random_email}</var>
+<var>${random_pass}</var>
+<doc>Generate Data For Register</doc>
+<if>
+<branch type="IF" condition="${valid_char}==${True}">
+<kw name="First Name" library="FakerLibrary">
+<var>${random_firstname}</var>
+<msg timestamp="20211021 22:34:11.536" level="INFO">${random_firstname} = Jessica</msg>
+<status status="PASS" starttime="20211021 22:34:11.536" endtime="20211021 22:34:11.537"/>
+</kw>
+<kw name="Last Name" library="FakerLibrary">
+<var>${random_lastname}</var>
+<msg timestamp="20211021 22:34:11.537" level="INFO">${random_lastname} = White</msg>
+<status status="PASS" starttime="20211021 22:34:11.537" endtime="20211021 22:34:11.537"/>
+</kw>
+<status status="PASS" starttime="20211021 22:34:11.536" endtime="20211021 22:34:11.537"/>
+</branch>
+<branch type="ELSE">
+<kw name="Generate Random String" library="String">
+<var>${random_firstname}</var>
+<arg>12</arg>
+<arg>chars=@#$^&amp;*[NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="NOT RUN" starttime="20211021 22:34:11.537" endtime="20211021 22:34:11.537"/>
+</kw>
+<kw name="Generate Random String" library="String">
+<var>${random_lastname}</var>
+<arg>12</arg>
+<arg>chars=@#$^&amp;*[NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="NOT RUN" starttime="20211021 22:34:11.537" endtime="20211021 22:34:11.537"/>
+</kw>
+<status status="NOT RUN" starttime="20211021 22:34:11.537" endtime="20211021 22:34:11.537"/>
+</branch>
+<status status="PASS" starttime="20211021 22:34:11.536" endtime="20211021 22:34:11.537"/>
+</if>
+<kw name="Email" library="FakerLibrary">
+<var>${email}</var>
+<arg>domain=1secmail.com</arg>
+<msg timestamp="20211021 22:34:11.538" level="INFO">${email} = martinkatherine@1secmail.com</msg>
+<status status="PASS" starttime="20211021 22:34:11.537" endtime="20211021 22:34:11.538"/>
+</kw>
+<kw name="Generate Random String" library="String">
+<var>${string}</var>
+<arg>2</arg>
+<arg>chars=[LETTERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<msg timestamp="20211021 22:34:11.539" level="INFO">${string} = qO</msg>
+<status status="PASS" starttime="20211021 22:34:11.538" endtime="20211021 22:34:11.539"/>
+</kw>
+<kw name="Generate Random String" library="String">
+<var>${random_digit}</var>
+<arg>1</arg>
+<arg>123</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<msg timestamp="20211021 22:34:11.539" level="INFO">${random_digit} = 3</msg>
+<status status="PASS" starttime="20211021 22:34:11.539" endtime="20211021 22:34:11.539"/>
+</kw>
+<kw name="Generate Random String" library="String">
+<var>${numbers}</var>
+<arg>${random_digit}</arg>
+<arg>[NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<msg timestamp="20211021 22:34:11.540" level="INFO">${numbers} = 557</msg>
+<status status="PASS" starttime="20211021 22:34:11.540" endtime="20211021 22:34:11.540"/>
+</kw>
+<kw name="Convert To Lower Case" library="String">
+<var>${string_lower}</var>
+<arg>${string}</arg>
+<doc>Converts string to lower case.</doc>
+<msg timestamp="20211021 22:34:11.540" level="INFO">${string_lower} = qo</msg>
+<status status="PASS" starttime="20211021 22:34:11.540" endtime="20211021 22:34:11.540"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${random_email}</var>
+<arg>${HOST_NAME}${numbers}.${string_lower}${email}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20211021 22:34:11.540" level="INFO">${random_email} = testsdet557.qomartinkatherine@1secmail.com</msg>
+<status status="PASS" starttime="20211021 22:34:11.540" endtime="20211021 22:34:11.541"/>
+</kw>
+<kw name="Password" library="FakerLibrary">
+<var>${random_pass}</var>
+<arg>length=${pass_length}</arg>
+<arg>upper_case=${true}</arg>
+<arg>lower_case=${true}</arg>
+<arg>special_chars=${pass_spc_chars}</arg>
+<doc>Generate a random password of the specified ``length``.</doc>
+<msg timestamp="20211021 22:34:11.541" level="INFO">${random_pass} = 7NMPsQ7D</msg>
+<status status="PASS" starttime="20211021 22:34:11.541" endtime="20211021 22:34:11.541"/>
+</kw>
+<msg timestamp="20211021 22:34:11.542" level="INFO">${random_firstname} = Jessica</msg>
+<msg timestamp="20211021 22:34:11.542" level="INFO">${random_lastname} = White</msg>
+<msg timestamp="20211021 22:34:11.542" level="INFO">${random_email} = testsdet557.qomartinkatherine@1secmail.com</msg>
+<msg timestamp="20211021 22:34:11.542" level="INFO">${random_pass} = 7NMPsQ7D</msg>
+<status status="PASS" starttime="20211021 22:34:11.535" endtime="20211021 22:34:11.542"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${URL_REGISTER}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211021 22:34:11.542" level="INFO">Opening url 'https://account.kompas.cloud/register'</msg>
+<status status="PASS" starttime="20211021 22:34:11.542" endtime="20211021 22:34:12.428"/>
+</kw>
+<kw name="Input Register Form">
+<arg>${random_firstname}</arg>
+<arg>${random_lastname}</arg>
+<arg>${random_email}</arg>
+<arg>${random_pass}</arg>
+<doc>Input register form</doc>
+<kw name="Input First Name" library="RegisterPage">
+<arg>${random_firstname}</arg>
+<doc>Input First Name</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${fieldFirstName_registerPage}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:34:12.429" endtime="20211021 22:34:12.450"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${fieldFirstName_registerPage}</arg>
+<arg>${first_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211021 22:34:12.451" level="INFO">Typing text 'Jessica' into text field 'id=firstName'.</msg>
+<status status="PASS" starttime="20211021 22:34:12.450" endtime="20211021 22:34:12.509"/>
+</kw>
+<status status="PASS" starttime="20211021 22:34:12.429" endtime="20211021 22:34:12.509"/>
+</kw>
+<kw name="Input Last Name" library="RegisterPage">
+<arg>${random_lastname}</arg>
+<doc>Input Last Name</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${fieldLastName_registerPage}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:34:12.509" endtime="20211021 22:34:12.526"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${fieldLastName_registerPage}</arg>
+<arg>${last_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211021 22:34:12.526" level="INFO">Typing text 'White' into text field 'id=lastName'.</msg>
+<status status="PASS" starttime="20211021 22:34:12.526" endtime="20211021 22:34:12.578"/>
+</kw>
+<status status="PASS" starttime="20211021 22:34:12.509" endtime="20211021 22:34:12.578"/>
+</kw>
+<kw name="Input Email" library="RegisterPage">
+<arg>${random_email}</arg>
+<doc>Input Email</doc>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${fieldEmail_registerPage}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211021 22:34:12.579" level="INFO">Typing text 'testsdet557.qomartinkatherine@1secmail.com' into text field 'id=email'.</msg>
+<status status="PASS" starttime="20211021 22:34:12.579" endtime="20211021 22:34:12.653"/>
+</kw>
+<status status="PASS" starttime="20211021 22:34:12.578" endtime="20211021 22:34:12.653"/>
+</kw>
+<kw name="Input Password" library="RegisterPage">
+<arg>${random_pass}</arg>
+<doc>Input Password</doc>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${fieldPassword_registerPage}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211021 22:34:12.655" level="INFO">Typing text '7NMPsQ7D' into text field 'id=password'.</msg>
+<status status="PASS" starttime="20211021 22:34:12.654" endtime="20211021 22:34:12.717"/>
+</kw>
+<status status="PASS" starttime="20211021 22:34:12.653" endtime="20211021 22:34:12.717"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${FIRST_NAME}</arg>
+<arg>${random_firstname}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20211021 22:34:12.717" level="INFO">${FIRST_NAME} = Jessica</msg>
+<status status="PASS" starttime="20211021 22:34:12.717" endtime="20211021 22:34:12.717"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${REGISTERED_EMAIL}</arg>
+<arg>${random_email}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20211021 22:34:12.718" level="INFO">${REGISTERED_EMAIL} = testsdet557.qomartinkatherine@1secmail.com</msg>
+<status status="PASS" starttime="20211021 22:34:12.717" endtime="20211021 22:34:12.718"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${LAST_NAME}</arg>
+<arg>${random_lastname}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20211021 22:34:12.718" level="INFO">${LAST_NAME} = White</msg>
+<status status="PASS" starttime="20211021 22:34:12.718" endtime="20211021 22:34:12.718"/>
+</kw>
+<status status="PASS" starttime="20211021 22:34:12.428" endtime="20211021 22:34:12.718"/>
+</kw>
+<kw name="Checklist Recaptcha In Register" library="RegisterPage">
+<doc>Checklist Recaptcha</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${selectFrame_registerPage}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:34:12.718" endtime="20211021 22:34:12.739"/>
+</kw>
+<kw name="Select Frame" library="SeleniumLibrary">
+<arg>${selectFrame_registerPage}</arg>
+<doc>Sets frame identified by ``locator`` as the current frame.</doc>
+<msg timestamp="20211021 22:34:12.741" level="INFO">Selecting frame 'tag=iframe'.</msg>
+<status status="PASS" starttime="20211021 22:34:12.741" endtime="20211021 22:34:12.761"/>
+</kw>
+<kw name="Wait And Click Element" library="CommonFunction">
+<arg>${checkboxRecaptcha_registerPage}</arg>
+<doc>Wait element and click</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${element}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:34:12.762" endtime="20211021 22:34:12.780"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${element}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211021 22:34:12.780" level="INFO">Clicking element 'xpath=//*[@id="recaptcha-anchor"]/div[1]'.</msg>
+<status status="PASS" starttime="20211021 22:34:12.780" endtime="20211021 22:34:12.864"/>
+</kw>
+<status status="PASS" starttime="20211021 22:34:12.761" endtime="20211021 22:34:12.864"/>
+</kw>
+<kw name="Unselect Frame" library="SeleniumLibrary">
+<doc>Sets the main frame as the current frame.</doc>
+<status status="PASS" starttime="20211021 22:34:12.864" endtime="20211021 22:34:12.867"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20211021 22:34:15.881" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20211021 22:34:12.867" endtime="20211021 22:34:15.881"/>
+</kw>
+<status status="PASS" starttime="20211021 22:34:12.718" endtime="20211021 22:34:15.881"/>
+</kw>
+<kw name="Click Button Daftar" library="RegisterPage">
+<doc>Click Button Daftar</doc>
+<kw name="Wait And Click Element" library="CommonFunction">
+<arg>${btnDaftar_registerPage}</arg>
+<doc>Wait element and click</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${element}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:34:15.882" endtime="20211021 22:34:15.906"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${element}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211021 22:34:15.907" level="INFO">Clicking element 'xpath=//*[@id="daftar"]'.</msg>
+<status status="PASS" starttime="20211021 22:34:15.907" endtime="20211021 22:34:16.155"/>
+</kw>
+<status status="PASS" starttime="20211021 22:34:15.882" endtime="20211021 22:34:16.156"/>
+</kw>
+<status status="PASS" starttime="20211021 22:34:15.881" endtime="20211021 22:34:16.156"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${accountBar_registerPage}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:34:16.156" endtime="20211021 22:34:24.312"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${URL_DEVICE_SETTINGS}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211021 22:34:24.312" level="INFO">Opening url 'https://account.kompas.cloud/manage-account/activity/device'</msg>
+<status status="PASS" starttime="20211021 22:34:24.312" endtime="20211021 22:34:24.801"/>
+</kw>
+<msg timestamp="20211021 22:34:24.801" level="INFO">${registered_email} = testsdet557.qomartinkatherine@1secmail.com</msg>
+<msg timestamp="20211021 22:34:24.801" level="INFO">${registered_password} = 7NMPsQ7D</msg>
+<status status="PASS" starttime="20211021 22:34:11.535" endtime="20211021 22:34:24.801"/>
+</kw>
+<kw name="Go Back Than 1 Times">
+<arg>4</arg>
+<doc>Go Back Than 1 Times</doc>
+<kw name="Set Variable" library="BuiltIn">
+<var>${index}</var>
+<arg>1</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20211021 22:34:24.801" level="INFO">${index} = 1</msg>
+<status status="PASS" starttime="20211021 22:34:24.801" endtime="20211021 22:34:24.801"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${i}</var>
+<value>1</value>
+<value>${times}</value>
+<iter>
+<var name="${i}">1</var>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>${index} == ${times}</arg>
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20211021 22:34:24.802" endtime="20211021 22:34:24.802"/>
+</kw>
+<kw name="Go Back" library="SeleniumLibrary">
+<doc>Simulates the user clicking the back button on their browser.</doc>
+<status status="PASS" starttime="20211021 22:34:24.802" endtime="20211021 22:34:26.047"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20211021 22:34:26.048" level="INFO">${index} = 2</msg>
+<status status="PASS" starttime="20211021 22:34:26.047" endtime="20211021 22:34:26.048"/>
+</kw>
+<status status="PASS" starttime="20211021 22:34:24.802" endtime="20211021 22:34:26.048"/>
+</iter>
+<iter>
+<var name="${i}">2</var>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>${index} == ${times}</arg>
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20211021 22:34:26.048" endtime="20211021 22:34:26.048"/>
+</kw>
+<kw name="Go Back" library="SeleniumLibrary">
+<doc>Simulates the user clicking the back button on their browser.</doc>
+<status status="PASS" starttime="20211021 22:34:26.048" endtime="20211021 22:34:26.287"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20211021 22:34:26.288" level="INFO">${index} = 3</msg>
+<status status="PASS" starttime="20211021 22:34:26.287" endtime="20211021 22:34:26.288"/>
+</kw>
+<status status="PASS" starttime="20211021 22:34:26.048" endtime="20211021 22:34:26.288"/>
+</iter>
+<iter>
+<var name="${i}">3</var>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>${index} == ${times}</arg>
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20211021 22:34:26.288" endtime="20211021 22:34:26.288"/>
+</kw>
+<kw name="Go Back" library="SeleniumLibrary">
+<doc>Simulates the user clicking the back button on their browser.</doc>
+<status status="PASS" starttime="20211021 22:34:26.288" endtime="20211021 22:34:26.302"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20211021 22:34:26.302" level="INFO">${index} = 4</msg>
+<status status="PASS" starttime="20211021 22:34:26.302" endtime="20211021 22:34:26.302"/>
+</kw>
+<status status="PASS" starttime="20211021 22:34:26.288" endtime="20211021 22:34:26.302"/>
+</iter>
+<status status="PASS" starttime="20211021 22:34:24.801" endtime="20211021 22:34:26.302"/>
+</for>
+<kw name="Wait And Click Element" library="CommonFunction">
+<arg>${hyperLinkSilakanMasuk_registerPage}</arg>
+<doc>Wait element and click</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${element}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:34:26.303" endtime="20211021 22:34:26.537"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${element}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211021 22:34:26.538" level="INFO">Clicking element 'xpath=//a[contains(@href,'login')]'.</msg>
+<status status="PASS" starttime="20211021 22:34:26.538" endtime="20211021 22:34:26.617"/>
+</kw>
+<status status="PASS" starttime="20211021 22:34:26.302" endtime="20211021 22:34:26.617"/>
+</kw>
+<status status="PASS" starttime="20211021 22:34:24.801" endtime="20211021 22:34:26.617"/>
+</kw>
+<kw name="Login More Than 1 Times Success">
+<arg>3</arg>
+<arg>${registered_email}</arg>
+<arg>${registered_password}</arg>
+<doc>Login More Than 1 Times Success (All Looping Login Need Go back To Login Form)</doc>
+<kw name="Set Variable" library="BuiltIn">
+<var>${index}</var>
+<arg>1</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20211021 22:34:26.620" level="INFO">${index} = 1</msg>
+<status status="PASS" starttime="20211021 22:34:26.620" endtime="20211021 22:34:26.620"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${i}</var>
+<value>1</value>
+<value>${times}</value>
+<iter>
+<var name="${i}">1</var>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>${index} == ${times}</arg>
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20211021 22:34:26.621" endtime="20211021 22:34:26.622"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${fieldEmail_loginPage}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:34:26.622" endtime="20211021 22:34:26.646"/>
+</kw>
+<kw name="Input Email" library="LoginPage">
+<arg>${email}</arg>
+<doc>Input Email</doc>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${fieldEmail_loginPage}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211021 22:34:26.647" level="INFO">Typing text 'testsdet557.qomartinkatherine@1secmail.com' into text field 'id=email'.</msg>
+<status status="PASS" starttime="20211021 22:34:26.646" endtime="20211021 22:34:26.734"/>
+</kw>
+<status status="PASS" starttime="20211021 22:34:26.646" endtime="20211021 22:34:26.734"/>
+</kw>
+<kw name="Input Password" library="LoginPage">
+<arg>${password}</arg>
+<doc>Input password</doc>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${fieldPassword_loginPage}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211021 22:34:26.735" level="INFO">Typing text '7NMPsQ7D' into text field 'id=password'.</msg>
+<status status="PASS" starttime="20211021 22:34:26.734" endtime="20211021 22:34:26.787"/>
+</kw>
+<status status="PASS" starttime="20211021 22:34:26.734" endtime="20211021 22:34:26.787"/>
+</kw>
+<kw name="Click Button Sign In" library="LoginPage">
+<doc>Click button signin</doc>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${buttonLogin_loginPage}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211021 22:34:26.788" level="INFO">Clicking button 'id=masuk'.</msg>
+<status status="PASS" starttime="20211021 22:34:26.787" endtime="20211021 22:34:27.058"/>
+</kw>
+<status status="PASS" starttime="20211021 22:34:26.787" endtime="20211021 22:34:27.059"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20211021 22:34:27.060" level="INFO">${index} = 2</msg>
+<status status="PASS" starttime="20211021 22:34:27.059" endtime="20211021 22:34:27.060"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${accountBar_registerPage}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:34:27.060" endtime="20211021 22:34:28.374"/>
+</kw>
+<kw name="Go Back" library="SeleniumLibrary">
+<doc>Simulates the user clicking the back button on their browser.</doc>
+<status status="PASS" starttime="20211021 22:34:28.374" endtime="20211021 22:34:28.510"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${fieldEmail_loginPage}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:34:28.510" endtime="20211021 22:34:28.522"/>
+</kw>
+<status status="PASS" starttime="20211021 22:34:26.621" endtime="20211021 22:34:28.523"/>
+</iter>
+<iter>
+<var name="${i}">2</var>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>${index} == ${times}</arg>
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20211021 22:34:28.523" endtime="20211021 22:34:28.523"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${fieldEmail_loginPage}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:34:28.523" endtime="20211021 22:34:28.534"/>
+</kw>
+<kw name="Input Email" library="LoginPage">
+<arg>${email}</arg>
+<doc>Input Email</doc>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${fieldEmail_loginPage}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211021 22:34:28.535" level="INFO">Typing text 'testsdet557.qomartinkatherine@1secmail.com' into text field 'id=email'.</msg>
+<status status="PASS" starttime="20211021 22:34:28.535" endtime="20211021 22:34:28.618"/>
+</kw>
+<status status="PASS" starttime="20211021 22:34:28.534" endtime="20211021 22:34:28.618"/>
+</kw>
+<kw name="Input Password" library="LoginPage">
+<arg>${password}</arg>
+<doc>Input password</doc>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${fieldPassword_loginPage}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211021 22:34:28.619" level="INFO">Typing text '7NMPsQ7D' into text field 'id=password'.</msg>
+<status status="PASS" starttime="20211021 22:34:28.619" endtime="20211021 22:34:28.671"/>
+</kw>
+<status status="PASS" starttime="20211021 22:34:28.618" endtime="20211021 22:34:28.671"/>
+</kw>
+<kw name="Click Button Sign In" library="LoginPage">
+<doc>Click button signin</doc>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${buttonLogin_loginPage}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211021 22:34:28.672" level="INFO">Clicking button 'id=masuk'.</msg>
+<status status="PASS" starttime="20211021 22:34:28.671" endtime="20211021 22:34:28.941"/>
+</kw>
+<status status="PASS" starttime="20211021 22:34:28.671" endtime="20211021 22:34:28.941"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20211021 22:34:28.942" level="INFO">${index} = 3</msg>
+<status status="PASS" starttime="20211021 22:34:28.942" endtime="20211021 22:34:28.942"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${accountBar_registerPage}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:34:28.942" endtime="20211021 22:34:30.147"/>
+</kw>
+<kw name="Go Back" library="SeleniumLibrary">
+<doc>Simulates the user clicking the back button on their browser.</doc>
+<status status="PASS" starttime="20211021 22:34:30.147" endtime="20211021 22:34:30.287"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${fieldEmail_loginPage}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:34:30.287" endtime="20211021 22:34:30.301"/>
+</kw>
+<status status="PASS" starttime="20211021 22:34:28.523" endtime="20211021 22:34:30.301"/>
+</iter>
+<status status="PASS" starttime="20211021 22:34:26.620" endtime="20211021 22:34:30.301"/>
+</for>
+<status status="PASS" starttime="20211021 22:34:26.619" endtime="20211021 22:34:30.302"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${URL_DEVICE_SETTINGS}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211021 22:34:30.302" level="INFO">Opening url 'https://account.kompas.cloud/manage-account/activity/device'</msg>
+<status status="PASS" starttime="20211021 22:34:30.302" endtime="20211021 22:34:30.653"/>
+</kw>
+<kw name="Verify User Device Information With Multiple Login">
+<doc>Verify User Device Information With Multiple Login</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${tablePerangkat_deviceSetttingPage}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:34:30.657" endtime="20211021 22:34:30.687"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${tablePerangkat_deviceSetttingPage}</arg>
+<arg>Terakhir aktif</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20211021 22:34:35.969" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-38.png"&gt;&lt;img src="selenium-screenshot-38.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20211021 22:34:35.839" endtime="20211021 22:34:35.969"/>
+</kw>
+<msg timestamp="20211021 22:34:35.970" level="FAIL">Element with locator 'xpath=//div[contains(@class,'my-6')]' not found.</msg>
+<status status="FAIL" starttime="20211021 22:34:30.687" endtime="20211021 22:34:35.970"/>
+</kw>
+<kw name="Get Web Elements For List Device">
+<var>${web_elements}</var>
+<var>${count}</var>
+<doc>Get Web Elements For List Device</doc>
+<status status="NOT RUN" starttime="20211021 22:34:35.971" endtime="20211021 22:34:35.971"/>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<arg>${count} &gt; 1</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="NOT RUN" starttime="20211021 22:34:35.971" endtime="20211021 22:34:35.971"/>
+</kw>
+<status status="FAIL" starttime="20211021 22:34:30.655" endtime="20211021 22:34:35.971"/>
+</kw>
+<kw name="Stop Browser" library="CommonFunction" type="TEARDOWN">
+<doc>close browser by url</doc>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20211021 22:34:35.972" endtime="20211021 22:34:38.158"/>
+</kw>
+<status status="PASS" starttime="20211021 22:34:35.972" endtime="20211021 22:34:38.158"/>
+</kw>
+<doc>User Succesfully View Device Information With Multiple Login</doc>
+<tag>Squad-E</tag>
+<status status="FAIL" starttime="20211021 22:34:09.197" endtime="20211021 22:34:38.158">Element with locator 'xpath=//div[contains(@class,'my-6')]' not found.</status>
+</test>
+<test id="s1-t4" name="User Succesfully Revoke Their Own Device">
+<kw name="Start Browser" library="CommonFunction" type="SETUP">
+<arg>https://account.kompas.cloud/login</arg>
+<doc>open browser by url</doc>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20211021 22:34:38.161" level="INFO">Opening browser 'chrome' to base url 'https://account.kompas.cloud/login'.</msg>
+<status status="PASS" starttime="20211021 22:34:38.161" endtime="20211021 22:34:40.473"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20211021 22:34:40.473" endtime="20211021 22:34:40.596"/>
+</kw>
+<status status="PASS" starttime="20211021 22:34:38.161" endtime="20211021 22:34:40.596"/>
+</kw>
+<kw name="Register New User">
+<doc>Register New User</doc>
+<kw name="Generate Random Data For Register" library="Register">
+<var>${random_firstname}</var>
+<var>${random_lastname}</var>
+<var>${random_email}</var>
+<var>${random_pass}</var>
+<doc>Generate Data For Register</doc>
+<if>
+<branch type="IF" condition="${valid_char}==${True}">
+<kw name="First Name" library="FakerLibrary">
+<var>${random_firstname}</var>
+<msg timestamp="20211021 22:34:40.600" level="INFO">${random_firstname} = Daniel</msg>
+<status status="PASS" starttime="20211021 22:34:40.599" endtime="20211021 22:34:40.600"/>
+</kw>
+<kw name="Last Name" library="FakerLibrary">
+<var>${random_lastname}</var>
+<msg timestamp="20211021 22:34:40.600" level="INFO">${random_lastname} = Williams</msg>
+<status status="PASS" starttime="20211021 22:34:40.600" endtime="20211021 22:34:40.600"/>
+</kw>
+<status status="PASS" starttime="20211021 22:34:40.599" endtime="20211021 22:34:40.600"/>
+</branch>
+<branch type="ELSE">
+<kw name="Generate Random String" library="String">
+<var>${random_firstname}</var>
+<arg>12</arg>
+<arg>chars=@#$^&amp;*[NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="NOT RUN" starttime="20211021 22:34:40.601" endtime="20211021 22:34:40.601"/>
+</kw>
+<kw name="Generate Random String" library="String">
+<var>${random_lastname}</var>
+<arg>12</arg>
+<arg>chars=@#$^&amp;*[NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="NOT RUN" starttime="20211021 22:34:40.601" endtime="20211021 22:34:40.601"/>
+</kw>
+<status status="NOT RUN" starttime="20211021 22:34:40.600" endtime="20211021 22:34:40.601"/>
+</branch>
+<status status="PASS" starttime="20211021 22:34:40.599" endtime="20211021 22:34:40.601"/>
+</if>
+<kw name="Email" library="FakerLibrary">
+<var>${email}</var>
+<arg>domain=1secmail.com</arg>
+<msg timestamp="20211021 22:34:40.601" level="INFO">${email} = katelyn99@1secmail.com</msg>
+<status status="PASS" starttime="20211021 22:34:40.601" endtime="20211021 22:34:40.601"/>
+</kw>
+<kw name="Generate Random String" library="String">
+<var>${string}</var>
+<arg>2</arg>
+<arg>chars=[LETTERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<msg timestamp="20211021 22:34:40.602" level="INFO">${string} = HA</msg>
+<status status="PASS" starttime="20211021 22:34:40.602" endtime="20211021 22:34:40.602"/>
+</kw>
+<kw name="Generate Random String" library="String">
+<var>${random_digit}</var>
+<arg>1</arg>
+<arg>123</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<msg timestamp="20211021 22:34:40.602" level="INFO">${random_digit} = 2</msg>
+<status status="PASS" starttime="20211021 22:34:40.602" endtime="20211021 22:34:40.602"/>
+</kw>
+<kw name="Generate Random String" library="String">
+<var>${numbers}</var>
+<arg>${random_digit}</arg>
+<arg>[NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<msg timestamp="20211021 22:34:40.603" level="INFO">${numbers} = 53</msg>
+<status status="PASS" starttime="20211021 22:34:40.602" endtime="20211021 22:34:40.603"/>
+</kw>
+<kw name="Convert To Lower Case" library="String">
+<var>${string_lower}</var>
+<arg>${string}</arg>
+<doc>Converts string to lower case.</doc>
+<msg timestamp="20211021 22:34:40.603" level="INFO">${string_lower} = ha</msg>
+<status status="PASS" starttime="20211021 22:34:40.603" endtime="20211021 22:34:40.603"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${random_email}</var>
+<arg>${HOST_NAME}${numbers}.${string_lower}${email}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20211021 22:34:40.603" level="INFO">${random_email} = testsdet53.hakatelyn99@1secmail.com</msg>
+<status status="PASS" starttime="20211021 22:34:40.603" endtime="20211021 22:34:40.603"/>
+</kw>
+<kw name="Password" library="FakerLibrary">
+<var>${random_pass}</var>
+<arg>length=${pass_length}</arg>
+<arg>upper_case=${true}</arg>
+<arg>lower_case=${true}</arg>
+<arg>special_chars=${pass_spc_chars}</arg>
+<doc>Generate a random password of the specified ``length``.</doc>
+<msg timestamp="20211021 22:34:40.604" level="INFO">${random_pass} = WM8X3YoZ</msg>
+<status status="PASS" starttime="20211021 22:34:40.604" endtime="20211021 22:34:40.604"/>
+</kw>
+<msg timestamp="20211021 22:34:40.604" level="INFO">${random_firstname} = Daniel</msg>
+<msg timestamp="20211021 22:34:40.604" level="INFO">${random_lastname} = Williams</msg>
+<msg timestamp="20211021 22:34:40.604" level="INFO">${random_email} = testsdet53.hakatelyn99@1secmail.com</msg>
+<msg timestamp="20211021 22:34:40.604" level="INFO">${random_pass} = WM8X3YoZ</msg>
+<status status="PASS" starttime="20211021 22:34:40.598" endtime="20211021 22:34:40.604"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${URL_REGISTER}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211021 22:34:40.605" level="INFO">Opening url 'https://account.kompas.cloud/register'</msg>
+<status status="PASS" starttime="20211021 22:34:40.605" endtime="20211021 22:34:41.457"/>
+</kw>
+<kw name="Input Register Form">
+<arg>${random_firstname}</arg>
+<arg>${random_lastname}</arg>
+<arg>${random_email}</arg>
+<arg>${random_pass}</arg>
+<doc>Input register form</doc>
+<kw name="Input First Name" library="RegisterPage">
+<arg>${random_firstname}</arg>
+<doc>Input First Name</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${fieldFirstName_registerPage}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:34:41.457" endtime="20211021 22:34:41.476"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${fieldFirstName_registerPage}</arg>
+<arg>${first_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211021 22:34:41.477" level="INFO">Typing text 'Daniel' into text field 'id=firstName'.</msg>
+<status status="PASS" starttime="20211021 22:34:41.476" endtime="20211021 22:34:41.530"/>
+</kw>
+<status status="PASS" starttime="20211021 22:34:41.457" endtime="20211021 22:34:41.530"/>
+</kw>
+<kw name="Input Last Name" library="RegisterPage">
+<arg>${random_lastname}</arg>
+<doc>Input Last Name</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${fieldLastName_registerPage}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:34:41.531" endtime="20211021 22:34:41.548"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${fieldLastName_registerPage}</arg>
+<arg>${last_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211021 22:34:41.549" level="INFO">Typing text 'Williams' into text field 'id=lastName'.</msg>
+<status status="PASS" starttime="20211021 22:34:41.548" endtime="20211021 22:34:41.602"/>
+</kw>
+<status status="PASS" starttime="20211021 22:34:41.531" endtime="20211021 22:34:41.602"/>
+</kw>
+<kw name="Input Email" library="RegisterPage">
+<arg>${random_email}</arg>
+<doc>Input Email</doc>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${fieldEmail_registerPage}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211021 22:34:41.602" level="INFO">Typing text 'testsdet53.hakatelyn99@1secmail.com' into text field 'id=email'.</msg>
+<status status="PASS" starttime="20211021 22:34:41.602" endtime="20211021 22:34:41.672"/>
+</kw>
+<status status="PASS" starttime="20211021 22:34:41.602" endtime="20211021 22:34:41.672"/>
+</kw>
+<kw name="Input Password" library="RegisterPage">
+<arg>${random_pass}</arg>
+<doc>Input Password</doc>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${fieldPassword_registerPage}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211021 22:34:41.672" level="INFO">Typing text 'WM8X3YoZ' into text field 'id=password'.</msg>
+<status status="PASS" starttime="20211021 22:34:41.672" endtime="20211021 22:34:41.736"/>
+</kw>
+<status status="PASS" starttime="20211021 22:34:41.672" endtime="20211021 22:34:41.736"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${FIRST_NAME}</arg>
+<arg>${random_firstname}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20211021 22:34:41.736" level="INFO">${FIRST_NAME} = Daniel</msg>
+<status status="PASS" starttime="20211021 22:34:41.736" endtime="20211021 22:34:41.737"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${REGISTERED_EMAIL}</arg>
+<arg>${random_email}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20211021 22:34:41.737" level="INFO">${REGISTERED_EMAIL} = testsdet53.hakatelyn99@1secmail.com</msg>
+<status status="PASS" starttime="20211021 22:34:41.737" endtime="20211021 22:34:41.737"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${LAST_NAME}</arg>
+<arg>${random_lastname}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20211021 22:34:41.737" level="INFO">${LAST_NAME} = Williams</msg>
+<status status="PASS" starttime="20211021 22:34:41.737" endtime="20211021 22:34:41.737"/>
+</kw>
+<status status="PASS" starttime="20211021 22:34:41.457" endtime="20211021 22:34:41.737"/>
+</kw>
+<kw name="Checklist Recaptcha In Register" library="RegisterPage">
+<doc>Checklist Recaptcha</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${selectFrame_registerPage}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:34:41.737" endtime="20211021 22:34:41.753"/>
+</kw>
+<kw name="Select Frame" library="SeleniumLibrary">
+<arg>${selectFrame_registerPage}</arg>
+<doc>Sets frame identified by ``locator`` as the current frame.</doc>
+<msg timestamp="20211021 22:34:41.753" level="INFO">Selecting frame 'tag=iframe'.</msg>
+<status status="PASS" starttime="20211021 22:34:41.753" endtime="20211021 22:34:41.777"/>
+</kw>
+<kw name="Wait And Click Element" library="CommonFunction">
+<arg>${checkboxRecaptcha_registerPage}</arg>
+<doc>Wait element and click</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${element}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:34:41.778" endtime="20211021 22:34:41.798"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${element}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211021 22:34:41.799" level="INFO">Clicking element 'xpath=//*[@id="recaptcha-anchor"]/div[1]'.</msg>
+<status status="PASS" starttime="20211021 22:34:41.798" endtime="20211021 22:34:41.889"/>
+</kw>
+<status status="PASS" starttime="20211021 22:34:41.777" endtime="20211021 22:34:41.889"/>
+</kw>
+<kw name="Unselect Frame" library="SeleniumLibrary">
+<doc>Sets the main frame as the current frame.</doc>
+<status status="PASS" starttime="20211021 22:34:41.889" endtime="20211021 22:34:41.892"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20211021 22:34:44.894" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20211021 22:34:41.893" endtime="20211021 22:34:44.894"/>
+</kw>
+<status status="PASS" starttime="20211021 22:34:41.737" endtime="20211021 22:34:44.894"/>
+</kw>
+<kw name="Click Button Daftar" library="RegisterPage">
+<doc>Click Button Daftar</doc>
+<kw name="Wait And Click Element" library="CommonFunction">
+<arg>${btnDaftar_registerPage}</arg>
+<doc>Wait element and click</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${element}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:34:44.896" endtime="20211021 22:34:44.922"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${element}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211021 22:34:44.922" level="INFO">Clicking element 'xpath=//*[@id="daftar"]'.</msg>
+<status status="PASS" starttime="20211021 22:34:44.922" endtime="20211021 22:34:45.169"/>
+</kw>
+<status status="PASS" starttime="20211021 22:34:44.895" endtime="20211021 22:34:45.170"/>
+</kw>
+<status status="PASS" starttime="20211021 22:34:44.895" endtime="20211021 22:34:45.170"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${accountBar_registerPage}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:34:45.170" endtime="20211021 22:34:53.876"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${URL_DEVICE_SETTINGS}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211021 22:34:53.876" level="INFO">Opening url 'https://account.kompas.cloud/manage-account/activity/device'</msg>
+<status status="PASS" starttime="20211021 22:34:53.876" endtime="20211021 22:34:54.347"/>
+</kw>
+<status status="PASS" starttime="20211021 22:34:40.598" endtime="20211021 22:34:54.347"/>
+</kw>
+<kw name="Click Delete Own Device" library="DeviceSettingsPage">
+<doc>Click Delete Own Device</doc>
+<kw name="Wait And Click Element" library="CommonFunction">
+<arg>${buttonDeleteOwn_deviceSettingsPage}</arg>
+<doc>Wait element and click</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${element}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20211021 22:35:24.499" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-39.png"&gt;&lt;img src="selenium-screenshot-39.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20211021 22:35:24.362" endtime="20211021 22:35:24.499"/>
+</kw>
+<msg timestamp="20211021 22:35:24.500" level="FAIL">Element 'xpath=//body/div[@id='__nuxt']/div[@id='__layout']/div[1]/section[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/button[1]/*[1]' not visible after 30 seconds.</msg>
+<status status="FAIL" starttime="20211021 22:34:54.348" endtime="20211021 22:35:24.500"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${element}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20211021 22:35:24.500" endtime="20211021 22:35:24.500"/>
+</kw>
+<status status="FAIL" starttime="20211021 22:34:54.348" endtime="20211021 22:35:24.501"/>
+</kw>
+<status status="FAIL" starttime="20211021 22:34:54.347" endtime="20211021 22:35:24.501"/>
+</kw>
+<kw name="Click Agree To Revoke Device" library="DeviceSettingsPage">
+<doc>Click Agree To Revoke Device</doc>
+<status status="NOT RUN" starttime="20211021 22:35:24.502" endtime="20211021 22:35:24.502"/>
+</kw>
+<kw name="Verify Succesfull Revoke Their Own Device">
+<doc>Verify Succesfull Revoke Their Own Device</doc>
+<status status="NOT RUN" starttime="20211021 22:35:24.502" endtime="20211021 22:35:24.502"/>
+</kw>
+<kw name="Stop Browser" library="CommonFunction" type="TEARDOWN">
+<doc>close browser by url</doc>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20211021 22:35:24.503" endtime="20211021 22:35:26.680"/>
+</kw>
+<status status="PASS" starttime="20211021 22:35:24.503" endtime="20211021 22:35:26.680"/>
+</kw>
+<doc>User Succesfully Revoke Their Own Device</doc>
+<tag>Squad-E</tag>
+<status status="FAIL" starttime="20211021 22:34:38.160" endtime="20211021 22:35:26.681">Element 'xpath=//body/div[@id='__nuxt']/div[@id='__layout']/div[1]/section[1]/div[5]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/button[1]/*[1]' not visible after 30 seconds.</status>
+</test>
+<test id="s1-t5" name="User Succesfully Revoke Another Device">
+<kw name="Start Browser" library="CommonFunction" type="SETUP">
+<arg>https://account.kompas.cloud/login</arg>
+<doc>open browser by url</doc>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20211021 22:35:26.684" level="INFO">Opening browser 'chrome' to base url 'https://account.kompas.cloud/login'.</msg>
+<status status="PASS" starttime="20211021 22:35:26.684" endtime="20211021 22:35:28.915"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20211021 22:35:28.915" endtime="20211021 22:35:29.036"/>
+</kw>
+<status status="PASS" starttime="20211021 22:35:26.683" endtime="20211021 22:35:29.037"/>
+</kw>
+<kw name="Register New User">
+<var>${registered_email}</var>
+<var>${registered_password}</var>
+<doc>Register New User</doc>
+<kw name="Generate Random Data For Register" library="Register">
+<var>${random_firstname}</var>
+<var>${random_lastname}</var>
+<var>${random_email}</var>
+<var>${random_pass}</var>
+<doc>Generate Data For Register</doc>
+<if>
+<branch type="IF" condition="${valid_char}==${True}">
+<kw name="First Name" library="FakerLibrary">
+<var>${random_firstname}</var>
+<msg timestamp="20211021 22:35:29.040" level="INFO">${random_firstname} = Benjamin</msg>
+<status status="PASS" starttime="20211021 22:35:29.040" endtime="20211021 22:35:29.041"/>
+</kw>
+<kw name="Last Name" library="FakerLibrary">
+<var>${random_lastname}</var>
+<msg timestamp="20211021 22:35:29.042" level="INFO">${random_lastname} = Young</msg>
+<status status="PASS" starttime="20211021 22:35:29.041" endtime="20211021 22:35:29.042"/>
+</kw>
+<status status="PASS" starttime="20211021 22:35:29.039" endtime="20211021 22:35:29.042"/>
+</branch>
+<branch type="ELSE">
+<kw name="Generate Random String" library="String">
+<var>${random_firstname}</var>
+<arg>12</arg>
+<arg>chars=@#$^&amp;*[NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="NOT RUN" starttime="20211021 22:35:29.042" endtime="20211021 22:35:29.042"/>
+</kw>
+<kw name="Generate Random String" library="String">
+<var>${random_lastname}</var>
+<arg>12</arg>
+<arg>chars=@#$^&amp;*[NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="NOT RUN" starttime="20211021 22:35:29.042" endtime="20211021 22:35:29.042"/>
+</kw>
+<status status="NOT RUN" starttime="20211021 22:35:29.042" endtime="20211021 22:35:29.042"/>
+</branch>
+<status status="PASS" starttime="20211021 22:35:29.039" endtime="20211021 22:35:29.042"/>
+</if>
+<kw name="Email" library="FakerLibrary">
+<var>${email}</var>
+<arg>domain=1secmail.com</arg>
+<msg timestamp="20211021 22:35:29.043" level="INFO">${email} = josepatrick@1secmail.com</msg>
+<status status="PASS" starttime="20211021 22:35:29.042" endtime="20211021 22:35:29.043"/>
+</kw>
+<kw name="Generate Random String" library="String">
+<var>${string}</var>
+<arg>2</arg>
+<arg>chars=[LETTERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<msg timestamp="20211021 22:35:29.044" level="INFO">${string} = dU</msg>
+<status status="PASS" starttime="20211021 22:35:29.044" endtime="20211021 22:35:29.044"/>
+</kw>
+<kw name="Generate Random String" library="String">
+<var>${random_digit}</var>
+<arg>1</arg>
+<arg>123</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<msg timestamp="20211021 22:35:29.044" level="INFO">${random_digit} = 2</msg>
+<status status="PASS" starttime="20211021 22:35:29.044" endtime="20211021 22:35:29.044"/>
+</kw>
+<kw name="Generate Random String" library="String">
+<var>${numbers}</var>
+<arg>${random_digit}</arg>
+<arg>[NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<msg timestamp="20211021 22:35:29.045" level="INFO">${numbers} = 86</msg>
+<status status="PASS" starttime="20211021 22:35:29.045" endtime="20211021 22:35:29.045"/>
+</kw>
+<kw name="Convert To Lower Case" library="String">
+<var>${string_lower}</var>
+<arg>${string}</arg>
+<doc>Converts string to lower case.</doc>
+<msg timestamp="20211021 22:35:29.045" level="INFO">${string_lower} = du</msg>
+<status status="PASS" starttime="20211021 22:35:29.045" endtime="20211021 22:35:29.045"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${random_email}</var>
+<arg>${HOST_NAME}${numbers}.${string_lower}${email}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20211021 22:35:29.046" level="INFO">${random_email} = testsdet86.dujosepatrick@1secmail.com</msg>
+<status status="PASS" starttime="20211021 22:35:29.045" endtime="20211021 22:35:29.046"/>
+</kw>
+<kw name="Password" library="FakerLibrary">
+<var>${random_pass}</var>
+<arg>length=${pass_length}</arg>
+<arg>upper_case=${true}</arg>
+<arg>lower_case=${true}</arg>
+<arg>special_chars=${pass_spc_chars}</arg>
+<doc>Generate a random password of the specified ``length``.</doc>
+<msg timestamp="20211021 22:35:29.046" level="INFO">${random_pass} = 0WXswVLm</msg>
+<status status="PASS" starttime="20211021 22:35:29.046" endtime="20211021 22:35:29.047"/>
+</kw>
+<msg timestamp="20211021 22:35:29.047" level="INFO">${random_firstname} = Benjamin</msg>
+<msg timestamp="20211021 22:35:29.047" level="INFO">${random_lastname} = Young</msg>
+<msg timestamp="20211021 22:35:29.047" level="INFO">${random_email} = testsdet86.dujosepatrick@1secmail.com</msg>
+<msg timestamp="20211021 22:35:29.047" level="INFO">${random_pass} = 0WXswVLm</msg>
+<status status="PASS" starttime="20211021 22:35:29.039" endtime="20211021 22:35:29.047"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${URL_REGISTER}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211021 22:35:29.047" level="INFO">Opening url 'https://account.kompas.cloud/register'</msg>
+<status status="PASS" starttime="20211021 22:35:29.047" endtime="20211021 22:35:29.841"/>
+</kw>
+<kw name="Input Register Form">
+<arg>${random_firstname}</arg>
+<arg>${random_lastname}</arg>
+<arg>${random_email}</arg>
+<arg>${random_pass}</arg>
+<doc>Input register form</doc>
+<kw name="Input First Name" library="RegisterPage">
+<arg>${random_firstname}</arg>
+<doc>Input First Name</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${fieldFirstName_registerPage}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:35:29.842" endtime="20211021 22:35:29.860"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${fieldFirstName_registerPage}</arg>
+<arg>${first_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211021 22:35:29.860" level="INFO">Typing text 'Benjamin' into text field 'id=firstName'.</msg>
+<status status="PASS" starttime="20211021 22:35:29.860" endtime="20211021 22:35:29.916"/>
+</kw>
+<status status="PASS" starttime="20211021 22:35:29.841" endtime="20211021 22:35:29.916"/>
+</kw>
+<kw name="Input Last Name" library="RegisterPage">
+<arg>${random_lastname}</arg>
+<doc>Input Last Name</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${fieldLastName_registerPage}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:35:29.916" endtime="20211021 22:35:29.935"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${fieldLastName_registerPage}</arg>
+<arg>${last_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211021 22:35:29.935" level="INFO">Typing text 'Young' into text field 'id=lastName'.</msg>
+<status status="PASS" starttime="20211021 22:35:29.935" endtime="20211021 22:35:29.986"/>
+</kw>
+<status status="PASS" starttime="20211021 22:35:29.916" endtime="20211021 22:35:29.986"/>
+</kw>
+<kw name="Input Email" library="RegisterPage">
+<arg>${random_email}</arg>
+<doc>Input Email</doc>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${fieldEmail_registerPage}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211021 22:35:29.987" level="INFO">Typing text 'testsdet86.dujosepatrick@1secmail.com' into text field 'id=email'.</msg>
+<status status="PASS" starttime="20211021 22:35:29.987" endtime="20211021 22:35:30.056"/>
+</kw>
+<status status="PASS" starttime="20211021 22:35:29.986" endtime="20211021 22:35:30.058"/>
+</kw>
+<kw name="Input Password" library="RegisterPage">
+<arg>${random_pass}</arg>
+<doc>Input Password</doc>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${fieldPassword_registerPage}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211021 22:35:30.060" level="INFO">Typing text '0WXswVLm' into text field 'id=password'.</msg>
+<status status="PASS" starttime="20211021 22:35:30.059" endtime="20211021 22:35:30.121"/>
+</kw>
+<status status="PASS" starttime="20211021 22:35:30.059" endtime="20211021 22:35:30.121"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${FIRST_NAME}</arg>
+<arg>${random_firstname}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20211021 22:35:30.121" level="INFO">${FIRST_NAME} = Benjamin</msg>
+<status status="PASS" starttime="20211021 22:35:30.121" endtime="20211021 22:35:30.121"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${REGISTERED_EMAIL}</arg>
+<arg>${random_email}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20211021 22:35:30.122" level="INFO">${REGISTERED_EMAIL} = testsdet86.dujosepatrick@1secmail.com</msg>
+<status status="PASS" starttime="20211021 22:35:30.121" endtime="20211021 22:35:30.122"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${LAST_NAME}</arg>
+<arg>${random_lastname}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20211021 22:35:30.122" level="INFO">${LAST_NAME} = Young</msg>
+<status status="PASS" starttime="20211021 22:35:30.122" endtime="20211021 22:35:30.122"/>
+</kw>
+<status status="PASS" starttime="20211021 22:35:29.841" endtime="20211021 22:35:30.122"/>
+</kw>
+<kw name="Checklist Recaptcha In Register" library="RegisterPage">
+<doc>Checklist Recaptcha</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${selectFrame_registerPage}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:35:30.122" endtime="20211021 22:35:30.144"/>
+</kw>
+<kw name="Select Frame" library="SeleniumLibrary">
+<arg>${selectFrame_registerPage}</arg>
+<doc>Sets frame identified by ``locator`` as the current frame.</doc>
+<msg timestamp="20211021 22:35:30.144" level="INFO">Selecting frame 'tag=iframe'.</msg>
+<status status="PASS" starttime="20211021 22:35:30.144" endtime="20211021 22:35:30.165"/>
+</kw>
+<kw name="Wait And Click Element" library="CommonFunction">
+<arg>${checkboxRecaptcha_registerPage}</arg>
+<doc>Wait element and click</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${element}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:35:30.166" endtime="20211021 22:35:30.186"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${element}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211021 22:35:30.186" level="INFO">Clicking element 'xpath=//*[@id="recaptcha-anchor"]/div[1]'.</msg>
+<status status="PASS" starttime="20211021 22:35:30.186" endtime="20211021 22:35:30.269"/>
+</kw>
+<status status="PASS" starttime="20211021 22:35:30.166" endtime="20211021 22:35:30.269"/>
+</kw>
+<kw name="Unselect Frame" library="SeleniumLibrary">
+<doc>Sets the main frame as the current frame.</doc>
+<status status="PASS" starttime="20211021 22:35:30.269" endtime="20211021 22:35:30.275"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20211021 22:35:33.277" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20211021 22:35:30.275" endtime="20211021 22:35:33.277"/>
+</kw>
+<status status="PASS" starttime="20211021 22:35:30.122" endtime="20211021 22:35:33.277"/>
+</kw>
+<kw name="Click Button Daftar" library="RegisterPage">
+<doc>Click Button Daftar</doc>
+<kw name="Wait And Click Element" library="CommonFunction">
+<arg>${btnDaftar_registerPage}</arg>
+<doc>Wait element and click</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${element}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:35:33.278" endtime="20211021 22:35:33.298"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${element}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211021 22:35:33.298" level="INFO">Clicking element 'xpath=//*[@id="daftar"]'.</msg>
+<status status="PASS" starttime="20211021 22:35:33.298" endtime="20211021 22:35:33.566"/>
+</kw>
+<status status="PASS" starttime="20211021 22:35:33.277" endtime="20211021 22:35:33.566"/>
+</kw>
+<status status="PASS" starttime="20211021 22:35:33.277" endtime="20211021 22:35:33.566"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${accountBar_registerPage}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:35:33.566" endtime="20211021 22:35:42.037"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${URL_DEVICE_SETTINGS}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211021 22:35:42.037" level="INFO">Opening url 'https://account.kompas.cloud/manage-account/activity/device'</msg>
+<status status="PASS" starttime="20211021 22:35:42.037" endtime="20211021 22:35:42.645"/>
+</kw>
+<msg timestamp="20211021 22:35:42.646" level="INFO">${registered_email} = testsdet86.dujosepatrick@1secmail.com</msg>
+<msg timestamp="20211021 22:35:42.646" level="INFO">${registered_password} = 0WXswVLm</msg>
+<status status="PASS" starttime="20211021 22:35:29.038" endtime="20211021 22:35:42.646"/>
+</kw>
+<kw name="Go Back Than 1 Times">
+<arg>4</arg>
+<doc>Go Back Than 1 Times</doc>
+<kw name="Set Variable" library="BuiltIn">
+<var>${index}</var>
+<arg>1</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20211021 22:35:42.648" level="INFO">${index} = 1</msg>
+<status status="PASS" starttime="20211021 22:35:42.648" endtime="20211021 22:35:42.649"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${i}</var>
+<value>1</value>
+<value>${times}</value>
+<iter>
+<var name="${i}">1</var>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>${index} == ${times}</arg>
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20211021 22:35:42.649" endtime="20211021 22:35:42.649"/>
+</kw>
+<kw name="Go Back" library="SeleniumLibrary">
+<doc>Simulates the user clicking the back button on their browser.</doc>
+<status status="PASS" starttime="20211021 22:35:42.649" endtime="20211021 22:35:42.713"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20211021 22:35:42.714" level="INFO">${index} = 2</msg>
+<status status="PASS" starttime="20211021 22:35:42.714" endtime="20211021 22:35:42.714"/>
+</kw>
+<status status="PASS" starttime="20211021 22:35:42.649" endtime="20211021 22:35:42.714"/>
+</iter>
+<iter>
+<var name="${i}">2</var>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>${index} == ${times}</arg>
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20211021 22:35:42.715" endtime="20211021 22:35:42.715"/>
+</kw>
+<kw name="Go Back" library="SeleniumLibrary">
+<doc>Simulates the user clicking the back button on their browser.</doc>
+<status status="PASS" starttime="20211021 22:35:42.715" endtime="20211021 22:35:43.854"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20211021 22:35:43.854" level="INFO">${index} = 3</msg>
+<status status="PASS" starttime="20211021 22:35:43.854" endtime="20211021 22:35:43.854"/>
+</kw>
+<status status="PASS" starttime="20211021 22:35:42.714" endtime="20211021 22:35:43.854"/>
+</iter>
+<iter>
+<var name="${i}">3</var>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>${index} == ${times}</arg>
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20211021 22:35:43.854" endtime="20211021 22:35:43.854"/>
+</kw>
+<kw name="Go Back" library="SeleniumLibrary">
+<doc>Simulates the user clicking the back button on their browser.</doc>
+<status status="PASS" starttime="20211021 22:35:43.854" endtime="20211021 22:35:44.150"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20211021 22:35:44.151" level="INFO">${index} = 4</msg>
+<status status="PASS" starttime="20211021 22:35:44.151" endtime="20211021 22:35:44.151"/>
+</kw>
+<status status="PASS" starttime="20211021 22:35:43.854" endtime="20211021 22:35:44.151"/>
+</iter>
+<status status="PASS" starttime="20211021 22:35:42.649" endtime="20211021 22:35:44.151"/>
+</for>
+<kw name="Wait And Click Element" library="CommonFunction">
+<arg>${hyperLinkSilakanMasuk_registerPage}</arg>
+<doc>Wait element and click</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${element}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20211021 22:36:14.381" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-40.png"&gt;&lt;img src="selenium-screenshot-40.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20211021 22:36:14.164" endtime="20211021 22:36:14.381"/>
+</kw>
+<msg timestamp="20211021 22:36:14.382" level="FAIL">Element 'xpath=//a[contains(@href,'login')]' not visible after 30 seconds.</msg>
+<status status="FAIL" starttime="20211021 22:35:44.152" endtime="20211021 22:36:14.382"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${element}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20211021 22:36:14.383" endtime="20211021 22:36:14.383"/>
+</kw>
+<status status="FAIL" starttime="20211021 22:35:44.152" endtime="20211021 22:36:14.383"/>
+</kw>
+<status status="FAIL" starttime="20211021 22:35:42.647" endtime="20211021 22:36:14.384"/>
+</kw>
+<kw name="Login More Than 1 Times Success">
+<arg>4</arg>
+<arg>${registered_email}</arg>
+<arg>${registered_password}</arg>
+<doc>Login More Than 1 Times Success (All Looping Login Need Go back To Login Form)</doc>
+<status status="NOT RUN" starttime="20211021 22:36:14.384" endtime="20211021 22:36:14.384"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${URL_DEVICE_SETTINGS}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="NOT RUN" starttime="20211021 22:36:14.385" endtime="20211021 22:36:14.385"/>
+</kw>
+<kw name="Click Delete Another Device" library="DeviceSettingsPage">
+<doc>Click Delete Another Device</doc>
+<status status="NOT RUN" starttime="20211021 22:36:14.385" endtime="20211021 22:36:14.385"/>
+</kw>
+<kw name="Click Agree To Revoke Device" library="DeviceSettingsPage">
+<doc>Click Agree To Revoke Device</doc>
+<status status="NOT RUN" starttime="20211021 22:36:14.385" endtime="20211021 22:36:14.385"/>
+</kw>
+<kw name="Verify Succesfull Revoke Another Device">
+<doc>Verify Succesfull Revoke Another Device</doc>
+<status status="NOT RUN" starttime="20211021 22:36:14.386" endtime="20211021 22:36:14.386"/>
+</kw>
+<kw name="Stop Browser" library="CommonFunction" type="TEARDOWN">
+<doc>close browser by url</doc>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20211021 22:36:14.386" endtime="20211021 22:36:16.651"/>
+</kw>
+<status status="PASS" starttime="20211021 22:36:14.386" endtime="20211021 22:36:16.651"/>
+</kw>
+<doc>User Succesfully Revoke Another Device</doc>
+<tag>Squad-E</tag>
+<status status="FAIL" starttime="20211021 22:35:26.683" endtime="20211021 22:36:16.652">Element 'xpath=//a[contains(@href,'login')]' not visible after 30 seconds.</status>
+</test>
+<test id="s1-t6" name="User Get Error After Login 6x (Have 5 device)">
+<kw name="Start Browser" library="CommonFunction" type="SETUP">
+<arg>https://account.kompas.cloud/login</arg>
+<doc>open browser by url</doc>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20211021 22:36:16.655" level="INFO">Opening browser 'chrome' to base url 'https://account.kompas.cloud/login'.</msg>
+<status status="PASS" starttime="20211021 22:36:16.655" endtime="20211021 22:36:18.946"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20211021 22:36:18.946" endtime="20211021 22:36:19.068"/>
+</kw>
+<status status="PASS" starttime="20211021 22:36:16.654" endtime="20211021 22:36:19.068"/>
+</kw>
+<kw name="Register New User">
+<var>${registered_email}</var>
+<var>${registered_password}</var>
+<doc>Register New User</doc>
+<kw name="Generate Random Data For Register" library="Register">
+<var>${random_firstname}</var>
+<var>${random_lastname}</var>
+<var>${random_email}</var>
+<var>${random_pass}</var>
+<doc>Generate Data For Register</doc>
+<if>
+<branch type="IF" condition="${valid_char}==${True}">
+<kw name="First Name" library="FakerLibrary">
+<var>${random_firstname}</var>
+<msg timestamp="20211021 22:36:19.071" level="INFO">${random_firstname} = Jennifer</msg>
+<status status="PASS" starttime="20211021 22:36:19.071" endtime="20211021 22:36:19.071"/>
+</kw>
+<kw name="Last Name" library="FakerLibrary">
+<var>${random_lastname}</var>
+<msg timestamp="20211021 22:36:19.072" level="INFO">${random_lastname} = Anthony</msg>
+<status status="PASS" starttime="20211021 22:36:19.071" endtime="20211021 22:36:19.072"/>
+</kw>
+<status status="PASS" starttime="20211021 22:36:19.071" endtime="20211021 22:36:19.072"/>
+</branch>
+<branch type="ELSE">
+<kw name="Generate Random String" library="String">
+<var>${random_firstname}</var>
+<arg>12</arg>
+<arg>chars=@#$^&amp;*[NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="NOT RUN" starttime="20211021 22:36:19.072" endtime="20211021 22:36:19.072"/>
+</kw>
+<kw name="Generate Random String" library="String">
+<var>${random_lastname}</var>
+<arg>12</arg>
+<arg>chars=@#$^&amp;*[NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="NOT RUN" starttime="20211021 22:36:19.072" endtime="20211021 22:36:19.072"/>
+</kw>
+<status status="NOT RUN" starttime="20211021 22:36:19.072" endtime="20211021 22:36:19.072"/>
+</branch>
+<status status="PASS" starttime="20211021 22:36:19.070" endtime="20211021 22:36:19.072"/>
+</if>
+<kw name="Email" library="FakerLibrary">
+<var>${email}</var>
+<arg>domain=1secmail.com</arg>
+<msg timestamp="20211021 22:36:19.073" level="INFO">${email} = robinsonsusan@1secmail.com</msg>
+<status status="PASS" starttime="20211021 22:36:19.073" endtime="20211021 22:36:19.073"/>
+</kw>
+<kw name="Generate Random String" library="String">
+<var>${string}</var>
+<arg>2</arg>
+<arg>chars=[LETTERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<msg timestamp="20211021 22:36:19.074" level="INFO">${string} = WF</msg>
+<status status="PASS" starttime="20211021 22:36:19.074" endtime="20211021 22:36:19.074"/>
+</kw>
+<kw name="Generate Random String" library="String">
+<var>${random_digit}</var>
+<arg>1</arg>
+<arg>123</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<msg timestamp="20211021 22:36:19.074" level="INFO">${random_digit} = 2</msg>
+<status status="PASS" starttime="20211021 22:36:19.074" endtime="20211021 22:36:19.074"/>
+</kw>
+<kw name="Generate Random String" library="String">
+<var>${numbers}</var>
+<arg>${random_digit}</arg>
+<arg>[NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<msg timestamp="20211021 22:36:19.075" level="INFO">${numbers} = 22</msg>
+<status status="PASS" starttime="20211021 22:36:19.075" endtime="20211021 22:36:19.075"/>
+</kw>
+<kw name="Convert To Lower Case" library="String">
+<var>${string_lower}</var>
+<arg>${string}</arg>
+<doc>Converts string to lower case.</doc>
+<msg timestamp="20211021 22:36:19.075" level="INFO">${string_lower} = wf</msg>
+<status status="PASS" starttime="20211021 22:36:19.075" endtime="20211021 22:36:19.075"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${random_email}</var>
+<arg>${HOST_NAME}${numbers}.${string_lower}${email}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20211021 22:36:19.076" level="INFO">${random_email} = testsdet22.wfrobinsonsusan@1secmail.com</msg>
+<status status="PASS" starttime="20211021 22:36:19.076" endtime="20211021 22:36:19.076"/>
+</kw>
+<kw name="Password" library="FakerLibrary">
+<var>${random_pass}</var>
+<arg>length=${pass_length}</arg>
+<arg>upper_case=${true}</arg>
+<arg>lower_case=${true}</arg>
+<arg>special_chars=${pass_spc_chars}</arg>
+<doc>Generate a random password of the specified ``length``.</doc>
+<msg timestamp="20211021 22:36:19.077" level="INFO">${random_pass} = 6AUDeiVp</msg>
+<status status="PASS" starttime="20211021 22:36:19.076" endtime="20211021 22:36:19.077"/>
+</kw>
+<msg timestamp="20211021 22:36:19.077" level="INFO">${random_firstname} = Jennifer</msg>
+<msg timestamp="20211021 22:36:19.078" level="INFO">${random_lastname} = Anthony</msg>
+<msg timestamp="20211021 22:36:19.078" level="INFO">${random_email} = testsdet22.wfrobinsonsusan@1secmail.com</msg>
+<msg timestamp="20211021 22:36:19.078" level="INFO">${random_pass} = 6AUDeiVp</msg>
+<status status="PASS" starttime="20211021 22:36:19.070" endtime="20211021 22:36:19.078"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${URL_REGISTER}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211021 22:36:19.078" level="INFO">Opening url 'https://account.kompas.cloud/register'</msg>
+<status status="PASS" starttime="20211021 22:36:19.078" endtime="20211021 22:36:19.820"/>
+</kw>
+<kw name="Input Register Form">
+<arg>${random_firstname}</arg>
+<arg>${random_lastname}</arg>
+<arg>${random_email}</arg>
+<arg>${random_pass}</arg>
+<doc>Input register form</doc>
+<kw name="Input First Name" library="RegisterPage">
+<arg>${random_firstname}</arg>
+<doc>Input First Name</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${fieldFirstName_registerPage}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:36:19.820" endtime="20211021 22:36:19.839"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${fieldFirstName_registerPage}</arg>
+<arg>${first_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211021 22:36:19.840" level="INFO">Typing text 'Jennifer' into text field 'id=firstName'.</msg>
+<status status="PASS" starttime="20211021 22:36:19.840" endtime="20211021 22:36:19.897"/>
+</kw>
+<status status="PASS" starttime="20211021 22:36:19.820" endtime="20211021 22:36:19.897"/>
+</kw>
+<kw name="Input Last Name" library="RegisterPage">
+<arg>${random_lastname}</arg>
+<doc>Input Last Name</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${fieldLastName_registerPage}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:36:19.897" endtime="20211021 22:36:19.916"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${fieldLastName_registerPage}</arg>
+<arg>${last_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211021 22:36:19.916" level="INFO">Typing text 'Anthony' into text field 'id=lastName'.</msg>
+<status status="PASS" starttime="20211021 22:36:19.916" endtime="20211021 22:36:19.972"/>
+</kw>
+<status status="PASS" starttime="20211021 22:36:19.897" endtime="20211021 22:36:19.972"/>
+</kw>
+<kw name="Input Email" library="RegisterPage">
+<arg>${random_email}</arg>
+<doc>Input Email</doc>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${fieldEmail_registerPage}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211021 22:36:19.973" level="INFO">Typing text 'testsdet22.wfrobinsonsusan@1secmail.com' into text field 'id=email'.</msg>
+<status status="PASS" starttime="20211021 22:36:19.972" endtime="20211021 22:36:20.043"/>
+</kw>
+<status status="PASS" starttime="20211021 22:36:19.972" endtime="20211021 22:36:20.044"/>
+</kw>
+<kw name="Input Password" library="RegisterPage">
+<arg>${random_pass}</arg>
+<doc>Input Password</doc>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${fieldPassword_registerPage}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211021 22:36:20.045" level="INFO">Typing text '6AUDeiVp' into text field 'id=password'.</msg>
+<status status="PASS" starttime="20211021 22:36:20.045" endtime="20211021 22:36:20.108"/>
+</kw>
+<status status="PASS" starttime="20211021 22:36:20.044" endtime="20211021 22:36:20.108"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${FIRST_NAME}</arg>
+<arg>${random_firstname}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20211021 22:36:20.108" level="INFO">${FIRST_NAME} = Jennifer</msg>
+<status status="PASS" starttime="20211021 22:36:20.108" endtime="20211021 22:36:20.108"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${REGISTERED_EMAIL}</arg>
+<arg>${random_email}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20211021 22:36:20.109" level="INFO">${REGISTERED_EMAIL} = testsdet22.wfrobinsonsusan@1secmail.com</msg>
+<status status="PASS" starttime="20211021 22:36:20.108" endtime="20211021 22:36:20.109"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${LAST_NAME}</arg>
+<arg>${random_lastname}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20211021 22:36:20.109" level="INFO">${LAST_NAME} = Anthony</msg>
+<status status="PASS" starttime="20211021 22:36:20.109" endtime="20211021 22:36:20.109"/>
+</kw>
+<status status="PASS" starttime="20211021 22:36:19.820" endtime="20211021 22:36:20.109"/>
+</kw>
+<kw name="Checklist Recaptcha In Register" library="RegisterPage">
+<doc>Checklist Recaptcha</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${selectFrame_registerPage}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:36:20.109" endtime="20211021 22:36:20.128"/>
+</kw>
+<kw name="Select Frame" library="SeleniumLibrary">
+<arg>${selectFrame_registerPage}</arg>
+<doc>Sets frame identified by ``locator`` as the current frame.</doc>
+<msg timestamp="20211021 22:36:20.128" level="INFO">Selecting frame 'tag=iframe'.</msg>
+<status status="PASS" starttime="20211021 22:36:20.128" endtime="20211021 22:36:20.150"/>
+</kw>
+<kw name="Wait And Click Element" library="CommonFunction">
+<arg>${checkboxRecaptcha_registerPage}</arg>
+<doc>Wait element and click</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${element}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:36:20.151" endtime="20211021 22:36:20.170"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${element}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211021 22:36:20.171" level="INFO">Clicking element 'xpath=//*[@id="recaptcha-anchor"]/div[1]'.</msg>
+<status status="PASS" starttime="20211021 22:36:20.171" endtime="20211021 22:36:20.254"/>
+</kw>
+<status status="PASS" starttime="20211021 22:36:20.151" endtime="20211021 22:36:20.254"/>
+</kw>
+<kw name="Unselect Frame" library="SeleniumLibrary">
+<doc>Sets the main frame as the current frame.</doc>
+<status status="PASS" starttime="20211021 22:36:20.254" endtime="20211021 22:36:20.259"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20211021 22:36:23.268" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20211021 22:36:20.260" endtime="20211021 22:36:23.268"/>
+</kw>
+<status status="PASS" starttime="20211021 22:36:20.109" endtime="20211021 22:36:23.268"/>
+</kw>
+<kw name="Click Button Daftar" library="RegisterPage">
+<doc>Click Button Daftar</doc>
+<kw name="Wait And Click Element" library="CommonFunction">
+<arg>${btnDaftar_registerPage}</arg>
+<doc>Wait element and click</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${element}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:36:23.269" endtime="20211021 22:36:23.292"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${element}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211021 22:36:23.292" level="INFO">Clicking element 'xpath=//*[@id="daftar"]'.</msg>
+<status status="PASS" starttime="20211021 22:36:23.292" endtime="20211021 22:36:23.540"/>
+</kw>
+<status status="PASS" starttime="20211021 22:36:23.269" endtime="20211021 22:36:23.540"/>
+</kw>
+<status status="PASS" starttime="20211021 22:36:23.268" endtime="20211021 22:36:23.540"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${accountBar_registerPage}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:36:23.540" endtime="20211021 22:36:34.639"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${URL_DEVICE_SETTINGS}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211021 22:36:34.641" level="INFO">Opening url 'https://account.kompas.cloud/manage-account/activity/device'</msg>
+<status status="PASS" starttime="20211021 22:36:34.640" endtime="20211021 22:36:35.231"/>
+</kw>
+<msg timestamp="20211021 22:36:35.231" level="INFO">${registered_email} = testsdet22.wfrobinsonsusan@1secmail.com</msg>
+<msg timestamp="20211021 22:36:35.231" level="INFO">${registered_password} = 6AUDeiVp</msg>
+<status status="PASS" starttime="20211021 22:36:19.069" endtime="20211021 22:36:35.231"/>
+</kw>
+<kw name="Go Back Than 1 Times">
+<arg>4</arg>
+<doc>Go Back Than 1 Times</doc>
+<kw name="Set Variable" library="BuiltIn">
+<var>${index}</var>
+<arg>1</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20211021 22:36:35.231" level="INFO">${index} = 1</msg>
+<status status="PASS" starttime="20211021 22:36:35.231" endtime="20211021 22:36:35.231"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${i}</var>
+<value>1</value>
+<value>${times}</value>
+<iter>
+<var name="${i}">1</var>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>${index} == ${times}</arg>
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20211021 22:36:35.232" endtime="20211021 22:36:35.232"/>
+</kw>
+<kw name="Go Back" library="SeleniumLibrary">
+<doc>Simulates the user clicking the back button on their browser.</doc>
+<status status="PASS" starttime="20211021 22:36:35.232" endtime="20211021 22:36:36.733"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20211021 22:36:36.733" level="INFO">${index} = 2</msg>
+<status status="PASS" starttime="20211021 22:36:36.733" endtime="20211021 22:36:36.733"/>
+</kw>
+<status status="PASS" starttime="20211021 22:36:35.231" endtime="20211021 22:36:36.734"/>
+</iter>
+<iter>
+<var name="${i}">2</var>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>${index} == ${times}</arg>
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20211021 22:36:36.734" endtime="20211021 22:36:36.734"/>
+</kw>
+<kw name="Go Back" library="SeleniumLibrary">
+<doc>Simulates the user clicking the back button on their browser.</doc>
+<status status="PASS" starttime="20211021 22:36:36.734" endtime="20211021 22:36:37.015"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20211021 22:36:37.015" level="INFO">${index} = 3</msg>
+<status status="PASS" starttime="20211021 22:36:37.015" endtime="20211021 22:36:37.015"/>
+</kw>
+<status status="PASS" starttime="20211021 22:36:36.734" endtime="20211021 22:36:37.015"/>
+</iter>
+<iter>
+<var name="${i}">3</var>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>${index} == ${times}</arg>
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20211021 22:36:37.015" endtime="20211021 22:36:37.015"/>
+</kw>
+<kw name="Go Back" library="SeleniumLibrary">
+<doc>Simulates the user clicking the back button on their browser.</doc>
+<status status="PASS" starttime="20211021 22:36:37.016" endtime="20211021 22:36:37.029"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20211021 22:36:37.030" level="INFO">${index} = 4</msg>
+<status status="PASS" starttime="20211021 22:36:37.029" endtime="20211021 22:36:37.030"/>
+</kw>
+<status status="PASS" starttime="20211021 22:36:37.015" endtime="20211021 22:36:37.030"/>
+</iter>
+<status status="PASS" starttime="20211021 22:36:35.231" endtime="20211021 22:36:37.030"/>
+</for>
+<kw name="Wait And Click Element" library="CommonFunction">
+<arg>${hyperLinkSilakanMasuk_registerPage}</arg>
+<doc>Wait element and click</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${element}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:36:37.030" endtime="20211021 22:36:37.277"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${element}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211021 22:36:37.277" level="INFO">Clicking element 'xpath=//a[contains(@href,'login')]'.</msg>
+<status status="PASS" starttime="20211021 22:36:37.277" endtime="20211021 22:36:37.352"/>
+</kw>
+<status status="PASS" starttime="20211021 22:36:37.030" endtime="20211021 22:36:37.352"/>
+</kw>
+<status status="PASS" starttime="20211021 22:36:35.231" endtime="20211021 22:36:37.352"/>
+</kw>
+<kw name="Login More Than 1 Times Success">
+<arg>5</arg>
+<arg>${registered_email}</arg>
+<arg>${registered_password}</arg>
+<doc>Login More Than 1 Times Success (All Looping Login Need Go back To Login Form)</doc>
+<kw name="Set Variable" library="BuiltIn">
+<var>${index}</var>
+<arg>1</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20211021 22:36:37.354" level="INFO">${index} = 1</msg>
+<status status="PASS" starttime="20211021 22:36:37.354" endtime="20211021 22:36:37.354"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${i}</var>
+<value>1</value>
+<value>${times}</value>
+<iter>
+<var name="${i}">1</var>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>${index} == ${times}</arg>
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20211021 22:36:37.354" endtime="20211021 22:36:37.354"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${fieldEmail_loginPage}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:36:37.355" endtime="20211021 22:36:37.374"/>
+</kw>
+<kw name="Input Email" library="LoginPage">
+<arg>${email}</arg>
+<doc>Input Email</doc>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${fieldEmail_loginPage}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211021 22:36:37.375" level="INFO">Typing text 'testsdet22.wfrobinsonsusan@1secmail.com' into text field 'id=email'.</msg>
+<status status="PASS" starttime="20211021 22:36:37.375" endtime="20211021 22:36:37.450"/>
+</kw>
+<status status="PASS" starttime="20211021 22:36:37.374" endtime="20211021 22:36:37.450"/>
+</kw>
+<kw name="Input Password" library="LoginPage">
+<arg>${password}</arg>
+<doc>Input password</doc>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${fieldPassword_loginPage}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211021 22:36:37.452" level="INFO">Typing text '6AUDeiVp' into text field 'id=password'.</msg>
+<status status="PASS" starttime="20211021 22:36:37.451" endtime="20211021 22:36:37.507"/>
+</kw>
+<status status="PASS" starttime="20211021 22:36:37.451" endtime="20211021 22:36:37.508"/>
+</kw>
+<kw name="Click Button Sign In" library="LoginPage">
+<doc>Click button signin</doc>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${buttonLogin_loginPage}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211021 22:36:37.508" level="INFO">Clicking button 'id=masuk'.</msg>
+<status status="PASS" starttime="20211021 22:36:37.508" endtime="20211021 22:36:37.769"/>
+</kw>
+<status status="PASS" starttime="20211021 22:36:37.508" endtime="20211021 22:36:37.769"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20211021 22:36:37.770" level="INFO">${index} = 2</msg>
+<status status="PASS" starttime="20211021 22:36:37.769" endtime="20211021 22:36:37.770"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${accountBar_registerPage}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:36:37.770" endtime="20211021 22:36:39.021"/>
+</kw>
+<kw name="Go Back" library="SeleniumLibrary">
+<doc>Simulates the user clicking the back button on their browser.</doc>
+<status status="PASS" starttime="20211021 22:36:39.021" endtime="20211021 22:36:39.236"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${fieldEmail_loginPage}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:36:39.237" endtime="20211021 22:36:39.249"/>
+</kw>
+<status status="PASS" starttime="20211021 22:36:37.354" endtime="20211021 22:36:39.249"/>
+</iter>
+<iter>
+<var name="${i}">2</var>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>${index} == ${times}</arg>
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20211021 22:36:39.250" endtime="20211021 22:36:39.250"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${fieldEmail_loginPage}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:36:39.250" endtime="20211021 22:36:39.263"/>
+</kw>
+<kw name="Input Email" library="LoginPage">
+<arg>${email}</arg>
+<doc>Input Email</doc>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${fieldEmail_loginPage}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211021 22:36:39.263" level="INFO">Typing text 'testsdet22.wfrobinsonsusan@1secmail.com' into text field 'id=email'.</msg>
+<status status="PASS" starttime="20211021 22:36:39.263" endtime="20211021 22:36:39.344"/>
+</kw>
+<status status="PASS" starttime="20211021 22:36:39.263" endtime="20211021 22:36:39.344"/>
+</kw>
+<kw name="Input Password" library="LoginPage">
+<arg>${password}</arg>
+<doc>Input password</doc>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${fieldPassword_loginPage}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211021 22:36:39.345" level="INFO">Typing text '6AUDeiVp' into text field 'id=password'.</msg>
+<status status="PASS" starttime="20211021 22:36:39.345" endtime="20211021 22:36:39.396"/>
+</kw>
+<status status="PASS" starttime="20211021 22:36:39.344" endtime="20211021 22:36:39.396"/>
+</kw>
+<kw name="Click Button Sign In" library="LoginPage">
+<doc>Click button signin</doc>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${buttonLogin_loginPage}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211021 22:36:39.397" level="INFO">Clicking button 'id=masuk'.</msg>
+<status status="PASS" starttime="20211021 22:36:39.396" endtime="20211021 22:36:39.459"/>
+</kw>
+<status status="PASS" starttime="20211021 22:36:39.396" endtime="20211021 22:36:39.459"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20211021 22:36:39.460" level="INFO">${index} = 3</msg>
+<status status="PASS" starttime="20211021 22:36:39.459" endtime="20211021 22:36:39.460"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${accountBar_registerPage}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:36:39.460" endtime="20211021 22:36:40.585"/>
+</kw>
+<kw name="Go Back" library="SeleniumLibrary">
+<doc>Simulates the user clicking the back button on their browser.</doc>
+<status status="PASS" starttime="20211021 22:36:40.585" endtime="20211021 22:36:40.793"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${fieldEmail_loginPage}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:36:40.793" endtime="20211021 22:36:40.806"/>
+</kw>
+<status status="PASS" starttime="20211021 22:36:39.249" endtime="20211021 22:36:40.806"/>
+</iter>
+<iter>
+<var name="${i}">3</var>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>${index} == ${times}</arg>
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20211021 22:36:40.806" endtime="20211021 22:36:40.807"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${fieldEmail_loginPage}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:36:40.807" endtime="20211021 22:36:40.819"/>
+</kw>
+<kw name="Input Email" library="LoginPage">
+<arg>${email}</arg>
+<doc>Input Email</doc>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${fieldEmail_loginPage}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211021 22:36:40.820" level="INFO">Typing text 'testsdet22.wfrobinsonsusan@1secmail.com' into text field 'id=email'.</msg>
+<status status="PASS" starttime="20211021 22:36:40.819" endtime="20211021 22:36:40.902"/>
+</kw>
+<status status="PASS" starttime="20211021 22:36:40.819" endtime="20211021 22:36:40.903"/>
+</kw>
+<kw name="Input Password" library="LoginPage">
+<arg>${password}</arg>
+<doc>Input password</doc>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${fieldPassword_loginPage}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211021 22:36:40.903" level="INFO">Typing text '6AUDeiVp' into text field 'id=password'.</msg>
+<status status="PASS" starttime="20211021 22:36:40.903" endtime="20211021 22:36:40.955"/>
+</kw>
+<status status="PASS" starttime="20211021 22:36:40.903" endtime="20211021 22:36:40.956"/>
+</kw>
+<kw name="Click Button Sign In" library="LoginPage">
+<doc>Click button signin</doc>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${buttonLogin_loginPage}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211021 22:36:40.956" level="INFO">Clicking button 'id=masuk'.</msg>
+<status status="PASS" starttime="20211021 22:36:40.956" endtime="20211021 22:36:41.165"/>
+</kw>
+<status status="PASS" starttime="20211021 22:36:40.956" endtime="20211021 22:36:41.165"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20211021 22:36:41.166" level="INFO">${index} = 4</msg>
+<status status="PASS" starttime="20211021 22:36:41.166" endtime="20211021 22:36:41.166"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${accountBar_registerPage}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:36:41.166" endtime="20211021 22:36:42.353"/>
+</kw>
+<kw name="Go Back" library="SeleniumLibrary">
+<doc>Simulates the user clicking the back button on their browser.</doc>
+<status status="PASS" starttime="20211021 22:36:42.353" endtime="20211021 22:36:42.492"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${fieldEmail_loginPage}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:36:42.492" endtime="20211021 22:36:42.505"/>
+</kw>
+<status status="PASS" starttime="20211021 22:36:40.806" endtime="20211021 22:36:42.505"/>
+</iter>
+<iter>
+<var name="${i}">4</var>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>${index} == ${times}</arg>
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20211021 22:36:42.505" endtime="20211021 22:36:42.506"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${fieldEmail_loginPage}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:36:42.506" endtime="20211021 22:36:42.519"/>
+</kw>
+<kw name="Input Email" library="LoginPage">
+<arg>${email}</arg>
+<doc>Input Email</doc>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${fieldEmail_loginPage}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211021 22:36:42.520" level="INFO">Typing text 'testsdet22.wfrobinsonsusan@1secmail.com' into text field 'id=email'.</msg>
+<status status="PASS" starttime="20211021 22:36:42.520" endtime="20211021 22:36:42.598"/>
+</kw>
+<status status="PASS" starttime="20211021 22:36:42.520" endtime="20211021 22:36:42.598"/>
+</kw>
+<kw name="Input Password" library="LoginPage">
+<arg>${password}</arg>
+<doc>Input password</doc>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${fieldPassword_loginPage}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211021 22:36:42.598" level="INFO">Typing text '6AUDeiVp' into text field 'id=password'.</msg>
+<status status="PASS" starttime="20211021 22:36:42.598" endtime="20211021 22:36:42.650"/>
+</kw>
+<status status="PASS" starttime="20211021 22:36:42.598" endtime="20211021 22:36:42.651"/>
+</kw>
+<kw name="Click Button Sign In" library="LoginPage">
+<doc>Click button signin</doc>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${buttonLogin_loginPage}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211021 22:36:42.652" level="INFO">Clicking button 'id=masuk'.</msg>
+<status status="PASS" starttime="20211021 22:36:42.652" endtime="20211021 22:36:42.923"/>
+</kw>
+<status status="PASS" starttime="20211021 22:36:42.651" endtime="20211021 22:36:42.923"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20211021 22:36:42.923" level="INFO">${index} = 5</msg>
+<status status="PASS" starttime="20211021 22:36:42.923" endtime="20211021 22:36:42.923"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${accountBar_registerPage}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:36:42.923" endtime="20211021 22:36:44.130"/>
+</kw>
+<kw name="Go Back" library="SeleniumLibrary">
+<doc>Simulates the user clicking the back button on their browser.</doc>
+<status status="PASS" starttime="20211021 22:36:44.130" endtime="20211021 22:36:44.286"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${fieldEmail_loginPage}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:36:44.286" endtime="20211021 22:36:44.299"/>
+</kw>
+<status status="PASS" starttime="20211021 22:36:42.505" endtime="20211021 22:36:44.299"/>
+</iter>
+<status status="PASS" starttime="20211021 22:36:37.354" endtime="20211021 22:36:44.299"/>
+</for>
+<status status="PASS" starttime="20211021 22:36:37.353" endtime="20211021 22:36:44.299"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${fieldEmail_loginPage}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:36:44.299" endtime="20211021 22:36:44.310"/>
+</kw>
+<kw name="Input Email" library="LoginPage">
+<arg>${registered_email}</arg>
+<doc>Input Email</doc>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${fieldEmail_loginPage}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211021 22:36:44.310" level="INFO">Typing text 'testsdet22.wfrobinsonsusan@1secmail.com' into text field 'id=email'.</msg>
+<status status="PASS" starttime="20211021 22:36:44.310" endtime="20211021 22:36:44.389"/>
+</kw>
+<status status="PASS" starttime="20211021 22:36:44.310" endtime="20211021 22:36:44.390"/>
+</kw>
+<kw name="Input Password" library="LoginPage">
+<arg>${registered_password}</arg>
+<doc>Input password</doc>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${fieldPassword_loginPage}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211021 22:36:44.391" level="INFO">Typing text '6AUDeiVp' into text field 'id=password'.</msg>
+<status status="PASS" starttime="20211021 22:36:44.390" endtime="20211021 22:36:44.444"/>
+</kw>
+<status status="PASS" starttime="20211021 22:36:44.390" endtime="20211021 22:36:44.444"/>
+</kw>
+<kw name="Click Button Sign In" library="LoginPage">
+<doc>Click button signin</doc>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${buttonLogin_loginPage}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211021 22:36:44.446" level="INFO">Clicking button 'id=masuk'.</msg>
+<status status="PASS" starttime="20211021 22:36:44.445" endtime="20211021 22:36:44.723"/>
+</kw>
+<status status="PASS" starttime="20211021 22:36:44.445" endtime="20211021 22:36:44.724"/>
+</kw>
+<kw name="Verify Error After Login 6x (Have 5 Device)">
+<doc>Verify Error After Login 6x (Have 5 device)</doc>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>Penggunaan Perangkat Penuh Akun</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20211021 22:36:44.724" endtime="20211021 22:36:45.814"/>
+</kw>
+<kw name="Location Should Contain" library="SeleniumLibrary">
+<arg>device-list</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<msg timestamp="20211021 22:36:45.818" level="INFO">Current location contains 'device-list'.</msg>
+<status status="PASS" starttime="20211021 22:36:45.815" endtime="20211021 22:36:45.818"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Anda sudah aktif di 5 perangkat.</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20211021 22:36:45.829" level="INFO">Current page contains text 'Anda sudah aktif di 5 perangkat.'.</msg>
+<status status="PASS" starttime="20211021 22:36:45.818" endtime="20211021 22:36:45.830"/>
+</kw>
+<status status="PASS" starttime="20211021 22:36:44.724" endtime="20211021 22:36:45.830"/>
+</kw>
+<kw name="Stop Browser" library="CommonFunction" type="TEARDOWN">
+<doc>close browser by url</doc>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20211021 22:36:45.831" endtime="20211021 22:36:48.021"/>
+</kw>
+<status status="PASS" starttime="20211021 22:36:45.830" endtime="20211021 22:36:48.021"/>
+</kw>
+<doc>User Get Error After Login 6x (Have 5 device)</doc>
+<tag>Squad-E</tag>
+<status status="PASS" starttime="20211021 22:36:16.654" endtime="20211021 22:36:48.022"/>
+</test>
+<test id="s1-t7" name="User Get Error Revoke Device That Already Revoked">
+<kw name="Start Browser" library="CommonFunction" type="SETUP">
+<arg>https://account.kompas.cloud/login</arg>
+<doc>open browser by url</doc>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20211021 22:36:48.026" level="INFO">Opening browser 'chrome' to base url 'https://account.kompas.cloud/login'.</msg>
+<status status="PASS" starttime="20211021 22:36:48.025" endtime="20211021 22:36:50.253"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20211021 22:36:50.253" endtime="20211021 22:36:50.369"/>
+</kw>
+<status status="PASS" starttime="20211021 22:36:48.025" endtime="20211021 22:36:50.370"/>
+</kw>
+<kw name="Register New User">
+<var>${registered_email}</var>
+<var>${registered_password}</var>
+<doc>Register New User</doc>
+<kw name="Generate Random Data For Register" library="Register">
+<var>${random_firstname}</var>
+<var>${random_lastname}</var>
+<var>${random_email}</var>
+<var>${random_pass}</var>
+<doc>Generate Data For Register</doc>
+<if>
+<branch type="IF" condition="${valid_char}==${True}">
+<kw name="First Name" library="FakerLibrary">
+<var>${random_firstname}</var>
+<msg timestamp="20211021 22:36:50.371" level="INFO">${random_firstname} = Jeremy</msg>
+<status status="PASS" starttime="20211021 22:36:50.371" endtime="20211021 22:36:50.372"/>
+</kw>
+<kw name="Last Name" library="FakerLibrary">
+<var>${random_lastname}</var>
+<msg timestamp="20211021 22:36:50.372" level="INFO">${random_lastname} = Mcmillan</msg>
+<status status="PASS" starttime="20211021 22:36:50.372" endtime="20211021 22:36:50.372"/>
+</kw>
+<status status="PASS" starttime="20211021 22:36:50.371" endtime="20211021 22:36:50.372"/>
+</branch>
+<branch type="ELSE">
+<kw name="Generate Random String" library="String">
+<var>${random_firstname}</var>
+<arg>12</arg>
+<arg>chars=@#$^&amp;*[NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="NOT RUN" starttime="20211021 22:36:50.372" endtime="20211021 22:36:50.372"/>
+</kw>
+<kw name="Generate Random String" library="String">
+<var>${random_lastname}</var>
+<arg>12</arg>
+<arg>chars=@#$^&amp;*[NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="NOT RUN" starttime="20211021 22:36:50.372" endtime="20211021 22:36:50.372"/>
+</kw>
+<status status="NOT RUN" starttime="20211021 22:36:50.372" endtime="20211021 22:36:50.372"/>
+</branch>
+<status status="PASS" starttime="20211021 22:36:50.371" endtime="20211021 22:36:50.372"/>
+</if>
+<kw name="Email" library="FakerLibrary">
+<var>${email}</var>
+<arg>domain=1secmail.com</arg>
+<msg timestamp="20211021 22:36:50.372" level="INFO">${email} = tmata@1secmail.com</msg>
+<status status="PASS" starttime="20211021 22:36:50.372" endtime="20211021 22:36:50.372"/>
+</kw>
+<kw name="Generate Random String" library="String">
+<var>${string}</var>
+<arg>2</arg>
+<arg>chars=[LETTERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<msg timestamp="20211021 22:36:50.373" level="INFO">${string} = XN</msg>
+<status status="PASS" starttime="20211021 22:36:50.373" endtime="20211021 22:36:50.373"/>
+</kw>
+<kw name="Generate Random String" library="String">
+<var>${random_digit}</var>
+<arg>1</arg>
+<arg>123</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<msg timestamp="20211021 22:36:50.373" level="INFO">${random_digit} = 3</msg>
+<status status="PASS" starttime="20211021 22:36:50.373" endtime="20211021 22:36:50.373"/>
+</kw>
+<kw name="Generate Random String" library="String">
+<var>${numbers}</var>
+<arg>${random_digit}</arg>
+<arg>[NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<msg timestamp="20211021 22:36:50.373" level="INFO">${numbers} = 594</msg>
+<status status="PASS" starttime="20211021 22:36:50.373" endtime="20211021 22:36:50.373"/>
+</kw>
+<kw name="Convert To Lower Case" library="String">
+<var>${string_lower}</var>
+<arg>${string}</arg>
+<doc>Converts string to lower case.</doc>
+<msg timestamp="20211021 22:36:50.373" level="INFO">${string_lower} = xn</msg>
+<status status="PASS" starttime="20211021 22:36:50.373" endtime="20211021 22:36:50.373"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${random_email}</var>
+<arg>${HOST_NAME}${numbers}.${string_lower}${email}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20211021 22:36:50.374" level="INFO">${random_email} = testsdet594.xntmata@1secmail.com</msg>
+<status status="PASS" starttime="20211021 22:36:50.374" endtime="20211021 22:36:50.374"/>
+</kw>
+<kw name="Password" library="FakerLibrary">
+<var>${random_pass}</var>
+<arg>length=${pass_length}</arg>
+<arg>upper_case=${true}</arg>
+<arg>lower_case=${true}</arg>
+<arg>special_chars=${pass_spc_chars}</arg>
+<doc>Generate a random password of the specified ``length``.</doc>
+<msg timestamp="20211021 22:36:50.374" level="INFO">${random_pass} = 7nQikwdZ</msg>
+<status status="PASS" starttime="20211021 22:36:50.374" endtime="20211021 22:36:50.374"/>
+</kw>
+<msg timestamp="20211021 22:36:50.375" level="INFO">${random_firstname} = Jeremy</msg>
+<msg timestamp="20211021 22:36:50.375" level="INFO">${random_lastname} = Mcmillan</msg>
+<msg timestamp="20211021 22:36:50.375" level="INFO">${random_email} = testsdet594.xntmata@1secmail.com</msg>
+<msg timestamp="20211021 22:36:50.375" level="INFO">${random_pass} = 7nQikwdZ</msg>
+<status status="PASS" starttime="20211021 22:36:50.371" endtime="20211021 22:36:50.375"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${URL_REGISTER}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211021 22:36:50.376" level="INFO">Opening url 'https://account.kompas.cloud/register'</msg>
+<status status="PASS" starttime="20211021 22:36:50.375" endtime="20211021 22:36:51.166"/>
+</kw>
+<kw name="Input Register Form">
+<arg>${random_firstname}</arg>
+<arg>${random_lastname}</arg>
+<arg>${random_email}</arg>
+<arg>${random_pass}</arg>
+<doc>Input register form</doc>
+<kw name="Input First Name" library="RegisterPage">
+<arg>${random_firstname}</arg>
+<doc>Input First Name</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${fieldFirstName_registerPage}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:36:51.168" endtime="20211021 22:36:51.186"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${fieldFirstName_registerPage}</arg>
+<arg>${first_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211021 22:36:51.186" level="INFO">Typing text 'Jeremy' into text field 'id=firstName'.</msg>
+<status status="PASS" starttime="20211021 22:36:51.186" endtime="20211021 22:36:51.242"/>
+</kw>
+<status status="PASS" starttime="20211021 22:36:51.168" endtime="20211021 22:36:51.242"/>
+</kw>
+<kw name="Input Last Name" library="RegisterPage">
+<arg>${random_lastname}</arg>
+<doc>Input Last Name</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${fieldLastName_registerPage}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:36:51.242" endtime="20211021 22:36:51.261"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${fieldLastName_registerPage}</arg>
+<arg>${last_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211021 22:36:51.261" level="INFO">Typing text 'Mcmillan' into text field 'id=lastName'.</msg>
+<status status="PASS" starttime="20211021 22:36:51.261" endtime="20211021 22:36:51.313"/>
+</kw>
+<status status="PASS" starttime="20211021 22:36:51.242" endtime="20211021 22:36:51.313"/>
+</kw>
+<kw name="Input Email" library="RegisterPage">
+<arg>${random_email}</arg>
+<doc>Input Email</doc>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${fieldEmail_registerPage}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211021 22:36:51.314" level="INFO">Typing text 'testsdet594.xntmata@1secmail.com' into text field 'id=email'.</msg>
+<status status="PASS" starttime="20211021 22:36:51.314" endtime="20211021 22:36:51.381"/>
+</kw>
+<status status="PASS" starttime="20211021 22:36:51.313" endtime="20211021 22:36:51.381"/>
+</kw>
+<kw name="Input Password" library="RegisterPage">
+<arg>${random_pass}</arg>
+<doc>Input Password</doc>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${fieldPassword_registerPage}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211021 22:36:51.383" level="INFO">Typing text '7nQikwdZ' into text field 'id=password'.</msg>
+<status status="PASS" starttime="20211021 22:36:51.382" endtime="20211021 22:36:51.445"/>
+</kw>
+<status status="PASS" starttime="20211021 22:36:51.381" endtime="20211021 22:36:51.445"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${FIRST_NAME}</arg>
+<arg>${random_firstname}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20211021 22:36:51.446" level="INFO">${FIRST_NAME} = Jeremy</msg>
+<status status="PASS" starttime="20211021 22:36:51.445" endtime="20211021 22:36:51.446"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${REGISTERED_EMAIL}</arg>
+<arg>${random_email}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20211021 22:36:51.446" level="INFO">${REGISTERED_EMAIL} = testsdet594.xntmata@1secmail.com</msg>
+<status status="PASS" starttime="20211021 22:36:51.446" endtime="20211021 22:36:51.446"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${LAST_NAME}</arg>
+<arg>${random_lastname}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20211021 22:36:51.446" level="INFO">${LAST_NAME} = Mcmillan</msg>
+<status status="PASS" starttime="20211021 22:36:51.446" endtime="20211021 22:36:51.446"/>
+</kw>
+<status status="PASS" starttime="20211021 22:36:51.166" endtime="20211021 22:36:51.446"/>
+</kw>
+<kw name="Checklist Recaptcha In Register" library="RegisterPage">
+<doc>Checklist Recaptcha</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${selectFrame_registerPage}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:36:51.447" endtime="20211021 22:36:51.466"/>
+</kw>
+<kw name="Select Frame" library="SeleniumLibrary">
+<arg>${selectFrame_registerPage}</arg>
+<doc>Sets frame identified by ``locator`` as the current frame.</doc>
+<msg timestamp="20211021 22:36:51.467" level="INFO">Selecting frame 'tag=iframe'.</msg>
+<status status="PASS" starttime="20211021 22:36:51.466" endtime="20211021 22:36:51.491"/>
+</kw>
+<kw name="Wait And Click Element" library="CommonFunction">
+<arg>${checkboxRecaptcha_registerPage}</arg>
+<doc>Wait element and click</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${element}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:36:51.491" endtime="20211021 22:36:51.508"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${element}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211021 22:36:51.508" level="INFO">Clicking element 'xpath=//*[@id="recaptcha-anchor"]/div[1]'.</msg>
+<status status="PASS" starttime="20211021 22:36:51.508" endtime="20211021 22:36:51.593"/>
+</kw>
+<status status="PASS" starttime="20211021 22:36:51.491" endtime="20211021 22:36:51.593"/>
+</kw>
+<kw name="Unselect Frame" library="SeleniumLibrary">
+<doc>Sets the main frame as the current frame.</doc>
+<status status="PASS" starttime="20211021 22:36:51.593" endtime="20211021 22:36:51.598"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20211021 22:36:54.612" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20211021 22:36:51.598" endtime="20211021 22:36:54.612"/>
+</kw>
+<status status="PASS" starttime="20211021 22:36:51.446" endtime="20211021 22:36:54.612"/>
+</kw>
+<kw name="Click Button Daftar" library="RegisterPage">
+<doc>Click Button Daftar</doc>
+<kw name="Wait And Click Element" library="CommonFunction">
+<arg>${btnDaftar_registerPage}</arg>
+<doc>Wait element and click</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${element}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:36:54.613" endtime="20211021 22:36:54.636"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${element}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211021 22:36:54.637" level="INFO">Clicking element 'xpath=//*[@id="daftar"]'.</msg>
+<status status="PASS" starttime="20211021 22:36:54.637" endtime="20211021 22:36:54.887"/>
+</kw>
+<status status="PASS" starttime="20211021 22:36:54.612" endtime="20211021 22:36:54.888"/>
+</kw>
+<status status="PASS" starttime="20211021 22:36:54.612" endtime="20211021 22:36:54.888"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${accountBar_registerPage}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:36:54.888" endtime="20211021 22:37:03.214"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${URL_DEVICE_SETTINGS}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211021 22:37:03.214" level="INFO">Opening url 'https://account.kompas.cloud/manage-account/activity/device'</msg>
+<status status="PASS" starttime="20211021 22:37:03.214" endtime="20211021 22:37:03.740"/>
+</kw>
+<msg timestamp="20211021 22:37:03.741" level="INFO">${registered_email} = testsdet594.xntmata@1secmail.com</msg>
+<msg timestamp="20211021 22:37:03.741" level="INFO">${registered_password} = 7nQikwdZ</msg>
+<status status="PASS" starttime="20211021 22:36:50.371" endtime="20211021 22:37:03.741"/>
+</kw>
+<kw name="Go Back Than 1 Times">
+<arg>4</arg>
+<doc>Go Back Than 1 Times</doc>
+<kw name="Set Variable" library="BuiltIn">
+<var>${index}</var>
+<arg>1</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20211021 22:37:03.742" level="INFO">${index} = 1</msg>
+<status status="PASS" starttime="20211021 22:37:03.741" endtime="20211021 22:37:03.742"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${i}</var>
+<value>1</value>
+<value>${times}</value>
+<iter>
+<var name="${i}">1</var>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>${index} == ${times}</arg>
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20211021 22:37:03.742" endtime="20211021 22:37:03.742"/>
+</kw>
+<kw name="Go Back" library="SeleniumLibrary">
+<doc>Simulates the user clicking the back button on their browser.</doc>
+<status status="PASS" starttime="20211021 22:37:03.742" endtime="20211021 22:37:05.113"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20211021 22:37:05.114" level="INFO">${index} = 2</msg>
+<status status="PASS" starttime="20211021 22:37:05.113" endtime="20211021 22:37:05.114"/>
+</kw>
+<status status="PASS" starttime="20211021 22:37:03.742" endtime="20211021 22:37:05.114"/>
+</iter>
+<iter>
+<var name="${i}">2</var>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>${index} == ${times}</arg>
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20211021 22:37:05.114" endtime="20211021 22:37:05.114"/>
+</kw>
+<kw name="Go Back" library="SeleniumLibrary">
+<doc>Simulates the user clicking the back button on their browser.</doc>
+<status status="PASS" starttime="20211021 22:37:05.114" endtime="20211021 22:37:05.323"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20211021 22:37:05.325" level="INFO">${index} = 3</msg>
+<status status="PASS" starttime="20211021 22:37:05.324" endtime="20211021 22:37:05.325"/>
+</kw>
+<status status="PASS" starttime="20211021 22:37:05.114" endtime="20211021 22:37:05.325"/>
+</iter>
+<iter>
+<var name="${i}">3</var>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>${index} == ${times}</arg>
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20211021 22:37:05.325" endtime="20211021 22:37:05.325"/>
+</kw>
+<kw name="Go Back" library="SeleniumLibrary">
+<doc>Simulates the user clicking the back button on their browser.</doc>
+<status status="PASS" starttime="20211021 22:37:05.325" endtime="20211021 22:37:05.339"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20211021 22:37:05.339" level="INFO">${index} = 4</msg>
+<status status="PASS" starttime="20211021 22:37:05.339" endtime="20211021 22:37:05.339"/>
+</kw>
+<status status="PASS" starttime="20211021 22:37:05.325" endtime="20211021 22:37:05.339"/>
+</iter>
+<status status="PASS" starttime="20211021 22:37:03.742" endtime="20211021 22:37:05.339"/>
+</for>
+<kw name="Wait And Click Element" library="CommonFunction">
+<arg>${hyperLinkSilakanMasuk_registerPage}</arg>
+<doc>Wait element and click</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${element}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:37:05.340" endtime="20211021 22:37:05.587"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${element}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211021 22:37:05.588" level="INFO">Clicking element 'xpath=//a[contains(@href,'login')]'.</msg>
+<status status="PASS" starttime="20211021 22:37:05.587" endtime="20211021 22:37:05.647"/>
+</kw>
+<status status="PASS" starttime="20211021 22:37:05.339" endtime="20211021 22:37:05.647"/>
+</kw>
+<status status="PASS" starttime="20211021 22:37:03.741" endtime="20211021 22:37:05.648"/>
+</kw>
+<kw name="Login More Than 1 Times Success">
+<arg>3</arg>
+<arg>${registered_email}</arg>
+<arg>${registered_password}</arg>
+<doc>Login More Than 1 Times Success (All Looping Login Need Go back To Login Form)</doc>
+<kw name="Set Variable" library="BuiltIn">
+<var>${index}</var>
+<arg>1</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20211021 22:37:05.649" level="INFO">${index} = 1</msg>
+<status status="PASS" starttime="20211021 22:37:05.648" endtime="20211021 22:37:05.649"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${i}</var>
+<value>1</value>
+<value>${times}</value>
+<iter>
+<var name="${i}">1</var>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>${index} == ${times}</arg>
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20211021 22:37:05.649" endtime="20211021 22:37:05.649"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${fieldEmail_loginPage}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<msg timestamp="20211021 22:37:05.678" level="INFO">Suppressing StaleElementReferenceException from Selenium.</msg>
+<status status="PASS" starttime="20211021 22:37:05.649" endtime="20211021 22:37:05.894"/>
+</kw>
+<kw name="Input Email" library="LoginPage">
+<arg>${email}</arg>
+<doc>Input Email</doc>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${fieldEmail_loginPage}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211021 22:37:05.896" level="INFO">Typing text 'testsdet594.xntmata@1secmail.com' into text field 'id=email'.</msg>
+<status status="PASS" starttime="20211021 22:37:05.896" endtime="20211021 22:37:05.975"/>
+</kw>
+<status status="PASS" starttime="20211021 22:37:05.895" endtime="20211021 22:37:05.975"/>
+</kw>
+<kw name="Input Password" library="LoginPage">
+<arg>${password}</arg>
+<doc>Input password</doc>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${fieldPassword_loginPage}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211021 22:37:05.976" level="INFO">Typing text '7nQikwdZ' into text field 'id=password'.</msg>
+<status status="PASS" starttime="20211021 22:37:05.975" endtime="20211021 22:37:06.035"/>
+</kw>
+<status status="PASS" starttime="20211021 22:37:05.975" endtime="20211021 22:37:06.035"/>
+</kw>
+<kw name="Click Button Sign In" library="LoginPage">
+<doc>Click button signin</doc>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${buttonLogin_loginPage}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211021 22:37:06.036" level="INFO">Clicking button 'id=masuk'.</msg>
+<status status="PASS" starttime="20211021 22:37:06.035" endtime="20211021 22:37:06.328"/>
+</kw>
+<status status="PASS" starttime="20211021 22:37:06.035" endtime="20211021 22:37:06.328"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20211021 22:37:06.329" level="INFO">${index} = 2</msg>
+<status status="PASS" starttime="20211021 22:37:06.328" endtime="20211021 22:37:06.329"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${accountBar_registerPage}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:37:06.329" endtime="20211021 22:37:07.515"/>
+</kw>
+<kw name="Go Back" library="SeleniumLibrary">
+<doc>Simulates the user clicking the back button on their browser.</doc>
+<status status="PASS" starttime="20211021 22:37:07.515" endtime="20211021 22:37:07.665"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${fieldEmail_loginPage}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:37:07.665" endtime="20211021 22:37:07.681"/>
+</kw>
+<status status="PASS" starttime="20211021 22:37:05.649" endtime="20211021 22:37:07.681"/>
+</iter>
+<iter>
+<var name="${i}">2</var>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>${index} == ${times}</arg>
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20211021 22:37:07.682" endtime="20211021 22:37:07.682"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${fieldEmail_loginPage}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:37:07.682" endtime="20211021 22:37:07.694"/>
+</kw>
+<kw name="Input Email" library="LoginPage">
+<arg>${email}</arg>
+<doc>Input Email</doc>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${fieldEmail_loginPage}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211021 22:37:07.694" level="INFO">Typing text 'testsdet594.xntmata@1secmail.com' into text field 'id=email'.</msg>
+<status status="PASS" starttime="20211021 22:37:07.694" endtime="20211021 22:37:07.768"/>
+</kw>
+<status status="PASS" starttime="20211021 22:37:07.694" endtime="20211021 22:37:07.768"/>
+</kw>
+<kw name="Input Password" library="LoginPage">
+<arg>${password}</arg>
+<doc>Input password</doc>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${fieldPassword_loginPage}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211021 22:37:07.768" level="INFO">Typing text '7nQikwdZ' into text field 'id=password'.</msg>
+<status status="PASS" starttime="20211021 22:37:07.768" endtime="20211021 22:37:07.823"/>
+</kw>
+<status status="PASS" starttime="20211021 22:37:07.768" endtime="20211021 22:37:07.823"/>
+</kw>
+<kw name="Click Button Sign In" library="LoginPage">
+<doc>Click button signin</doc>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${buttonLogin_loginPage}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211021 22:37:07.823" level="INFO">Clicking button 'id=masuk'.</msg>
+<status status="PASS" starttime="20211021 22:37:07.823" endtime="20211021 22:37:08.104"/>
+</kw>
+<status status="PASS" starttime="20211021 22:37:07.823" endtime="20211021 22:37:08.104"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20211021 22:37:08.104" level="INFO">${index} = 3</msg>
+<status status="PASS" starttime="20211021 22:37:08.104" endtime="20211021 22:37:08.104"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${accountBar_registerPage}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:37:08.105" endtime="20211021 22:37:09.343"/>
+</kw>
+<kw name="Go Back" library="SeleniumLibrary">
+<doc>Simulates the user clicking the back button on their browser.</doc>
+<status status="PASS" starttime="20211021 22:37:09.343" endtime="20211021 22:37:09.489"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${fieldEmail_loginPage}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:37:09.489" endtime="20211021 22:37:09.501"/>
+</kw>
+<status status="PASS" starttime="20211021 22:37:07.681" endtime="20211021 22:37:09.501"/>
+</iter>
+<status status="PASS" starttime="20211021 22:37:05.649" endtime="20211021 22:37:09.501"/>
+</for>
+<status status="PASS" starttime="20211021 22:37:05.648" endtime="20211021 22:37:09.501"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${URL_DEVICE_SETTINGS}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211021 22:37:09.502" level="INFO">Opening url 'https://account.kompas.cloud/manage-account/activity/device'</msg>
+<status status="PASS" starttime="20211021 22:37:09.501" endtime="20211021 22:37:09.836"/>
+</kw>
+<kw name="Open New Tab With Same URL">
+<doc>Open New Tab With Same URL</doc>
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<arg>window.open('${URL_DEVICE_SETTINGS}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20211021 22:37:09.837" level="INFO">Executing JavaScript:
+window.open('https://account.kompas.cloud/manage-account/activity/device');
+Without any arguments.</msg>
+<status status="PASS" starttime="20211021 22:37:09.837" endtime="20211021 22:37:09.881"/>
+</kw>
+<kw name="Get Window Handles" library="SeleniumLibrary">
+<var>${handles}</var>
+<doc>Returns all child window handles of the selected browser as a list.</doc>
+<msg timestamp="20211021 22:37:09.886" level="INFO">${handles} = ['CDwindow-B8093F6CD16F9F29BE98AC437FDDACDA', 'CDwindow-D0DF57F1D0D18AC5A73809D3B54DFACC']</msg>
+<status status="PASS" starttime="20211021 22:37:09.881" endtime="20211021 22:37:09.886"/>
+</kw>
+<kw name="Switch Window" library="SeleniumLibrary">
+<arg>${handles}[1]</arg>
+<doc>Switches to browser window matching ``locator``.</doc>
+<status status="PASS" starttime="20211021 22:37:09.886" endtime="20211021 22:37:10.018"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${listPerangkat_deviceSettingsPage}</arg>
+<arg>20</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20211021 22:37:30.428" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-41.png"&gt;&lt;img src="selenium-screenshot-41.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20211021 22:37:30.204" endtime="20211021 22:37:30.428"/>
+</kw>
+<msg timestamp="20211021 22:37:30.428" level="FAIL">Element 'xpath=//div[contains(@class,'flex-row p-4')]' not visible after 20 seconds.</msg>
+<status status="FAIL" starttime="20211021 22:37:10.018" endtime="20211021 22:37:30.428"/>
+</kw>
+<kw name="Click Delete Another Device" library="DeviceSettingsPage">
+<doc>Click Delete Another Device</doc>
+<status status="NOT RUN" starttime="20211021 22:37:30.429" endtime="20211021 22:37:30.429"/>
+</kw>
+<kw name="Click Agree To Revoke Device" library="DeviceSettingsPage">
+<doc>Click Agree To Revoke Device</doc>
+<status status="NOT RUN" starttime="20211021 22:37:30.429" endtime="20211021 22:37:30.429"/>
+</kw>
+<kw name="Switch Window" library="SeleniumLibrary">
+<arg>${handles}[0]</arg>
+<doc>Switches to browser window matching ``locator``.</doc>
+<status status="NOT RUN" starttime="20211021 22:37:30.429" endtime="20211021 22:37:30.429"/>
+</kw>
+<kw name="Switch To Main Tab Not Current">
+<doc>Switch To Main Tab Not Current</doc>
+<status status="NOT RUN" starttime="20211021 22:37:30.429" endtime="20211021 22:37:30.429"/>
+</kw>
+<status status="FAIL" starttime="20211021 22:37:09.836" endtime="20211021 22:37:30.429"/>
+</kw>
+<kw name="Verify Error Revoke Device That Already Revoked">
+<doc>Verify Error Revoke Device That Already Revoked</doc>
+<status status="NOT RUN" starttime="20211021 22:37:30.430" endtime="20211021 22:37:30.430"/>
+</kw>
+<kw name="Stop Browser" library="CommonFunction" type="TEARDOWN">
+<doc>close browser by url</doc>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20211021 22:37:30.431" endtime="20211021 22:37:32.587"/>
+</kw>
+<status status="PASS" starttime="20211021 22:37:30.430" endtime="20211021 22:37:32.587"/>
+</kw>
+<doc>User Get Error Revoke Device That Already Revoked</doc>
+<tag>Squad-E</tag>
+<status status="FAIL" starttime="20211021 22:36:48.024" endtime="20211021 22:37:32.589">Element 'xpath=//div[contains(@class,'flex-row p-4')]' not visible after 20 seconds.</status>
+</test>
+<test id="s1-t8" name="User Succesfully Revoke In Fully Device Page">
+<kw name="Start Browser" library="CommonFunction" type="SETUP">
+<arg>https://account.kompas.cloud/login</arg>
+<doc>open browser by url</doc>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20211021 22:37:32.594" level="INFO">Opening browser 'chrome' to base url 'https://account.kompas.cloud/login'.</msg>
+<status status="PASS" starttime="20211021 22:37:32.593" endtime="20211021 22:37:35.521"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20211021 22:37:35.522" endtime="20211021 22:37:35.643"/>
+</kw>
+<status status="PASS" starttime="20211021 22:37:32.593" endtime="20211021 22:37:35.643"/>
+</kw>
+<kw name="Register New User">
+<var>${registered_email}</var>
+<var>${registered_password}</var>
+<doc>Register New User</doc>
+<kw name="Generate Random Data For Register" library="Register">
+<var>${random_firstname}</var>
+<var>${random_lastname}</var>
+<var>${random_email}</var>
+<var>${random_pass}</var>
+<doc>Generate Data For Register</doc>
+<if>
+<branch type="IF" condition="${valid_char}==${True}">
+<kw name="First Name" library="FakerLibrary">
+<var>${random_firstname}</var>
+<msg timestamp="20211021 22:37:35.646" level="INFO">${random_firstname} = John</msg>
+<status status="PASS" starttime="20211021 22:37:35.646" endtime="20211021 22:37:35.646"/>
+</kw>
+<kw name="Last Name" library="FakerLibrary">
+<var>${random_lastname}</var>
+<msg timestamp="20211021 22:37:35.647" level="INFO">${random_lastname} = Hall</msg>
+<status status="PASS" starttime="20211021 22:37:35.646" endtime="20211021 22:37:35.647"/>
+</kw>
+<status status="PASS" starttime="20211021 22:37:35.646" endtime="20211021 22:37:35.647"/>
+</branch>
+<branch type="ELSE">
+<kw name="Generate Random String" library="String">
+<var>${random_firstname}</var>
+<arg>12</arg>
+<arg>chars=@#$^&amp;*[NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="NOT RUN" starttime="20211021 22:37:35.647" endtime="20211021 22:37:35.647"/>
+</kw>
+<kw name="Generate Random String" library="String">
+<var>${random_lastname}</var>
+<arg>12</arg>
+<arg>chars=@#$^&amp;*[NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="NOT RUN" starttime="20211021 22:37:35.647" endtime="20211021 22:37:35.647"/>
+</kw>
+<status status="NOT RUN" starttime="20211021 22:37:35.647" endtime="20211021 22:37:35.647"/>
+</branch>
+<status status="PASS" starttime="20211021 22:37:35.645" endtime="20211021 22:37:35.647"/>
+</if>
+<kw name="Email" library="FakerLibrary">
+<var>${email}</var>
+<arg>domain=1secmail.com</arg>
+<msg timestamp="20211021 22:37:35.648" level="INFO">${email} = christian74@1secmail.com</msg>
+<status status="PASS" starttime="20211021 22:37:35.648" endtime="20211021 22:37:35.648"/>
+</kw>
+<kw name="Generate Random String" library="String">
+<var>${string}</var>
+<arg>2</arg>
+<arg>chars=[LETTERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<msg timestamp="20211021 22:37:35.649" level="INFO">${string} = sw</msg>
+<status status="PASS" starttime="20211021 22:37:35.648" endtime="20211021 22:37:35.649"/>
+</kw>
+<kw name="Generate Random String" library="String">
+<var>${random_digit}</var>
+<arg>1</arg>
+<arg>123</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<msg timestamp="20211021 22:37:35.649" level="INFO">${random_digit} = 1</msg>
+<status status="PASS" starttime="20211021 22:37:35.649" endtime="20211021 22:37:35.649"/>
+</kw>
+<kw name="Generate Random String" library="String">
+<var>${numbers}</var>
+<arg>${random_digit}</arg>
+<arg>[NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<msg timestamp="20211021 22:37:35.650" level="INFO">${numbers} = 4</msg>
+<status status="PASS" starttime="20211021 22:37:35.649" endtime="20211021 22:37:35.650"/>
+</kw>
+<kw name="Convert To Lower Case" library="String">
+<var>${string_lower}</var>
+<arg>${string}</arg>
+<doc>Converts string to lower case.</doc>
+<msg timestamp="20211021 22:37:35.650" level="INFO">${string_lower} = sw</msg>
+<status status="PASS" starttime="20211021 22:37:35.650" endtime="20211021 22:37:35.650"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${random_email}</var>
+<arg>${HOST_NAME}${numbers}.${string_lower}${email}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20211021 22:37:35.651" level="INFO">${random_email} = testsdet4.swchristian74@1secmail.com</msg>
+<status status="PASS" starttime="20211021 22:37:35.650" endtime="20211021 22:37:35.651"/>
+</kw>
+<kw name="Password" library="FakerLibrary">
+<var>${random_pass}</var>
+<arg>length=${pass_length}</arg>
+<arg>upper_case=${true}</arg>
+<arg>lower_case=${true}</arg>
+<arg>special_chars=${pass_spc_chars}</arg>
+<doc>Generate a random password of the specified ``length``.</doc>
+<msg timestamp="20211021 22:37:35.652" level="INFO">${random_pass} = PG0yl2Ii</msg>
+<status status="PASS" starttime="20211021 22:37:35.651" endtime="20211021 22:37:35.652"/>
+</kw>
+<msg timestamp="20211021 22:37:35.652" level="INFO">${random_firstname} = John</msg>
+<msg timestamp="20211021 22:37:35.652" level="INFO">${random_lastname} = Hall</msg>
+<msg timestamp="20211021 22:37:35.652" level="INFO">${random_email} = testsdet4.swchristian74@1secmail.com</msg>
+<msg timestamp="20211021 22:37:35.652" level="INFO">${random_pass} = PG0yl2Ii</msg>
+<status status="PASS" starttime="20211021 22:37:35.645" endtime="20211021 22:37:35.652"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${URL_REGISTER}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211021 22:37:35.652" level="INFO">Opening url 'https://account.kompas.cloud/register'</msg>
+<status status="PASS" starttime="20211021 22:37:35.652" endtime="20211021 22:37:36.910"/>
+</kw>
+<kw name="Input Register Form">
+<arg>${random_firstname}</arg>
+<arg>${random_lastname}</arg>
+<arg>${random_email}</arg>
+<arg>${random_pass}</arg>
+<doc>Input register form</doc>
+<kw name="Input First Name" library="RegisterPage">
+<arg>${random_firstname}</arg>
+<doc>Input First Name</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${fieldFirstName_registerPage}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:37:36.911" endtime="20211021 22:37:36.930"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${fieldFirstName_registerPage}</arg>
+<arg>${first_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211021 22:37:36.931" level="INFO">Typing text 'John' into text field 'id=firstName'.</msg>
+<status status="PASS" starttime="20211021 22:37:36.930" endtime="20211021 22:37:36.982"/>
+</kw>
+<status status="PASS" starttime="20211021 22:37:36.910" endtime="20211021 22:37:36.982"/>
+</kw>
+<kw name="Input Last Name" library="RegisterPage">
+<arg>${random_lastname}</arg>
+<doc>Input Last Name</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${fieldLastName_registerPage}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:37:36.982" endtime="20211021 22:37:37.001"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${fieldLastName_registerPage}</arg>
+<arg>${last_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211021 22:37:37.002" level="INFO">Typing text 'Hall' into text field 'id=lastName'.</msg>
+<status status="PASS" starttime="20211021 22:37:37.002" endtime="20211021 22:37:37.055"/>
+</kw>
+<status status="PASS" starttime="20211021 22:37:36.982" endtime="20211021 22:37:37.055"/>
+</kw>
+<kw name="Input Email" library="RegisterPage">
+<arg>${random_email}</arg>
+<doc>Input Email</doc>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${fieldEmail_registerPage}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211021 22:37:37.055" level="INFO">Typing text 'testsdet4.swchristian74@1secmail.com' into text field 'id=email'.</msg>
+<status status="PASS" starttime="20211021 22:37:37.055" endtime="20211021 22:37:37.123"/>
+</kw>
+<status status="PASS" starttime="20211021 22:37:37.055" endtime="20211021 22:37:37.123"/>
+</kw>
+<kw name="Input Password" library="RegisterPage">
+<arg>${random_pass}</arg>
+<doc>Input Password</doc>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${fieldPassword_registerPage}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211021 22:37:37.125" level="INFO">Typing text 'PG0yl2Ii' into text field 'id=password'.</msg>
+<status status="PASS" starttime="20211021 22:37:37.124" endtime="20211021 22:37:37.185"/>
+</kw>
+<status status="PASS" starttime="20211021 22:37:37.123" endtime="20211021 22:37:37.185"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${FIRST_NAME}</arg>
+<arg>${random_firstname}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20211021 22:37:37.186" level="INFO">${FIRST_NAME} = John</msg>
+<status status="PASS" starttime="20211021 22:37:37.185" endtime="20211021 22:37:37.186"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${REGISTERED_EMAIL}</arg>
+<arg>${random_email}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20211021 22:37:37.186" level="INFO">${REGISTERED_EMAIL} = testsdet4.swchristian74@1secmail.com</msg>
+<status status="PASS" starttime="20211021 22:37:37.186" endtime="20211021 22:37:37.186"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${LAST_NAME}</arg>
+<arg>${random_lastname}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20211021 22:37:37.187" level="INFO">${LAST_NAME} = Hall</msg>
+<status status="PASS" starttime="20211021 22:37:37.186" endtime="20211021 22:37:37.187"/>
+</kw>
+<status status="PASS" starttime="20211021 22:37:36.910" endtime="20211021 22:37:37.187"/>
+</kw>
+<kw name="Checklist Recaptcha In Register" library="RegisterPage">
+<doc>Checklist Recaptcha</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${selectFrame_registerPage}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:37:37.187" endtime="20211021 22:37:37.204"/>
+</kw>
+<kw name="Select Frame" library="SeleniumLibrary">
+<arg>${selectFrame_registerPage}</arg>
+<doc>Sets frame identified by ``locator`` as the current frame.</doc>
+<msg timestamp="20211021 22:37:37.205" level="INFO">Selecting frame 'tag=iframe'.</msg>
+<status status="PASS" starttime="20211021 22:37:37.205" endtime="20211021 22:37:37.222"/>
+</kw>
+<kw name="Wait And Click Element" library="CommonFunction">
+<arg>${checkboxRecaptcha_registerPage}</arg>
+<doc>Wait element and click</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${element}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:37:37.223" endtime="20211021 22:37:37.240"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${element}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211021 22:37:37.240" level="INFO">Clicking element 'xpath=//*[@id="recaptcha-anchor"]/div[1]'.</msg>
+<status status="PASS" starttime="20211021 22:37:37.240" endtime="20211021 22:37:37.319"/>
+</kw>
+<status status="PASS" starttime="20211021 22:37:37.223" endtime="20211021 22:37:37.320"/>
+</kw>
+<kw name="Unselect Frame" library="SeleniumLibrary">
+<doc>Sets the main frame as the current frame.</doc>
+<status status="PASS" starttime="20211021 22:37:37.320" endtime="20211021 22:37:37.325"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20211021 22:37:40.339" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20211021 22:37:37.326" endtime="20211021 22:37:40.339"/>
+</kw>
+<status status="PASS" starttime="20211021 22:37:37.187" endtime="20211021 22:37:40.340"/>
+</kw>
+<kw name="Click Button Daftar" library="RegisterPage">
+<doc>Click Button Daftar</doc>
+<kw name="Wait And Click Element" library="CommonFunction">
+<arg>${btnDaftar_registerPage}</arg>
+<doc>Wait element and click</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${element}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:37:40.341" endtime="20211021 22:37:40.362"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${element}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211021 22:37:40.362" level="INFO">Clicking element 'xpath=//*[@id="daftar"]'.</msg>
+<status status="PASS" starttime="20211021 22:37:40.362" endtime="20211021 22:37:40.620"/>
+</kw>
+<status status="PASS" starttime="20211021 22:37:40.340" endtime="20211021 22:37:40.620"/>
+</kw>
+<status status="PASS" starttime="20211021 22:37:40.340" endtime="20211021 22:37:40.620"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${accountBar_registerPage}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 22:37:40.620" endtime="20211021 22:37:48.721"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${URL_DEVICE_SETTINGS}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211021 22:37:48.722" level="INFO">Opening url 'https://account.kompas.cloud/manage-account/activity/device'</msg>
+<status status="PASS" starttime="20211021 22:37:48.721" endtime="20211021 22:37:49.210"/>
+</kw>
+<msg timestamp="20211021 22:37:49.210" level="INFO">${registered_email} = testsdet4.swchristian74@1secmail.com</msg>
+<msg timestamp="20211021 22:37:49.210" level="INFO">${registered_password} = PG0yl2Ii</msg>
+<status status="PASS" starttime="20211021 22:37:35.644" endtime="20211021 22:37:49.210"/>
+</kw>
+<kw name="Go Back Than 1 Times">
+<arg>4</arg>
+<doc>Go Back Than 1 Times</doc>
+<kw name="Set Variable" library="BuiltIn">
+<var>${index}</var>
+<arg>1</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20211021 22:37:49.211" level="INFO">${index} = 1</msg>
+<status status="PASS" starttime="20211021 22:37:49.211" endtime="20211021 22:37:49.211"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${i}</var>
+<value>1</value>
+<value>${times}</value>
+<iter>
+<var name="${i}">1</var>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>${index} == ${times}</arg>
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20211021 22:37:49.211" endtime="20211021 22:37:49.211"/>
+</kw>
+<kw name="Go Back" library="SeleniumLibrary">
+<doc>Simulates the user clicking the back button on their browser.</doc>
+<status status="PASS" starttime="20211021 22:37:49.211" endtime="20211021 22:37:49.265"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20211021 22:37:49.265" level="INFO">${index} = 2</msg>
+<status status="PASS" starttime="20211021 22:37:49.265" endtime="20211021 22:37:49.265"/>
+</kw>
+<status status="PASS" starttime="20211021 22:37:49.211" endtime="20211021 22:37:49.265"/>
+</iter>
+<iter>
+<var name="${i}">2</var>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>${index} == ${times}</arg>
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20211021 22:37:49.265" endtime="20211021 22:37:49.266"/>
+</kw>
+<kw name="Go Back" library="SeleniumLibrary">
+<doc>Simulates the user clicking the back button on their browser.</doc>
+<status status="PASS" starttime="20211021 22:37:49.266" endtime="20211021 22:37:50.434"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20211021 22:37:50.434" level="INFO">${index} = 3</msg>
+<status status="PASS" starttime="20211021 22:37:50.434" endtime="20211021 22:37:50.434"/>
+</kw>
+<status status="PASS" starttime="20211021 22:37:49.265" endtime="20211021 22:37:50.434"/>
+</iter>
+<iter>
+<var name="${i}">3</var>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>${index} == ${times}</arg>
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20211021 22:37:50.435" endtime="20211021 22:37:50.435"/>
+</kw>
+<kw name="Go Back" library="SeleniumLibrary">
+<doc>Simulates the user clicking the back button on their browser.</doc>
+<status status="PASS" starttime="20211021 22:37:50.435" endtime="20211021 22:37:50.662"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${index}</var>
+<arg>${index}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20211021 22:37:50.662" level="INFO">${index} = 4</msg>
+<status status="PASS" starttime="20211021 22:37:50.662" endtime="20211021 22:37:50.662"/>
+</kw>
+<status status="PASS" starttime="20211021 22:37:50.435" endtime="20211021 22:37:50.662"/>
+</iter>
+<status status="PASS" starttime="20211021 22:37:49.211" endtime="20211021 22:37:50.662"/>
+</for>
+<kw name="Wait And Click Element" library="CommonFunction">
+<arg>${hyperLinkSilakanMasuk_registerPage}</arg>
+<doc>Wait element and click</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${element}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20211021 22:38:21.036" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-42.png"&gt;&lt;img src="selenium-screenshot-42.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20211021 22:38:20.750" endtime="20211021 22:38:21.036"/>
+</kw>
+<msg timestamp="20211021 22:38:21.036" level="FAIL">Element 'xpath=//a[contains(@href,'login')]' not visible after 30 seconds.</msg>
+<status status="FAIL" starttime="20211021 22:37:50.662" endtime="20211021 22:38:21.036"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${element}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20211021 22:38:21.036" endtime="20211021 22:38:21.037"/>
+</kw>
+<status status="FAIL" starttime="20211021 22:37:50.662" endtime="20211021 22:38:21.037"/>
+</kw>
+<status status="FAIL" starttime="20211021 22:37:49.210" endtime="20211021 22:38:21.038"/>
+</kw>
+<kw name="Login More Than 1 Times Success">
+<arg>5</arg>
+<arg>${registered_email}</arg>
+<arg>${registered_password}</arg>
+<doc>Login More Than 1 Times Success (All Looping Login Need Go back To Login Form)</doc>
+<status status="NOT RUN" starttime="20211021 22:38:21.039" endtime="20211021 22:38:21.039"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${fieldEmail_loginPage}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20211021 22:38:21.039" endtime="20211021 22:38:21.039"/>
+</kw>
+<kw name="Input Email" library="LoginPage">
+<arg>${registered_email}</arg>
+<doc>Input Email</doc>
+<status status="NOT RUN" starttime="20211021 22:38:21.040" endtime="20211021 22:38:21.040"/>
+</kw>
+<kw name="Input Password" library="LoginPage">
+<arg>${registered_password}</arg>
+<doc>Input password</doc>
+<status status="NOT RUN" starttime="20211021 22:38:21.040" endtime="20211021 22:38:21.040"/>
+</kw>
+<kw name="Click Button Sign In" library="LoginPage">
+<doc>Click button signin</doc>
+<status status="NOT RUN" starttime="20211021 22:38:21.040" endtime="20211021 22:38:21.040"/>
+</kw>
+<kw name="Click Delete Device In Full Page" library="DeviceSettingsPage">
+<doc>Click Delete Device In Full Page</doc>
+<status status="NOT RUN" starttime="20211021 22:38:21.040" endtime="20211021 22:38:21.040"/>
+</kw>
+<kw name="Click Agree To Revoke Device" library="DeviceSettingsPage">
+<doc>Click Agree To Revoke Device</doc>
+<status status="NOT RUN" starttime="20211021 22:38:21.040" endtime="20211021 22:38:21.040"/>
+</kw>
+<kw name="Verify Succesfull Revoke In Fully Device Page">
+<doc>Verify Succesfull Revoke In Fully Device Page</doc>
+<status status="NOT RUN" starttime="20211021 22:38:21.040" endtime="20211021 22:38:21.040"/>
+</kw>
+<kw name="Stop Browser" library="CommonFunction" type="TEARDOWN">
+<doc>close browser by url</doc>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20211021 22:38:21.041" endtime="20211021 22:38:23.188"/>
+</kw>
+<status status="PASS" starttime="20211021 22:38:21.040" endtime="20211021 22:38:23.189"/>
+</kw>
+<doc>User Succesfully Revoke In Fully Device Page</doc>
+<tag>Squad-E</tag>
+<tag>Test6</tag>
+<status status="FAIL" starttime="20211021 22:37:32.591" endtime="20211021 22:38:23.189">Element 'xpath=//a[contains(@href,'login')]' not visible after 30 seconds.</status>
+</test>
+<doc>Testcases for DeviceSettings</doc>
+<status status="FAIL" starttime="20211021 22:33:26.744" endtime="20211021 22:38:23.192"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="6" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="2" fail="6" skip="0">Squad-E</stat>
+<stat pass="0" fail="1" skip="0">Test6</stat>
+</tag>
+<suite>
+<stat pass="2" fail="6" skip="0" id="s1" name="DeviceSettings">DeviceSettings</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

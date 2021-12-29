@@ -1,0 +1,9 @@
+fieldHostname_verificationPage: id=login
+fieldDomain_verificationPage: id=domain
+btnCheck_verificationPage: xpath=//*[@id="emailarea"]/form/button
+linkMailbox_verificationPage: xpath=//a[contains(text(),'Verifikasi Akun Kompas.id')]
+textMessageDetails_verificationPage: xpath=//div[contains(text(),'Message details')]
+mailBox_verificationPage: xpath=//*[@id="content"]
+selectFrame_verificationPage: xpath=//*[@id="messageiframe"]
+linkVerifikasiAkun_verificationPage: xpath=//*[@id="templateBody"]/div/table[1]/tbody/tr/td/div/div[2]/a
+btnMasuk_verificationPage: xpath=//*[@id="__layout"]/div/div/div/div/div/div/button

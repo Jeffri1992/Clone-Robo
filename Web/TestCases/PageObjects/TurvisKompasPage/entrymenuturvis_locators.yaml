@@ -1,0 +1,4 @@
+menuNavigasi_turvisPage:  xpath=//*[@id="__layout"]/div/div[1]/header/div/div[1]/div/button[1]/span
+menuDropdownMultimedia_turvisPage:    xpath=//*[@id="__layout"]/div/div[1]/nav/div/div[14]/div[1]/span
+linkTuturVisual_turvisPage:   xpath=//*[@id="__layout"]/div/div[1]/nav/div/div[14]/div[2]/div[1]/a
+text_TurvisPage: xpath=//*[@id="__layout"]/div/div[2]/div/div[1]/div/div/div[2]/h2
